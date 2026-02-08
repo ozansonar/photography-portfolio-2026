@@ -1,166 +1,316 @@
-// Modern Photography Portfolio - 2026
-// JavaScript Interactions
+// ===========================
+// PREMIUM PHOTOGRAPHY PORTFOLIO 2026
+// Advanced JavaScript Interactions
+// ===========================
 
-document.addEventListener('DOMContentLoaded', function() {
-    initPreloader();
-    initNavbar();
-    initBackToTop();
-    initGalleryFilter();
-    initImageModal();
-    initThemeToggle();
-    initStats();
-    initContactForm();
-});
+(function() {
+    'use strict';
 
-function initPreloader() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                preloader.classList.add('fade-out');
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                }, 500);
-            }, 500);
+    // ===== INITIALIZATION =====
+    document.addEventListener('DOMContentLoaded', () => {
+        initAOS();
+        initLoader();
+        initCursor();
+        initNavbar();
+        initThemeToggle();
+        initSmoothScroll();
+        initBackToTop();
+        initHeroSlider();
+        initMobileMenu();
+        console.log('%c📸 Premium Photography Portfolio', 'color: #FF6B6B; font-size: 20px; font-weight: bold;');
+        console.log('%cDesigned & Developed by Ozan SONAR', 'color: #4ECDC4; font-size: 14px;');
+    });
+
+    // ===== AOS ANIMATION =====
+    function initAOS() {
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 100,
+                delay: 100
+            });
+        }
+    }
+
+    // ===== LOADING SCREEN =====
+    function initLoader() {
+        const loader = document.querySelector('.loading-screen');
+        if (!loader) return;
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                document.body.style.overflow = 'visible';
+            }, 1000);
         });
     }
-}
 
-function initNavbar() {
-    const navbar = document.getElementById('mainNav');
-    
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
+    // ===== CUSTOM CURSOR =====
+    function initCursor() {
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        if (!cursor || !follower) return;
+        if (window.innerWidth < 768) {
+            cursor.style.display = 'none';
+            follower.style.display = 'none';
+            return;
+        }
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            // Cursor position
+            cursorX += (mouseX - cursorX) * 0.3;
+            cursorY += (mouseY - cursorY) * 0.3;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+
+            // Follower position
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Hover effects
+        const hoverElements = document.querySelectorAll('a, button, .portfolio-item');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                follower.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                follower.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+    }
+
+    // ===== NAVBAR =====
+    function initNavbar() {
+        const navbar = document.querySelector('.navbar-custom');
+        if (!navbar) return;
+
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
+
+            lastScroll = currentScroll;
+        });
+
+        // Active link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link-custom');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
         });
     }
-}
 
-function initBackToTop() {
-    const backToTopBtn = document.getElementById('backToTop');
-    
-    if (backToTopBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
+    // ===== THEME TOGGLE =====
+    function initThemeToggle() {
+        const toggle = document.getElementById('themeToggle');
+        if (!toggle) return;
+
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeIcon(theme);
+
+        toggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            const icon = toggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.className = 'bi bi-sun-fill';
             } else {
-                backToTopBtn.classList.remove('show');
+                icon.className = 'bi bi-moon-stars-fill';
+            }
+        }
+    }
+
+    // ===== SMOOTH SCROLL =====
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || !href) return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    // ===== BACK TO TOP =====
+    function initBackToTop() {
+        const btn = document.getElementById('backToTop');
+        if (!btn) return;
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
             }
         });
-        
-        backToTopBtn.addEventListener('click', function(e) {
-            e.preventDefault();
+
+        btn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
     }
-}
 
-function initGalleryFilter() {
-    const filterButtons = document.querySelectorAll('.filter-buttons .btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filter = this.getAttribute('data-filter');
-            
-            galleryItems.forEach(item => {
-                if (filter === 'all') {
-                    item.style.display = 'block';
-                } else {
-                    if (item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                }
+    // ===== HERO SLIDER =====
+    function initHeroSlider() {
+        const slides = document.querySelectorAll('.hero-slide');
+        if (slides.length <= 1) return;
+
+        let currentSlide = 0;
+        const slideInterval = 5000;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, slideInterval);
+    }
+
+    // ===== MOBILE MENU =====
+    function initMobileMenu() {
+        const toggle = document.getElementById('mobileToggle');
+        const menu = document.querySelector('.navbar-menu');
+        if (!toggle || !menu) return;
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        });
+
+        // Close on link click
+        document.querySelectorAll('.nav-link-custom').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
             });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+        });
+    }
+
+    // ===== PARALLAX EFFECT =====
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('[data-parallax]');
+        
+        parallaxElements.forEach(el => {
+            const speed = el.getAttribute('data-parallax') || 0.5;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
         });
     });
-}
 
-function initImageModal() {
-    const imageModal = document.getElementById('imageModal');
-    
-    if (imageModal) {
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        
-        imageModal.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget;
-            const imgSrc = button.getAttribute('data-img');
-            const title = button.getAttribute('data-title');
-            const desc = button.getAttribute('data-desc');
-            
-            modalImage.src = imgSrc;
-            modalImage.alt = title;
-            modalTitle.textContent = title;
-            modalDesc.textContent = desc;
-        });
-    }
-}
-
-function initThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    html.setAttribute('data-bs-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-    
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = html.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-bs-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-    }
-    
-    function updateThemeIcon(theme) {
-        const icon = themeToggle.querySelector('i');
-        if (theme === 'dark') {
-            icon.className = 'bi bi-sun-fill';
-        } else {
-            icon.className = 'bi bi-moon-stars';
-        }
-    }
-}
-
-function initStats() {
-    const stats = document.querySelectorAll('.stat-number');
-    
-    if (stats.length > 0) {
-        const observer = new IntersectionObserver(entries => {
+    // ===== LAZY LOADING =====
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateCounter(entry.target);
-                    observer.unobserve(entry.target);
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
                 }
             });
-        }, { threshold: 0.5 });
-        
-        stats.forEach(stat => observer.observe(stat));
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
     }
-    
+
+    // ===== CONTACT FORM =====
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="bi bi-check-circle"></i> <span>Gönderildi!</span>';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert('✅ Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
+                contactForm.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1500);
+        });
+    }
+
+    // ===== COUNTER ANIMATION =====
     function animateCounter(element) {
-        const target = parseInt(element.getAttribute('data-target'));
+        const target = parseInt(element.getAttribute('data-count'));
         const duration = 2000;
         const increment = target / (duration / 16);
         let current = 0;
-        
+
         const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
@@ -171,61 +321,30 @@ function initStats() {
             }
         }, 16);
     }
-}
 
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (!contactForm.checkValidity()) {
-                e.stopPropagation();
-                contactForm.classList.add('was-validated');
-                return;
-            }
-            
-            const button = contactForm.querySelector('button[type="submit"]');
-            const originalText = button.innerHTML;
-            
-            button.innerHTML = '<i class="bi bi-check-circle"></i> Gönderildi!';
-            button.disabled = true;
-            
-            setTimeout(function() {
-                alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
-                contactForm.reset();
-                contactForm.classList.remove('was-validated');
-                button.innerHTML = originalText;
-                button.disabled = false;
-            }, 1500);
-        });
+    // Observe counters
+    const counters = document.querySelectorAll('[data-count]');
+    if (counters.length > 0 && 'IntersectionObserver' in window) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
     }
-}
 
-window.addEventListener('scroll', function() {
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        const scrollPosition = window.scrollY;
-        heroSection.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-    }
-});
+    // ===== PRELOAD CRITICAL IMAGES =====
+    const preloadImages = [
+        'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&h=1080&fit=crop'
+    ];
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && href !== '') {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
+    preloadImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
     });
-});
 
-console.log('%c📸 Modern Photography Portfolio 2026', 'color: #6366f1; font-size: 20px; font-weight: bold;');
-console.log('%cBootstrap 5.3.3 ile tasarlandı', 'color: #8b5cf6; font-size: 14px;');
+})();
