@@ -2,15 +2,362 @@
 <html lang="tr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Buttons - Bootstrap 5.3.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Buttons - Modern Admin 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ADVANCED BUTTON STYLES */
+        .btn-3d {
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 0 #4338CA, 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .btn-3d:active {
+            box-shadow: 0 2px 0 #4338CA, 0 4px 10px rgba(0,0,0,0.3);
+            transform: translateY(4px);
+        }
+        
+        .btn-neon {
+            background: transparent;
+            border: 2px solid #6366F1;
+            color: #6366F1;
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4),
+                        inset 0 0 10px rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-neon:hover {
+            background: #6366F1;
+            color: white;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.8),
+                        0 0 60px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-glass {
+            background: rgba(99, 102, 241, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #A5B4FC;
+        }
+        .btn-glass:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+            color: #C7D2FE;
+        }
+        
+        .btn-gradient-animated {
+            background: linear-gradient(45deg, #6366F1, #EC4899, #3B82F6, #6366F1);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+            border: none;
+            color: white;
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .btn-pulse {
+            animation: pulse-btn 2s ease-in-out infinite;
+        }
+        @keyframes pulse-btn {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
+        }
+        
+        .btn-loading {
+            position: relative;
+            pointer-events: none;
+        }
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin: -8px 0 0 -8px;
+            border: 2px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .btn-group-icons .btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-social {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .btn-facebook { background: #1877F2; border: none; }
+        .btn-twitter { background: #1DA1F2; border: none; }
+        .btn-instagram { background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF); border: none; }
+        .btn-linkedin { background: #0A66C2; border: none; }
+        .btn-github { background: #333; border: none; }
+        .btn-youtube { background: #FF0000; border: none; }
+        
+        .btn-morphing {
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .btn-morphing:hover {
+            border-radius: 50px;
+            letter-spacing: 0.2em;
+        }
+        
+        .btn-split {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-split::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn-split:hover::before {
+            left: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="sidebar"><div class="brand"><i class="bi bi-bootstrap"></i><span>Bootstrap 5.3.3</span></div><nav class="nav-menu"><a href="index.html" class="nav-item"><i class="bi bi-house"></i> Dashboard</a><div class="nav-section">COMPONENTS</div><a href="accordion.html" class="nav-item"><i class="bi bi-list-nested"></i> Accordion</a><a href="alerts.html" class="nav-item"><i class="bi bi-exclamation-triangle"></i> Alerts</a><a href="badge.html" class="nav-item"><i class="bi bi-tag"></i> Badge</a><a href="breadcrumb.html" class="nav-item"><i class="bi bi-signpost"></i> Breadcrumb</a><a href="buttons.html" class="nav-item active"><i class="bi bi-hand-index"></i> Buttons</a><a href="button-group.html" class="nav-item"><i class="bi bi-collection"></i> Button Group</a><a href="card.html" class="nav-item"><i class="bi bi-card-text"></i> Card</a><a href="carousel.html" class="nav-item"><i class="bi bi-images"></i> Carousel</a><a href="collapse.html" class="nav-item"><i class="bi bi-chevron-expand"></i> Collapse</a><a href="dropdowns.html" class="nav-item"><i class="bi bi-chevron-down"></i> Dropdowns</a><a href="list-group.html" class="nav-item"><i class="bi bi-list-ul"></i> List Group</a><a href="modal.html" class="nav-item"><i class="bi bi-window"></i> Modal</a><a href="navbar.html" class="nav-item"><i class="bi bi-menu-button"></i> Navbar</a><a href="navs-tabs.html" class="nav-item"><i class="bi bi-layout-three-columns"></i> Navs & Tabs</a><a href="offcanvas.html" class="nav-item"><i class="bi bi-layout-sidebar"></i> Offcanvas</a><a href="pagination.html" class="nav-item"><i class="bi bi-three-dots"></i> Pagination</a><a href="placeholders.html" class="nav-item"><i class="bi bi-dash-square"></i> Placeholders</a><a href="popovers.html" class="nav-item"><i class="bi bi-chat-square"></i> Popovers</a><a href="progress.html" class="nav-item"><i class="bi bi-bar-chart"></i> Progress</a><a href="spinners.html" class="nav-item"><i class="bi bi-arrow-repeat"></i> Spinners</a><a href="toasts.html" class="nav-item"><i class="bi bi-bell"></i> Toasts</a><a href="tooltips.html" class="nav-item"><i class="bi bi-info-circle"></i> Tooltips</a></nav></div>
-    <div class="main-content"><div class="header"><h1><i class="bi bi-hand-index"></i> Buttons</h1><p>Custom button styles</p></div><div class="demo-section"><h3>Standard Buttons</h3><button class="btn btn-primary">Primary</button><button class="btn btn-secondary">Secondary</button><button class="btn btn-success">Success</button><button class="btn btn-danger">Danger</button><button class="btn btn-warning">Warning</button><button class="btn btn-info">Info</button><button class="btn btn-light">Light</button><button class="btn btn-dark">Dark</button></div><div class="demo-section"><h3>Outline Buttons</h3><button class="btn btn-outline-primary">Primary</button><button class="btn btn-outline-secondary">Secondary</button><button class="btn btn-outline-success">Success</button><button class="btn btn-outline-danger">Danger</button></div><div class="demo-section"><h3>Button Sizes</h3><button class="btn btn-primary btn-lg">Large</button><button class="btn btn-primary">Default</button><button class="btn btn-primary btn-sm">Small</button></div></div>
+    <div class="sidebar">
+        <div class="brand"><i class="bi bi-bootstrap-fill"></i><span>Modern 2026</span></div>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-item"><i class="bi bi-house-door"></i> Dashboard</a>
+            <div class="nav-section">Components</div>
+            <a href="accordion.html" class="nav-item"><i class="bi bi-list-nested"></i> Accordion</a>
+            <a href="alerts.html" class="nav-item"><i class="bi bi-exclamation-triangle"></i> Alerts</a>
+            <a href="badge.html" class="nav-item"><i class="bi bi-tag"></i> Badge</a>
+            <a href="breadcrumb.html" class="nav-item"><i class="bi bi-signpost"></i> Breadcrumb</a>
+            <a href="buttons.html" class="nav-item active"><i class="bi bi-hand-index"></i> Buttons</a>
+            <a href="button-group.html" class="nav-item"><i class="bi bi-collection"></i> Button Group</a>
+            <a href="card.html" class="nav-item"><i class="bi bi-card-text"></i> Card</a>
+            <a href="carousel.html" class="nav-item"><i class="bi bi-images"></i> Carousel</a>
+            <a href="collapse.html" class="nav-item"><i class="bi bi-chevron-expand"></i> Collapse</a>
+            <a href="dropdowns.html" class="nav-item"><i class="bi bi-chevron-down"></i> Dropdowns</a>
+            <a href="list-group.html" class="nav-item"><i class="bi bi-list-ul"></i> List Group</a>
+            <a href="modal.html" class="nav-item"><i class="bi bi-window"></i> Modal</a>
+            <a href="navbar.html" class="nav-item"><i class="bi bi-menu-button"></i> Navbar</a>
+            <a href="navs-tabs.html" class="nav-item"><i class="bi bi-layout-three-columns"></i> Navs & Tabs</a>
+            <a href="offcanvas.html" class="nav-item"><i class="bi bi-layout-sidebar"></i> Offcanvas</a>
+            <a href="pagination.html" class="nav-item"><i class="bi bi-three-dots"></i> Pagination</a>
+            <a href="placeholders.html" class="nav-item"><i class="bi bi-dash-square"></i> Placeholders</a>
+            <a href="popovers.html" class="nav-item"><i class="bi bi-chat-square"></i> Popovers</a>
+            <a href="progress.html" class="nav-item"><i class="bi bi-bar-chart"></i> Progress</a>
+            <a href="spinners.html" class="nav-item"><i class="bi bi-arrow-repeat"></i> Spinners</a>
+            <a href="toasts.html" class="nav-item"><i class="bi bi-bell"></i> Toasts</a>
+            <a href="tooltips.html" class="nav-item"><i class="bi bi-info-circle"></i> Tooltips</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1><i class="bi bi-hand-index"></i> Advanced Button Gallery</h1>
+            <p>15+ Professional Button Styles - 2026 Design Trends</p>
+        </div>
+
+        <!-- 1. Standard Gradient Buttons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-palette"></i> Gradient Buttons</h3>
+            <button class="btn btn-primary"><i class="bi bi-star me-2"></i>Primary</button>
+            <button class="btn btn-secondary"><i class="bi bi-heart me-2"></i>Secondary</button>
+            <button class="btn btn-success"><i class="bi bi-check-circle me-2"></i>Success</button>
+            <button class="btn btn-danger"><i class="bi bi-x-circle me-2"></i>Danger</button>
+            <button class="btn btn-warning"><i class="bi bi-exclamation-triangle me-2"></i>Warning</button>
+            <button class="btn btn-info"><i class="bi bi-info-circle me-2"></i>Info</button>
+        </div>
+
+        <!-- 2. 3D Buttons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-box"></i> 3D Effect Buttons</h3>
+            <button class="btn btn-primary btn-3d">3D Button</button>
+            <button class="btn btn-success btn-3d">Press Me</button>
+            <button class="btn btn-danger btn-3d">Click Here</button>
+            <button class="btn btn-warning btn-3d">Action</button>
+        </div>
+
+        <!-- 3. Neon Buttons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-lightning"></i> Neon Glow Buttons</h3>
+            <button class="btn btn-neon">Neon Effect</button>
+            <button class="btn btn-neon" style="border-color: #EC4899; color: #EC4899;">Pink Neon</button>
+            <button class="btn btn-neon" style="border-color: #10B981; color: #10B981;">Green Neon</button>
+            <button class="btn btn-neon" style="border-color: #F59E0B; color: #F59E0B;">Amber Neon</button>
+        </div>
+
+        <!-- 4. Glass Morphism -->
+        <div class="demo-section">
+            <h3><i class="bi bi-droplet"></i> Glassmorphism Buttons</h3>
+            <button class="btn btn-glass">Glass Button</button>
+            <button class="btn btn-glass"><i class="bi bi-download me-2"></i>Download</button>
+            <button class="btn btn-glass"><i class="bi bi-upload me-2"></i>Upload</button>
+            <button class="btn btn-glass"><i class="bi bi-share me-2"></i>Share</button>
+        </div>
+
+        <!-- 5. Animated Gradient -->
+        <div class="demo-section">
+            <h3><i class="bi bi-stars"></i> Animated Gradient Buttons</h3>
+            <button class="btn btn-gradient-animated">Animated Gradient</button>
+            <button class="btn btn-gradient-animated"><i class="bi bi-rocket me-2"></i>Launch</button>
+            <button class="btn btn-gradient-animated"><i class="bi bi-fire me-2"></i>Hot Deal</button>
+        </div>
+
+        <!-- 6. Pulse Effect -->
+        <div class="demo-section">
+            <h3><i class="bi bi-activity"></i> Pulse Animation Buttons</h3>
+            <button class="btn btn-primary btn-pulse">Pulse Effect</button>
+            <button class="btn btn-danger btn-pulse"><i class="bi bi-bell me-2"></i>Notification</button>
+            <button class="btn btn-success btn-pulse"><i class="bi bi-check2 me-2"></i>Live</button>
+        </div>
+
+        <!-- 7. Loading State -->
+        <div class="demo-section">
+            <h3><i class="bi bi-hourglass-split"></i> Loading State Buttons</h3>
+            <button class="btn btn-primary">Normal</button>
+            <button class="btn btn-primary btn-loading">Loading...</button>
+            <button class="btn btn-success btn-loading">Processing</button>
+            <button class="btn btn-info btn-loading">Please Wait</button>
+        </div>
+
+        <!-- 8. Button Sizes -->
+        <div class="demo-section">
+            <h3><i class="bi bi-rulers"></i> Size Variations</h3>
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+            <button class="btn btn-primary" style="padding: 1.5rem 3rem; font-size: 1.25rem;">Extra Large</button>
+        </div>
+
+        <!-- 9. Icon Only Buttons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-emoji-smile"></i> Icon Buttons</h3>
+            <div class="btn-group-icons">
+                <button class="btn btn-primary"><i class="bi bi-heart-fill"></i></button>
+                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                <button class="btn btn-success"><i class="bi bi-check2"></i></button>
+                <button class="btn btn-warning"><i class="bi bi-star-fill"></i></button>
+                <button class="btn btn-info"><i class="bi bi-share"></i></button>
+                <button class="btn btn-secondary"><i class="bi bi-gear"></i></button>
+            </div>
+        </div>
+
+        <!-- 10. Social Media Buttons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-share-fill"></i> Social Media Buttons</h3>
+            <button class="btn btn-social btn-facebook"><i class="bi bi-facebook"></i></button>
+            <button class="btn btn-social btn-twitter"><i class="bi bi-twitter"></i></button>
+            <button class="btn btn-social btn-instagram"><i class="bi bi-instagram"></i></button>
+            <button class="btn btn-social btn-linkedin"><i class="bi bi-linkedin"></i></button>
+            <button class="btn btn-social btn-github"><i class="bi bi-github"></i></button>
+            <button class="btn btn-social btn-youtube"><i class="bi bi-youtube"></i></button>
+        </div>
+
+        <!-- 11. Outline Buttons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-border-all"></i> Outline Style Buttons</h3>
+            <button class="btn btn-outline-primary">Primary</button>
+            <button class="btn btn-outline-secondary">Secondary</button>
+            <button class="btn btn-outline-success">Success</button>
+            <button class="btn btn-outline-danger">Danger</button>
+            <button class="btn btn-outline-warning">Warning</button>
+            <button class="btn btn-outline-info">Info</button>
+        </div>
+
+        <!-- 12. Morphing Buttons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-bounding-box"></i> Morphing Hover Effect</h3>
+            <button class="btn btn-primary btn-morphing">Hover Me</button>
+            <button class="btn btn-success btn-morphing">Transform</button>
+            <button class="btn btn-danger btn-morphing">Morph</button>
+        </div>
+
+        <!-- 13. Split Shine Effect -->
+        <div class="demo-section">
+            <h3><i class="bi bi-star"></i> Shine Effect Buttons</h3>
+            <button class="btn btn-primary btn-split">Shine Button</button>
+            <button class="btn btn-success btn-split"><i class="bi bi-download me-2"></i>Download</button>
+            <button class="btn btn-danger btn-split"><i class="bi bi-play-fill me-2"></i>Play Now</button>
+        </div>
+
+        <!-- 14. Button Groups -->
+        <div class="demo-section">
+            <h3><i class="bi bi-collection"></i> Button Groups</h3>
+            <div class="btn-group" role="group">
+                <button class="btn btn-primary">Left</button>
+                <button class="btn btn-primary">Middle</button>
+                <button class="btn btn-primary">Right</button>
+            </div>
+            <div class="btn-group ms-3" role="group">
+                <button class="btn btn-outline-primary"><i class="bi bi-align-start"></i></button>
+                <button class="btn btn-outline-primary"><i class="bi bi-align-center"></i></button>
+                <button class="btn btn-outline-primary"><i class="bi bi-align-end"></i></button>
+            </div>
+        </div>
+
+        <!-- 15. Action Buttons with Icons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-lightning-charge"></i> Action Buttons</h3>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <button class="btn btn-primary w-100">
+                        <i class="bi bi-cloud-download d-block mb-2" style="font-size: 2rem;"></i>
+                        Download
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-success w-100">
+                        <i class="bi bi-check-circle d-block mb-2" style="font-size: 2rem;"></i>
+                        Confirm
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-danger w-100">
+                        <i class="bi bi-trash d-block mb-2" style="font-size: 2rem;"></i>
+                        Delete
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-info w-100">
+                        <i class="bi bi-share d-block mb-2" style="font-size: 2rem;"></i>
+                        Share
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16. Block Buttons -->
+        <div class="demo-section">
+            <h3><i class="bi bi-arrows-expand"></i> Full Width Buttons</h3>
+            <button class="btn btn-primary w-100 mb-2"><i class="bi bi-box-arrow-in-right me-2"></i>Sign In</button>
+            <button class="btn btn-success w-100 mb-2"><i class="bi bi-person-plus me-2"></i>Create Account</button>
+            <button class="btn btn-secondary w-100"><i class="bi bi-google me-2"></i>Continue with Google</button>
+        </div>
+
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
