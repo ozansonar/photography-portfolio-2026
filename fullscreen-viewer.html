@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tam Ekran Görüntüleyici | Premium Fotoğrafçılık</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fullscreen-viewer.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">📸</div>
+            <div class="loading-text">LOADING</div>
+            <div class="loading-bar"><div class="loading-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="ultra-header">
+        <div class="container-fluid px-4">
+            <div class="header-content">
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="url(#gradient1)" stroke-width="2"/>
+                            <circle cx="20" cy="20" r="10" fill="url(#gradient1)"/>
+                            <defs>
+                                <linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40">
+                                    <stop offset="0%" stop-color="#FF6B6B"/>
+                                    <stop offset="100%" stop-color="#4ECDC4"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">PHOTOGRAPHY</span>
+                        <span class="logo-sub">Premium Portfolio</span>
+                    </div>
+                </a>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-item"><span>Ana Sayfa</span><div class="nav-underline"></div></a>
+                    <a href="galeri.html" class="nav-item"><span>Galeri</span><div class="nav-underline"></div></a>
+                    <a href="index.html#services" class="nav-item"><span>Hizmetler</span><div class="nav-underline"></div></a>
+                    <a href="hakkimda.html" class="nav-item"><span>Hakkımda</span><div class="nav-underline"></div></a>
+                    <a href="iletisim.html" class="nav-item"><span>İletişim</span><div class="nav-underline"></div></a>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-btn" id="themeToggle"><i class="bi bi-sun-fill"></i></button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="index.html" class="mobile-nav-item">Ana Sayfa</a>
+            <a href="galeri.html" class="mobile-nav-item">Galeri</a>
+            <a href="index.html#services" class="mobile-nav-item">Hizmetler</a>
+            <a href="hakkimda.html" class="mobile-nav-item">Hakkımda</a>
+            <a href="iletisim.html" class="mobile-nav-item">İletişim</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Tam Ekran Portfolyo</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Immersive fotoğraf deneyimi</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid with Fullscreen Trigger -->
+    <section class="fullscreen-portfolio-section">
+        <div class="container-fluid px-4">
+            <div class="portfolio-masonry" id="portfolioMasonry">
+                <!-- Item 1 -->
+                <div class="fs-portfolio-item" data-aos="zoom-in" data-index="0">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=1000&fit=crop" alt="Portre">
+                    <div class="fs-item-overlay">
+                        <span class="fs-category">Portre</span>
+                        <h3 class="fs-title">Doğal Işık Portre</h3>
+                        <button class="fs-view-btn" onclick="openFullscreenViewer(0)">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                            <span>Tam Ekran</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="fs-portfolio-item" data-aos="zoom-in" data-aos-delay="100" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop" alt="Düğün">
+                    <div class="fs-item-overlay">
+                        <span class="fs-category">Düğün</span>
+                        <h3 class="fs-title">Özel Anlar</h3>
+                        <button class="fs-view-btn" onclick="openFullscreenViewer(1)">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                            <span>Tam Ekran</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 3 - Wide -->
+                <div class="fs-portfolio-item fs-wide" data-aos="zoom-in" data-aos-delay="200" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop" alt="Doğa">
+                    <div class="fs-item-overlay">
+                        <span class="fs-category">Doğa</span>
+                        <h3 class="fs-title">Dağ Manzarası</h3>
+                        <button class="fs-view-btn" onclick="openFullscreenViewer(2)">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                            <span>Tam Ekran</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="fs-portfolio-item" data-aos="zoom-in" data-aos-delay="300" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&h=1000&fit=crop" alt="Sokak">
+                    <div class="fs-item-overlay">
+                        <span class="fs-category">Sokak</span>
+                        <h3 class="fs-title">Şehir Işıkları</h3>
+                        <button class="fs-view-btn" onclick="openFullscreenViewer(3)">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                            <span>Tam Ekran</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="fs-portfolio-item" data-aos="zoom-in" data-aos-delay="400" data-index="4">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&h=1000&fit=crop" alt="Sanat">
+                    <div class="fs-item-overlay">
+                        <span class="fs-category">Sanat</span>
+                        <h3 class="fs-title">Konseptüel</h3>
+                        <button class="fs-view-btn" onclick="openFullscreenViewer(4)">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                            <span>Tam Ekran</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="fs-portfolio-item" data-aos="zoom-in" data-aos-delay="500" data-index="5">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop" alt="Portre">
+                    <div class="fs-item-overlay">
+                        <span class="fs-category">Portre</span>
+                        <h3 class="fs-title">Stüdyo Çekimi</h3>
+                        <button class="fs-view-btn" onclick="openFullscreenViewer(5)">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                            <span>Tam Ekran</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULLSCREEN VIEWER -->
+    <div class="fullscreen-viewer" id="fullscreenViewer">
+        <!-- Top Bar -->
+        <div class="fs-top-bar">
+            <div class="fs-info-left">
+                <span class="fs-counter"><span id="currentIndex">1</span> / <span id="totalImages">6</span></span>
+                <span class="fs-current-title" id="fsTitle">Fotoğraf Başlığı</span>
+            </div>
+            <div class="fs-controls-right">
+                <button class="fs-control-btn" id="infoToggle" title="Bilgi"><i class="bi bi-info-circle"></i></button>
+                <button class="fs-control-btn" id="zoomIn" title="Yakınlaştır"><i class="bi bi-zoom-in"></i></button>
+                <button class="fs-control-btn" id="zoomOut" title="Uzaklaştır"><i class="bi bi-zoom-out"></i></button>
+                <button class="fs-control-btn" id="downloadBtn" title="İndir"><i class="bi bi-download"></i></button>
+                <button class="fs-control-btn" id="fsClose" title="Kapat"><i class="bi bi-x-lg"></i></button>
+            </div>
+        </div>
+
+        <!-- Main Image Container -->
+        <div class="fs-main-container">
+            <button class="fs-nav-btn fs-prev" id="fsPrev"><i class="bi bi-chevron-left"></i></button>
+            <div class="fs-image-wrapper">
+                <img src="" alt="" id="fsMainImage" class="fs-main-image">
+            </div>
+            <button class="fs-nav-btn fs-next" id="fsNext"><i class="bi bi-chevron-right"></i></button>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="fs-info-panel" id="fsInfoPanel">
+            <div class="fs-info-content">
+                <h3 id="fsInfoTitle">Fotoğraf Başlığı</h3>
+                <p class="fs-info-category" id="fsInfoCategory">Kategori</p>
+                <p class="fs-info-story" id="fsInfoStory">Fotoğraf hikayesi buraya gelecek...</p>
+                
+                <div class="fs-exif-data">
+                    <h4>📷 EXIF Data</h4>
+                    <div class="exif-grid">
+                        <div class="exif-item">
+                            <span class="exif-label">Kamera</span>
+                            <span class="exif-value" id="exifCamera">Canon EOS R5</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="exif-label">Lens</span>
+                            <span class="exif-value" id="exifLens">RF 50mm f/1.2</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="exif-label">ISO</span>
+                            <span class="exif-value" id="exifISO">400</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="exif-label">Diyafram</span>
+                            <span class="exif-value" id="exifAperture">f/2.8</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="exif-label">Enstantane</span>
+                            <span class="exif-value" id="exifShutter">1/250s</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="exif-label">Odak Uzaklığı</span>
+                            <span class="exif-value" id="exifFocal">50mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thumbnail Strip -->
+        <div class="fs-thumbnail-strip" id="fsThumbnailStrip">
+            <!-- Thumbnails will be generated by JS -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand"><h3>PHOTOGRAPHY</h3><p>Her kare bir hikaye.</p></div>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col"><h4>Bağlantılar</h4><ul><li><a href="index.html">Ana Sayfa</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="hakkimda.html">Hakkımda</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
+                <div class="footer-col"><h4>Hizmetler</h4><ul><li><a href="#">Portre</a></li><li><a href="#">Düğün</a></li><li><a href="#">Ürün</a></li><li><a href="#">Mimari</a></li></ul></div>
+                <div class="footer-col"><h4>İletişim</h4><ul class="footer-contact"><li><i class="bi bi-geo-alt-fill"></i> İstanbul</li><li><i class="bi bi-envelope-fill"></i> info@photo.com</li><li><i class="bi bi-telephone-fill"></i> +90 555 123 4567</li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Photography</p><p>Made with ❤️ by <strong>Ozan SONAR</strong></p></div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="fullscreen-viewer.js"></script>
+</body>
+</html>

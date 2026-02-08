@@ -1,0 +1,460 @@
+/* ================================================
+   FULLSCREEN PORTFOLIO VIEWER CSS
+   Immersive Photography Experience
+   ================================================ */
+
+/* Portfolio Grid */
+.fullscreen-portfolio-section {
+    padding: 6rem 0;
+}
+
+.portfolio-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.fs-portfolio-item {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 3/4;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fs-portfolio-item.fs-wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+}
+
+.fs-portfolio-item:hover {
+    transform: translateY(-8px);
+}
+
+.fs-portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.fs-portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.fs-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.95));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fs-portfolio-item:hover .fs-item-overlay {
+    opacity: 1;
+}
+
+.fs-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #FFE66D;
+    margin-bottom: 0.5rem;
+}
+
+.fs-title {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.fs-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.fs-view-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+}
+
+/* ============ FULLSCREEN VIEWER ============ */
+.fullscreen-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.98);
+    z-index: 100000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fullscreen-viewer.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Top Bar */
+.fs-top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.fs-info-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.fs-counter {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.fs-current-title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.fs-controls-right {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.fs-control-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fs-control-btn:hover {
+    background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+    border-color: transparent;
+    transform: scale(1.1);
+}
+
+/* Main Container */
+.fs-main-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 120px;
+}
+
+.fs-image-wrapper {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fs-main-image {
+    max-width: 100%;
+    max-height: calc(100vh - 200px);
+    object-fit: contain;
+    border-radius: 1rem;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.fs-main-image.zoomed {
+    transform: scale(1.5);
+    cursor: move;
+}
+
+/* Navigation Buttons */
+.fs-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.fs-nav-btn:hover {
+    background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+    border-color: transparent;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.fs-prev {
+    left: 2rem;
+}
+
+.fs-next {
+    right: 2rem;
+}
+
+/* Info Panel */
+.fs-info-panel {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: rgba(15, 15, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255,255,255,0.1);
+    padding: 6rem 2rem 2rem;
+    overflow-y: auto;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9;
+}
+
+.fs-info-panel.active {
+    right: 0;
+}
+
+.fs-info-content h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.fs-info-category {
+    color: #FFE66D;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.fs-info-story {
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* EXIF Data */
+.fs-exif-data {
+    background: rgba(255,255,255,0.05);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.fs-exif-data h4 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.exif-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.exif-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 0.5rem;
+}
+
+.exif-label {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.exif-value {
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Thumbnail Strip */
+.fs-thumbnail-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent);
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 10;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+.fs-thumbnail-strip::-webkit-scrollbar {
+    height: 6px;
+}
+
+.fs-thumbnail-strip::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.fs-thumbnail-strip::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+.fs-thumbnail {
+    position: relative;
+    flex-shrink: 0;
+    width: 100px;
+    height: 70px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.fs-thumbnail:hover {
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-5px);
+}
+
+.fs-thumbnail.active {
+    border-color: #FF6B6B;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+}
+
+.fs-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .fs-info-panel {
+        width: 350px;
+        right: -350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .fs-info-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .fs-main-container {
+        padding: 100px 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-masonry {
+        grid-template-columns: 1fr;
+    }
+    
+    .fs-portfolio-item.fs-wide {
+        grid-column: span 1;
+    }
+    
+    .fs-main-container {
+        padding: 100px 1rem;
+    }
+    
+    .fs-nav-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .fs-prev {
+        left: 1rem;
+    }
+    
+    .fs-next {
+        right: 1rem;
+    }
+    
+    .fs-top-bar {
+        padding: 1rem;
+    }
+    
+    .fs-info-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .fs-controls-right {
+        gap: 0.25rem;
+    }
+    
+    .fs-control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .fs-thumbnail-strip {
+        padding: 1rem;
+    }
+    
+    .fs-thumbnail {
+        width: 80px;
+        height: 60px;
+    }
+}
