@@ -138,29 +138,64 @@
       opacity: 0.95;
       text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
     }
-    .hero-swiper .swiper-button-next,
-    .hero-swiper .swiper-button-prev {
-      color: white;
-      background: rgba(255, 255, 255, 0.2);
+    
+    /* Beautiful Swiper Navigation Arrows - Global */
+    .swiper-button-next,
+    .swiper-button-prev {
       width: 50px;
       height: 50px;
       border-radius: 50%;
+      background: rgba(101, 67, 33, 0.9) !important;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: rgba(101, 67, 33, 1) !important;
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 1.25rem;
+      color: white;
+      font-weight: 900;
+    }
+    
+    /* Hero Swiper - White arrows for contrast */
+    .hero-swiper .swiper-button-next,
+    .hero-swiper .swiper-button-prev {
+      background: rgba(255, 255, 255, 0.25) !important;
       backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.4);
     }
-    .hero-swiper .swiper-button-next:after,
-    .hero-swiper .swiper-button-prev:after {
-      font-size: 1.5rem;
+    .hero-swiper .swiper-button-next:hover,
+    .hero-swiper .swiper-button-prev:hover {
+      background: rgba(255, 255, 255, 0.35) !important;
     }
-    .hero-swiper .swiper-pagination-bullet {
+    
+    /* Pagination bullets */
+    .swiper-pagination-bullet {
       width: 12px;
       height: 12px;
-      background: white;
-      opacity: 0.5;
+      background: rgba(101, 67, 33, 0.4);
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+    .swiper-pagination-bullet-active {
+      background: var(--toprak);
+      width: 30px;
+      border-radius: 6px;
+    }
+    .hero-swiper .swiper-pagination-bullet {
+      background: rgba(255, 255, 255, 0.5);
     }
     .hero-swiper .swiper-pagination-bullet-active {
-      opacity: 1;
       background: white;
     }
+    
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -181,6 +216,15 @@
       }
       .hero-swiper .slide-content p {
         font-size: 1.125rem;
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+      }
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        font-size: 1rem;
       }
     }
   </style>
@@ -348,7 +392,7 @@
     </div>
   </section>
 
-  <!-- Current Management -->
+  <!-- Current Management - Now Swipeable -->
   <section class="section-corporate">
     <div class="container">
       <div class="section-header">
@@ -356,34 +400,64 @@
         <h2 class="section-title">Mevcut Yönetimimiz</h2>
         <p class="section-subtitle">Köyümüzün hizmetinde olan değerli yöneticilerimiz</p>
       </div>
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <article class="profile-card">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Ahmet Yılmaz - Muhtar" class="profile-img" loading="lazy">
-            <h4 class="profile-name">Ahmet Yılmaz</h4>
-            <p class="profile-position">Muhtar</p>
-            <p class="text-muted small">2019-2029 dönemi</p>
-            <a href="yonetim.html" class="btn btn-outline-primary btn-sm mt-2">Detaylı Bilgi</a>
-          </article>
+      
+      <div class="swiper management-swiper" style="padding: 20px 0 50px;">
+        <div class="swiper-wrapper">
+          
+          <div class="swiper-slide">
+            <article class="profile-card">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Ahmet Yılmaz - Muhtar" class="profile-img" loading="lazy">
+              <h4 class="profile-name">Ahmet Yılmaz</h4>
+              <p class="profile-position">Muhtar</p>
+              <p class="text-muted small">2019-2029 dönemi</p>
+              <a href="yonetim.html" class="btn btn-outline-primary btn-sm mt-2">Detaylı Bilgi</a>
+            </article>
+          </div>
+          
+          <div class="swiper-slide">
+            <article class="profile-card">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Hasan Koç - Dernek Başkanı" class="profile-img" loading="lazy">
+              <h4 class="profile-name">Hasan Koç</h4>
+              <p class="profile-position">Dernek Başkanı</p>
+              <p class="text-muted small">2023-2027 dönemi</p>
+              <a href="dernek-baskani.html" class="btn btn-outline-primary btn-sm mt-2">Detaylı Bilgi</a>
+            </article>
+          </div>
+          
+          <div class="swiper-slide">
+            <article class="profile-card">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Mehmet Kaya - Köy İmamı" class="profile-img" loading="lazy">
+              <h4 class="profile-name">Mehmet Kaya</h4>
+              <p class="profile-position">Köy İmamı</p>
+              <p class="text-muted small">2020'den beri</p>
+              <a href="yonetim.html" class="btn btn-outline-primary btn-sm mt-2">Detaylı Bilgi</a>
+            </article>
+          </div>
+          
+          <div class="swiper-slide">
+            <article class="profile-card">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Ali Demir - Muhtar Yardımcısı" class="profile-img" loading="lazy">
+              <h4 class="profile-name">Ali Demir</h4>
+              <p class="profile-position">Muhtar Yardımcısı</p>
+              <p class="text-muted small">2019-2029 dönemi</p>
+              <a href="yonetim.html" class="btn btn-outline-primary btn-sm mt-2">Detaylı Bilgi</a>
+            </article>
+          </div>
+          
+          <div class="swiper-slide">
+            <article class="profile-card">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="Mustafa Öztürk - Dernek Sekreteri" class="profile-img" loading="lazy">
+              <h4 class="profile-name">Mustafa Öztürk</h4>
+              <p class="profile-position">Dernek Sekreteri</p>
+              <p class="text-muted small">2023-2027 dönemi</p>
+              <a href="dernek-kurulu.html" class="btn btn-outline-primary btn-sm mt-2">Detaylı Bilgi</a>
+            </article>
+          </div>
+
         </div>
-        <div class="col-lg-4 col-md-6">
-          <article class="profile-card">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Hasan Koç - Dernek Başkanı" class="profile-img" loading="lazy">
-            <h4 class="profile-name">Hasan Koç</h4>
-            <p class="profile-position">Dernek Başkanı</p>
-            <p class="text-muted small">2023-2027 dönemi</p>
-            <a href="dernek-baskani.html" class="btn btn-outline-primary btn-sm mt-2">Detaylı Bilgi</a>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <article class="profile-card">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Mehmet Kaya - Köy İmamı" class="profile-img" loading="lazy">
-            <h4 class="profile-name">Mehmet Kaya</h4>
-            <p class="profile-position">Köy İmamı</p>
-            <p class="text-muted small">2020'den beri</p>
-            <a href="yonetim.html" class="btn btn-outline-primary btn-sm mt-2">Detaylı Bilgi</a>
-          </article>
-        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev" aria-label="Önceki slayt"></div>
+        <div class="swiper-button-next" aria-label="Sonraki slayt"></div>
       </div>
     </div>
   </section>
