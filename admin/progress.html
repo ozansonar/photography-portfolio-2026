@@ -1,1 +1,67 @@
-<!DOCTYPE html><html lang="tr" data-theme="dark"><head><meta charset="UTF-8"><title>Progress - Bootstrap 5.3.3</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><div class="sidebar"><div class="brand"><i class="bi bi-bootstrap"></i><span>Bootstrap 5.3.3</span></div><nav class="nav-menu"><a href="index.html" class="nav-item"><i class="bi bi-house"></i> Dashboard</a><div class="nav-section">COMPONENTS</div><a href="accordion.html" class="nav-item"><i class="bi bi-list-nested"></i> Accordion</a><a href="alerts.html" class="nav-item"><i class="bi bi-exclamation-triangle"></i> Alerts</a><a href="badge.html" class="nav-item"><i class="bi bi-tag"></i> Badge</a><a href="breadcrumb.html" class="nav-item"><i class="bi bi-signpost"></i> Breadcrumb</a><a href="buttons.html" class="nav-item"><i class="bi bi-hand-index"></i> Buttons</a><a href="button-group.html" class="nav-item"><i class="bi bi-collection"></i> Button Group</a><a href="card.html" class="nav-item"><i class="bi bi-card-text"></i> Card</a><a href="carousel.html" class="nav-item"><i class="bi bi-images"></i> Carousel</a><a href="collapse.html" class="nav-item"><i class="bi bi-chevron-expand"></i> Collapse</a><a href="dropdowns.html" class="nav-item"><i class="bi bi-chevron-down"></i> Dropdowns</a><a href="list-group.html" class="nav-item"><i class="bi bi-list-ul"></i> List Group</a><a href="modal.html" class="nav-item"><i class="bi bi-window"></i> Modal</a><a href="navbar.html" class="nav-item"><i class="bi bi-menu-button"></i> Navbar</a><a href="navs-tabs.html" class="nav-item"><i class="bi bi-layout-three-columns"></i> Navs & Tabs</a><a href="offcanvas.html" class="nav-item"><i class="bi bi-layout-sidebar"></i> Offcanvas</a><a href="pagination.html" class="nav-item"><i class="bi bi-three-dots"></i> Pagination</a><a href="placeholders.html" class="nav-item"><i class="bi bi-dash-square"></i> Placeholders</a><a href="popovers.html" class="nav-item"><i class="bi bi-chat-square"></i> Popovers</a><a href="progress.html" class="nav-item active"><i class="bi bi-bar-chart"></i> Progress</a><a href="spinners.html" class="nav-item"><i class="bi bi-arrow-repeat"></i> Spinners</a><a href="toasts.html" class="nav-item"><i class="bi bi-bell"></i> Toasts</a><a href="tooltips.html" class="nav-item"><i class="bi bi-info-circle"></i> Tooltips</a></nav></div><div class="main-content"><div class="header"><h1><i class="bi bi-bar-chart"></i> Progress</h1><p>Progress bars</p></div><div class="demo-section"><div class="progress mb-3"><div class="progress-bar" style="width:25%">25%</div></div><div class="progress mb-3"><div class="progress-bar bg-success" style="width:50%">50%</div></div><div class="progress mb-3"><div class="progress-bar bg-info" style="width:75%">75%</div></div><div class="progress mb-3"><div class="progress-bar bg-warning" style="width:100%">100%</div></div></div></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Progress Bars</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .progress-modern{height:12px;background:rgba(148,163,184,0.1);border-radius:1rem;overflow:hidden}
+        .progress-modern .progress-bar{animation:progress-load 1.5s ease}
+        @keyframes progress-load{from{width:0}}
+        .progress-gradient{background:linear-gradient(90deg,#6366F1,#EC4899)}
+        .progress-striped-animated{background:linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-size:1rem 1rem;animation:progress-bar-stripes 1s linear infinite}
+        @keyframes progress-bar-stripes{0%{background-position:1rem 0}to{background-position:0 0}}
+        .progress-circle{width:120px;height:120px;border-radius:50%;background:conic-gradient(#6366F1 var(--progress,0%),rgba(148,163,184,0.1) 0);position:relative}
+        .progress-circle::before{content:attr(data-progress);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:1.5rem;font-weight:700}
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="brand"><i class="bi bi-bootstrap-fill"></i><span>Modern 2026</span></div>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-item"><i class="bi bi-house-door"></i> Dashboard</a>
+            <div class="nav-section">Components</div>
+            <a href="progress.html" class="nav-item active"><i class="bi bi-bar-chart"></i> Progress</a>
+            <a href="buttons.html" class="nav-item"><i class="bi bi-hand-index"></i> Buttons</a>
+            <a href="modal.html" class="nav-item"><i class="bi bi-window"></i> Modal</a>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="header"><h1><i class="bi bi-bar-chart"></i> Advanced Progress Bars</h1><p>12 Professional Progress Styles</p></div>
+        <div class="demo-section"><h3>1. Gradient Progress Bars</h3>
+            <div class="mb-3"><div class="d-flex justify-content-between mb-2"><span>HTML/CSS</span><span class="text-primary">90%</span></div><div class="progress-modern"><div class="progress-bar progress-gradient" style="width:90%"></div></div></div>
+            <div class="mb-3"><div class="d-flex justify-content-between mb-2"><span>JavaScript</span><span style="color:#EC4899">75%</span></div><div class="progress-modern"><div class="progress-bar" style="width:75%;background:linear-gradient(90deg,#EC4899,#D946EF)"></div></div></div>
+            <div class="mb-3"><div class="d-flex justify-content-between mb-2"><span>React</span><span style="color:#10B981">85%</span></div><div class="progress-modern"><div class="progress-bar" style="width:85%;background:linear-gradient(90deg,#10B981,#059669)"></div></div></div>
+        </div>
+        <div class="demo-section"><h3>2. Animated Striped Progress</h3>
+            <div class="mb-3"><div class="progress-modern"><div class="progress-bar progress-gradient progress-striped-animated" style="width:60%"></div></div></div>
+            <div class="mb-3"><div class="progress-modern"><div class="progress-bar progress-striped-animated" style="width:80%;background:linear-gradient(90deg,#F59E0B,#D97706)"></div></div></div>
+        </div>
+        <div class="demo-section"><h3>3. Multi-Color Stacked</h3>
+            <div class="progress-modern"><div class="progress-bar" style="width:30%;background:#6366F1"></div><div class="progress-bar" style="width:25%;background:#EC4899"></div><div class="progress-bar" style="width:20%;background:#10B981"></div></div>
+        </div>
+        <div class="demo-section"><h3>4. Labeled Progress</h3>
+            <div class="progress-modern" style="height:24px"><div class="progress-bar progress-gradient d-flex align-items-center justify-content-center" style="width:70%">70%</div></div>
+        </div>
+        <div class="demo-section"><h3>5. Neon Glow Progress</h3>
+            <div class="mb-3"><div class="progress-modern"><div class="progress-bar" style="width:65%;background:#6366F1;box-shadow:0 0 20px rgba(99,102,241,0.6)"></div></div></div>
+            <div class="mb-3"><div class="progress-modern"><div class="progress-bar" style="width:88%;background:#EC4899;box-shadow:0 0 20px rgba(236,72,153,0.6)"></div></div></div>
+        </div>
+        <div class="demo-section"><h3>6. Circular Progress</h3>
+            <div class="d-flex gap-4">
+                <div class="progress-circle" style="--progress:75%" data-progress="75%"></div>
+                <div class="progress-circle" style="--progress:60%;background:conic-gradient(#EC4899 var(--progress,0%),rgba(148,163,184,0.1) 0)" data-progress="60%"></div>
+                <div class="progress-circle" style="--progress:90%;background:conic-gradient(#10B981 var(--progress,0%),rgba(148,163,184,0.1) 0)" data-progress="90%"></div>
+            </div>
+        </div>
+        <div class="demo-section"><h3>7. Skill Bars with Icons</h3>
+            <div class="mb-3"><div class="d-flex align-items-center gap-3"><i class="bi bi-code-slash" style="font-size:1.5rem;color:#6366F1"></i><div class="flex-grow-1"><div class="d-flex justify-content-between mb-1"><span>Development</span><span>92%</span></div><div class="progress-modern"><div class="progress-bar progress-gradient" style="width:92%"></div></div></div></div></div>
+            <div class="mb-3"><div class="d-flex align-items-center gap-3"><i class="bi bi-palette" style="font-size:1.5rem;color:#EC4899"></i><div class="flex-grow-1"><div class="d-flex justify-content-between mb-1"><span>Design</span><span>88%</span></div><div class="progress-modern"><div class="progress-bar" style="width:88%;background:linear-gradient(90deg,#EC4899,#D946EF)"></div></div></div></div></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
