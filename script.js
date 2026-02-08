@@ -1,6 +1,6 @@
 // =================================
 // PREMIUM PHOTOGRAPHY PORTFOLIO 2026
-// Full Featured JavaScript
+// Ultra Modern JavaScript
 // =================================
 
 (function() {
@@ -10,19 +10,17 @@
     document.addEventListener('DOMContentLoaded', () => {
         initAOS();
         initLoader();
-        initCursor();
-        initNavbar();
         initThemeToggle();
+        initMobileMenu();
         initSmoothScroll();
         initBackToTop();
         initHeroSlider();
-        initMobileMenu();
-        initPortfolioFilters();
-        initPortfolioModal();
+        initGalleryFilters();
+        initImageModal();
         initContactForm();
         initCounters();
-        console.log('%c📸 Premium Photography Portfolio', 'color: #FF6B6B; font-size: 20px; font-weight: bold;');
-        console.log('%cFull Featured Version 2026', 'color: #4ECDC4; font-size: 14px;');
+        console.log('%c📸 Ultra Premium Photography Portfolio', 'color: #FF6B6B; font-size: 20px; font-weight: bold;');
+        console.log('%cGlassmorphism Header Edition 2026', 'color: #4ECDC4; font-size: 14px;');
     });
 
     // AOS Animation
@@ -47,88 +45,6 @@
                 loader.classList.add('hidden');
                 document.body.style.overflow = 'visible';
             }, 1000);
-        });
-    }
-
-    // Custom Cursor
-    function initCursor() {
-        const cursor = document.querySelector('.cursor');
-        const follower = document.querySelector('.cursor-follower');
-        
-        if (!cursor || !follower || window.innerWidth < 768) {
-            if (cursor) cursor.style.display = 'none';
-            if (follower) follower.style.display = 'none';
-            return;
-        }
-
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        let followerX = 0, followerY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function animate() {
-            cursorX += (mouseX - cursorX) * 0.3;
-            cursorY += (mouseY - cursorY) * 0.3;
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-
-            followerX += (mouseX - followerX) * 0.1;
-            followerY += (mouseY - followerY) * 0.1;
-            follower.style.left = followerX + 'px';
-            follower.style.top = followerY + 'px';
-
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        const hoverElements = document.querySelectorAll('a, button, .portfolio-item');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                follower.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
-            });
-            el.addEventListener('mouseleave', () => {
-                follower.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            });
-        });
-    }
-
-    // Navbar
-    function initNavbar() {
-        const navbar = document.querySelector('.navbar-custom');
-        if (!navbar) return;
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link-custom');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
         });
     }
 
@@ -158,6 +74,35 @@
                 icon.className = 'bi bi-moon-stars-fill';
             }
         }
+    }
+
+    // Mobile Menu
+    function initMobileMenu() {
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        if (!btn || !menu) return;
+
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+
+        // Close on link click
+        const links = menu.querySelectorAll('.mobile-nav-item');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                btn.classList.remove('active');
+                menu.classList.remove('active');
+            });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                btn.classList.remove('active');
+                menu.classList.remove('active');
+            }
+        });
     }
 
     // Smooth Scroll
@@ -200,71 +145,30 @@
     // Hero Slider
     function initHeroSlider() {
         const slides = document.querySelectorAll('.hero-slide');
-        const dots = document.querySelectorAll('.dot');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        
         if (slides.length <= 1) return;
 
         let currentSlide = 0;
 
         function showSlide(n) {
             slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
             currentSlide = (n + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
         }
 
         function nextSlide() {
             showSlide(currentSlide + 1);
         }
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => showSlide(index));
-        });
-
+        // Auto slide
         setInterval(nextSlide, 5000);
     }
 
-    // Mobile Menu
-    function initMobileMenu() {
-        const toggle = document.getElementById('mobileToggle');
-        const menu = document.querySelector('.navbar-menu');
-        if (!toggle || !menu) return;
+    // Gallery Filters
+    function initGalleryFilters() {
+        const filterBtns = document.querySelectorAll('.filter-btn-modern');
+        const items = document.querySelectorAll('.gallery-item');
 
-        toggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
-            toggle.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-link-custom').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('active');
-                toggle.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-                menu.classList.remove('active');
-                toggle.classList.remove('active');
-            }
-        });
-    }
-
-    // Portfolio Filters
-    function initPortfolioFilters() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        if (filterBtns.length === 0 || items.length === 0) return;
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -273,7 +177,7 @@
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                portfolioItems.forEach(item => {
+                items.forEach(item => {
                     const category = item.getAttribute('data-category');
                     
                     if (filter === 'all' || category === filter) {
@@ -294,14 +198,14 @@
         });
     }
 
-    // Portfolio Modal
-    function initPortfolioModal() {
+    // Image Modal
+    function initImageModal() {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const closeBtn = document.getElementById('modalClose');
         const prevBtn = document.getElementById('modalPrev');
         const nextBtn = document.getElementById('modalNext');
-        const viewBtns = document.querySelectorAll('.portfolio-view-btn');
+        const viewBtns = document.querySelectorAll('.view-btn');
 
         if (!modal) return;
 
@@ -412,37 +316,6 @@
 
             counters.forEach(counter => observer.observe(counter));
         }
-    }
-
-    // Parallax Effect
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('[data-parallax]');
-        
-        parallaxElements.forEach(el => {
-            const speed = el.getAttribute('data-parallax') || 0.5;
-            el.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-    });
-
-    // Lazy Loading
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.classList.add('loaded');
-                        imageObserver.unobserve(img);
-                    }
-                }
-            });
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
     }
 
 })();
