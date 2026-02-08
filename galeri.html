@@ -1,144 +1,279 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri - Fotoğrafçılık Portfolyo</title>
-    
+    <title>Galeri | Premium Fotoğrafçılık</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body data-bs-theme="dark">
+<body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="bi bi-camera"></i> FOTOGRAFÇILIĞİM
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="galeri.html">Galeri</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hakkimda.html">Hakkımda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
-                    <li class="nav-item">
-                        <button class="btn btn-sm btn-outline-light ms-2" id="themeToggle">
-                            <i class="bi bi-moon-stars"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section class="page-header">
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
-                    <li class="breadcrumb-item active">Galeri</li>
-                </ol>
-            </nav>
-            <h1 class="page-title">Portfolyo Galerim</h1>
-            <p class="page-subtitle">Farklı kategorilerdeki çalışmalarımı keşfedin</p>
-        </div>
-    </section>
-
-    <section class="gallery-section py-5">
-        <div class="container">
-            <div class="filter-buttons text-center mb-5">
-                <button class="btn btn-outline-primary active" data-filter="all">Tümü</button>
-                <button class="btn btn-outline-primary" data-filter="portrait">Portre</button>
-                <button class="btn btn-outline-primary" data-filter="nature">Doğa</button>
-                <button class="btn btn-outline-primary" data-filter="street">Sokak</button>
-                <button class="btn btn-outline-primary" data-filter="event">Etkinlik</button>
-                <button class="btn btn-outline-primary" data-filter="product">Ürün</button>
-            </div>
-
-            <div class="row g-4" id="galleryGrid">
-                <div class="col-lg-4 col-md-6 gallery-item" data-category="portrait">
-                    <div class="gallery-card">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop" alt="Portre 1" class="img-fluid">
-                        <div class="gallery-overlay">
-                            <h4>Doğal Işık Portre</h4>
-                            <p>Portre</p>
-                            <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#imageModal" 
-                                data-img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&h=1600&fit=crop"
-                                data-title="Doğal Işık Portre"
-                                data-desc="Doğal ışık kullanarak çekilen profesyonel portre çalışması">
-                                <i class="bi bi-eye"></i> Görüntüle
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 gallery-item" data-category="nature">
-                    <div class="gallery-card">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=800&fit=crop" alt="Doğa 1" class="img-fluid">
-                        <div class="gallery-overlay">
-                            <h4>Dağ Manzarası</h4>
-                            <p>Doğa</p>
-                            <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                data-img="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=1600&fit=crop"
-                                data-title="Dağ Manzarası"
-                                data-desc="Gün batımında çekilmiş muhteşem dağ manzarası">
-                                <i class="bi bi-eye"></i> Görüntüle
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 gallery-item" data-category="street">
-                    <div class="gallery-card">
-                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=800&fit=crop" alt="Sokak 1" class="img-fluid">
-                        <div class="gallery-overlay">
-                            <h4>Şehir Işıkları</h4>
-                            <p>Sokak</p>
-                            <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                data-img="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&h=1600&fit=crop"
-                                data-title="Şehir Işıkları"
-                                data-desc="Gece şehrin nabzını yakalamak">
-                                <i class="bi bi-eye"></i> Görüntüle
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content bg-dark">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title" id="modalTitle">Fotoğraf Başlığı</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="" alt="" class="img-fluid rounded" id="modalImage">
-                    <p class="mt-3 text-muted" id="modalDesc">Açıklama</p>
-                </div>
-            </div>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">📸</div>
+            <div class="loading-text">LOADING</div>
+            <div class="loading-bar"><div class="loading-progress"></div></div>
         </div>
     </div>
 
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5><i class="bi bi-camera"></i> Fotoğrafçılığım</h5>
-                    <p class="text-muted">Görsel sanatlar öğretmeni ve profesyonel fotoğrafçı olarak anları sanat eserine dönüştürüyorum.</p>
+    <!-- ULTRA PREMIUM HEADER -->
+    <header class="ultra-header">
+        <div class="container-fluid px-4">
+            <div class="header-content">
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="url(#gradient1)" stroke-width="2"/>
+                            <circle cx="20" cy="20" r="10" fill="url(#gradient1)"/>
+                            <defs>
+                                <linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40">
+                                    <stop offset="0%" stop-color="#FF6B6B"/>
+                                    <stop offset="100%" stop-color="#4ECDC4"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">PHOTOGRAPHY</span>
+                        <span class="logo-sub">Premium Portfolio</span>
+                    </div>
+                </a>
+
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-item">
+                        <span>Ana Sayfa</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="galeri.html" class="nav-item active">
+                        <span>Galeri</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="index.html#services" class="nav-item">
+                        <span>Hizmetler</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="hakkimda.html" class="nav-item">
+                        <span>Hakkımda</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="iletisim.html" class="nav-item">
+                        <span>İletişim</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="theme-btn" id="themeToggle">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="index.html" class="mobile-nav-item">Ana Sayfa</a>
+            <a href="galeri.html" class="mobile-nav-item">Galeri</a>
+            <a href="index.html#services" class="mobile-nav-item">Hizmetler</a>
+            <a href="hakkimda.html" class="mobile-nav-item">Hakkımda</a>
+            <a href="iletisim.html" class="mobile-nav-item">İletişim</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Portfolyo Galeri</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Her fotoğraf bir hikaye anlatır</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="gallery-section">
+        <div class="container-fluid px-4">
+            <div class="gallery-filters" data-aos="fade-up">
+                <button class="filter-btn-modern active" data-filter="all">Tümü</button>
+                <button class="filter-btn-modern" data-filter="portrait">Portre</button>
+                <button class="filter-btn-modern" data-filter="wedding">Düğün</button>
+                <button class="filter-btn-modern" data-filter="nature">Doğa</button>
+                <button class="filter-btn-modern" data-filter="street">Sokak</button>
+                <button class="filter-btn-modern" data-filter="art">Sanat</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Portre -->
+                <div class="gallery-item" data-category="portrait" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=1000&fit=crop" alt="Portre">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Portre</span>
+                        <h3 class="gallery-title">Doğal Işık</h3>
+                        <button class="view-btn" data-img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&h=1600&fit=crop">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="portrait" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop" alt="Portre">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Portre</span>
+                        <h3 class="gallery-title">Stüdyo Çekimi</h3>
+                        <button class="view-btn" data-img="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Wedding -->
+                <div class="gallery-item" data-category="wedding" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop" alt="Düğün">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Düğün</span>
+                        <h3 class="gallery-title">Özel Anlar</h3>
+                        <button class="view-btn" data-img="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=1600&fit=crop">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-wide" data-category="wedding" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200&h=800&fit=crop" alt="Düğün">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Düğün</span>
+                        <h3 class="gallery-title">Mutluluk Kareleri</h3>
+                        <button class="view-btn" data-img="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1920&h=1280&fit=crop">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Nature -->
+                <div class="gallery-item gallery-wide" data-category="nature" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop" alt="Doğa">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Doğa</span>
+                        <h3 class="gallery-title">Dağ Manzarası</h3>
+                        <button class="view-btn" data-img="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1280&fit=crop">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=1000&fit=crop" alt="Doğa">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Doğa</span>
+                        <h3 class="gallery-title">Orman Yolu</h3>
+                        <button class="view-btn" data-img="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=1600&fit=crop">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Street -->
+                <div class="gallery-item" data-category="street" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&h=1000&fit=crop" alt="Sokak">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Sokak</span>
+                        <h3 class="gallery-title">Şehir Işıkları</h3>
+                        <button class="view-btn" data-img="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&h=1600&fit=crop">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Art -->
+                <div class="gallery-item" data-category="art" data-aos="zoom-in" data-aos-delay="700">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&h=1000&fit=crop" alt="Sanat">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Sanat</span>
+                        <h3 class="gallery-title">Konseptüel</h3>
+                        <button class="view-btn" data-img="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1200&h=1600&fit=crop">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <button class="modal-close" id="modalClose"><i class="bi bi-x-lg"></i></button>
+        <div class="modal-img-wrapper">
+            <img src="" alt="" id="modalImage">
+        </div>
+        <button class="modal-nav modal-prev" id="modalPrev"><i class="bi bi-chevron-left"></i></button>
+        <button class="modal-nav modal-next" id="modalNext"><i class="bi bi-chevron-right"></i></button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <h3>PHOTOGRAPHY</h3>
+                        <p>Her kare bir hikaye anlatır.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Bağlantılar</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hizmetler</h4>
+                    <ul>
+                        <li><a href="#">Portre</a></li>
+                        <li><a href="#">Düğün</a></li>
+                        <li><a href="#">Ürün</a></li>
+                        <li><a href="#">Mimari</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul class="footer-contact">
+                        <li><i class="bi bi-geo-alt-fill"></i> İstanbul</li>
+                        <li><i class="bi bi-envelope-fill"></i> info@photo.com</li>
+                        <li><i class="bi bi-telephone-fill"></i> +90 555 123 4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Photography. Tüm hakları saklıdır.</p>
+                <p>Made with ❤️ by <strong>Ozan SONAR</strong></p>
             </div>
         </div>
     </footer>
 
-    <button id="backToTop" class="btn btn-primary"><i class="bi bi-arrow-up"></i></button>
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
