@@ -3,304 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotoğrafçılık Portfolyo - Görsel Sanatlar</title>
-    
-    <!-- Bootstrap 5.3.3 CSS -->
+    <title>Premium Fotoğrafçılık Portfolyo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body data-bs-theme="dark">
-
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="spinner-border text-light" role="status">
-            <span class="visually-hidden">Yükleniyor...</span>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo"><i class="bi bi-camera-fill"></i></div>
+            <div class="loading-text">LOADING</div>
+            <div class="loading-bar"><div class="loading-progress"></div></div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="bi bi-camera"></i> FOTOGRAFÇILIĞİM
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Ana Sayfa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="galeri.html">Galeri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="hakkimda.html">Hakkımda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="iletisim.html">İletişim</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-sm btn-outline-light ms-2" id="themeToggle">
-                            <i class="bi bi-moon-stars"></i>
-                        </button>
-                    </li>
-                </ul>
+    <nav class="navbar-custom">
+        <div class="container-fluid px-4">
+            <div class="navbar-brand-custom" data-aos="fade-right">
+                <span class="brand-icon"><i class="bi bi-aperture"></i></span>
+                <span class="brand-text">PHOTOGRAPHY</span>
             </div>
+            <div class="navbar-menu" data-aos="fade-left">
+                <a href="#home" class="nav-link-custom active">Ana Sayfa</a>
+                <a href="#portfolio" class="nav-link-custom">Portfolyo</a>
+                <a href="#services" class="nav-link-custom">Hizmetler</a>
+                <a href="#about" class="nav-link-custom">Hakkımda</a>
+                <a href="#contact" class="nav-link-custom">İletişim</a>
+                <button class="theme-toggle" id="themeToggle"><i class="bi bi-sun-fill"></i></button>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
-    <!-- Hero Section - Full Screen -->
     <section class="hero-section" id="home">
+        <div class="hero-bg"><div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&h=1080&fit=crop')"></div></div>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title animate-text">
-                Anları <span class="gradient-text">Sanat</span>'a Dönüştürüyorum
-            </h1>
-            <p class="hero-subtitle">Görsel Sanatlar Öğretmeni & Profesyonel Fotoğrafçı</p>
-            <div class="hero-buttons">
-                <a href="galeri.html" class="btn btn-primary btn-lg">
-                    <i class="bi bi-images"></i> Portfolyomu İncele
-                </a>
-                <a href="iletisim.html" class="btn btn-outline-light btn-lg ms-3">
-                    <i class="bi bi-envelope"></i> İletişime Geç
-                </a>
+        <div class="container h-100"><div class="row h-100 align-items-center"><div class="col-lg-8"><div class="hero-content">
+            <div class="hero-subtitle" data-aos="fade-up">Görsel Sanatlar Öğretmeni & Profesyonel Fotoğrafçı</div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Her Kare Bir <span class="gradient-text-animated">Sanat Eseri</span></h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="300">Anlarınızı ölümsüzleştiriyor, hikayelerinizi görsellerle anlatıyorum.</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                <a href="#portfolio" class="btn-primary-custom"><span>Portfolyo</span><i class="bi bi-arrow-right"></i></a>
+                <a href="#contact" class="btn-secondary-custom"><span>İletişim</span><i class="bi bi-envelope"></i></a>
             </div>
-            <div class="scroll-indicator">
-                <i class="bi bi-chevron-down"></i>
-            </div>
-        </div>
+        </div></div></div></div>
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="600"><div class="mouse"><div class="wheel"></div></div></div>
     </section>
 
-    <!-- Öne Çıkan Çalışmalar -->
-    <section class="featured-section py-5">
-        <div class="container">
+    <section class="portfolio-section" id="portfolio">
+        <div class="container-fluid">
             <div class="section-header text-center mb-5">
-                <h2 class="section-title">Öne Çıkan Çalışmalar</h2>
-                <p class="section-subtitle">En beğenilen fotoğraflarımdan bir seçki</p>
+                <div class="section-subtitle" data-aos="fade-up">ÇALIŞMALARIM</div>
+                <h2 class="section-title" data-aos="fade-up">Öne Çıkan Projeler</h2>
             </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="portfolio-item large-item">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=1000&fit=crop" alt="Portre Fotoğraf" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <h3>Portre</h3>
-                            <p>Doğal ışık portre çalışmaları</p>
-                            <a href="galeri.html" class="btn btn-light">Daha Fazla</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="portfolio-item">
-                                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=500&fit=crop" alt="Doğa Fotoğraf" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <h3>Doğa</h3>
-                                    <p>Manzara ve doğa fotoğrafçılığı</p>
-                                    <a href="galeri.html" class="btn btn-light">Daha Fazla</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=500&fit=crop" alt="Sokak Fotoğraf" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <h3>Sokak</h3>
-                                    <p>Kentsel yaşam</p>
-                                    <a href="galeri.html" class="btn btn-light">Daha Fazla</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=500&fit=crop" alt="Etkinlik Fotoğraf" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <h3>Etkinlik</h3>
-                                    <p>Özel anlar</p>
-                                    <a href="galeri.html" class="btn btn-light">Daha Fazla</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-aos="zoom-in"><div class="portfolio-item-inner">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=1000&fit=crop" alt="Portre">
+                    <div class="portfolio-overlay"><div class="portfolio-content">
+                        <span class="portfolio-category">Portre</span>
+                        <h3 class="portfolio-title">Doğal Işık</h3>
+                    </div></div>
+                </div></div>
+                <div class="portfolio-item" data-aos="zoom-in"><div class="portfolio-item-inner">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop" alt="Düğün">
+                    <div class="portfolio-overlay"><div class="portfolio-content">
+                        <span class="portfolio-category">Düğün</span>
+                        <h3 class="portfolio-title">Özel Anlar</h3>
+                    </div></div>
+                </div></div>
             </div>
         </div>
     </section>
 
-    <!-- Hizmetler -->
-    <section class="services-section py-5 bg-dark">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2 class="section-title">Hizmetlerim</h2>
-                <p class="section-subtitle">Profesyonel fotoğrafçılık hizmetleri</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-person-circle"></i>
-                        </div>
-                        <h3>Portre Çekimi</h3>
-                        <p>Kişisel ve profesyonel portre fotoğrafları, headshot çekimleri</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-heart-fill"></i>
-                        </div>
-                        <h3>Düğün & Nişan</h3>
-                        <p>Özel günlerinizin unutulmaz anlarını ölümsüzleştiriyorum</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-shop"></i>
-                        </div>
-                        <h3>Ürün Fotoğrafı</h3>
-                        <p>E-ticaret ve katalog için profesyonel ürün çekimleri</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-buildings"></i>
-                        </div>
-                        <h3>Mimari</h3>
-                        <p>İç mekan ve dış mekan mimari fotoğrafçılık</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-camera-reels"></i>
-                        </div>
-                        <h3>Etkinlik</h3>
-                        <p>Kurumsal etkinlikler, konserler ve özel organizasyonlar</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-palette"></i>
-                        </div>
-                        <h3>Sanat Fotoğrafı</h3>
-                        <p>Konceptual ve yaratıcı fotoğraf projeleri</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <footer class="footer"><div class="container"><div class="footer-content">
+        <div class="footer-brand"><span class="brand-icon"><i class="bi bi-aperture"></i></span><span class="brand-text">PHOTOGRAPHY</span></div>
+        <div class="footer-text"><p>&copy; 2026 Photography. Tüm hakları saklıdır.</p></div>
+    </div></div></footer>
 
-    <!-- İstatistikler -->
-    <section class="stats-section py-5">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3 col-6 mb-4">
-                    <div class="stat-item">
-                        <h2 class="stat-number" data-target="500">0</h2>
-                        <p>Mutlu Müşteri</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <div class="stat-item">
-                        <h2 class="stat-number" data-target="1200">0</h2>
-                        <p>Tamamlanan Proje</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <div class="stat-item">
-                        <h2 class="stat-number" data-target="15">0</h2>
-                        <p>Yıllık Deneyim</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <div class="stat-item">
-                        <h2 class="stat-number" data-target="25">0</h2>
-                        <p>Ödül</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section py-5 bg-gradient">
-        <div class="container text-center">
-            <h2 class="mb-4">Bir Sonraki Projeniz İçin Hazır mısınız?</h2>
-            <p class="lead mb-4">Hayalinizdeki fotoğraf çekimini birlikte gerçekleştirelim</p>
-            <a href="iletisim.html" class="btn btn-light btn-lg">
-                <i class="bi bi-telephone"></i> Hemen İletişime Geç
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5><i class="bi bi-camera"></i> Fotoğrafçılığım</h5>
-                    <p class="text-muted">Görsel sanatlar öğretmeni ve profesyonel fotoğrafçı olarak anları sanat eserine dönüştürüyorum.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Hızlı Bağlantılar</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html">Ana Sayfa</a></li>
-                        <li><a href="galeri.html">Galeri</a></li>
-                        <li><a href="hakkimda.html">Hakkımda</a></li>
-                        <li><a href="iletisim.html">İletişim</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>İletişim</h5>
-                    <ul class="list-unstyled text-muted">
-                        <li><i class="bi bi-geo-alt"></i> İstanbul, Türkiye</li>
-                        <li><i class="bi bi-envelope"></i> info@fotografciligim.com</li>
-                        <li><i class="bi bi-phone"></i> +90 555 123 4567</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="my-4">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0 text-muted">&copy; 2026 Fotoğrafçılığım. Tüm hakları saklıdır.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0 text-muted">Bootstrap 5.3.3 ile tasarlandı</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top -->
-    <button id="backToTop" class="btn btn-primary">
-        <i class="bi bi-arrow-up"></i>
-    </button>
-
-    <!-- Bootstrap 5.3.3 JS -->
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
