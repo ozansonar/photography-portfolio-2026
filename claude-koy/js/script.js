@@ -79,6 +79,39 @@ if (counters.length > 0) {
 
 // Initialize Swiper sliders
 if (typeof Swiper !== 'undefined') {
+  
+  // Management slider (NEW!)
+  const managementSwiperEl = document.querySelector('.management-swiper');
+  if (managementSwiperEl) {
+    const managementSwiper = new Swiper('.management-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.management-swiper .swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.management-swiper .swiper-button-next',
+        prevEl: '.management-swiper .swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  }
+  
   // Business slider
   const businessSwiperEl = document.querySelector('.business-swiper');
   if (businessSwiperEl) {
