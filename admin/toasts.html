@@ -1,1 +1,35 @@
-<!DOCTYPE html><html lang="tr" data-theme="dark"><head><meta charset="UTF-8"><title>Toasts - Bootstrap 5.3.3</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><div class="sidebar"><div class="brand"><i class="bi bi-bootstrap"></i><span>Bootstrap 5.3.3</span></div><nav class="nav-menu"><a href="index.html" class="nav-item"><i class="bi bi-house"></i> Dashboard</a><div class="nav-section">COMPONENTS</div><a href="accordion.html" class="nav-item"><i class="bi bi-list-nested"></i> Accordion</a><a href="alerts.html" class="nav-item"><i class="bi bi-exclamation-triangle"></i> Alerts</a><a href="badge.html" class="nav-item"><i class="bi bi-tag"></i> Badge</a><a href="breadcrumb.html" class="nav-item"><i class="bi bi-signpost"></i> Breadcrumb</a><a href="buttons.html" class="nav-item"><i class="bi bi-hand-index"></i> Buttons</a><a href="button-group.html" class="nav-item"><i class="bi bi-collection"></i> Button Group</a><a href="card.html" class="nav-item"><i class="bi bi-card-text"></i> Card</a><a href="carousel.html" class="nav-item"><i class="bi bi-images"></i> Carousel</a><a href="collapse.html" class="nav-item"><i class="bi bi-chevron-expand"></i> Collapse</a><a href="dropdowns.html" class="nav-item"><i class="bi bi-chevron-down"></i> Dropdowns</a><a href="list-group.html" class="nav-item"><i class="bi bi-list-ul"></i> List Group</a><a href="modal.html" class="nav-item"><i class="bi bi-window"></i> Modal</a><a href="navbar.html" class="nav-item"><i class="bi bi-menu-button"></i> Navbar</a><a href="navs-tabs.html" class="nav-item"><i class="bi bi-layout-three-columns"></i> Navs & Tabs</a><a href="offcanvas.html" class="nav-item"><i class="bi bi-layout-sidebar"></i> Offcanvas</a><a href="pagination.html" class="nav-item"><i class="bi bi-three-dots"></i> Pagination</a><a href="placeholders.html" class="nav-item"><i class="bi bi-dash-square"></i> Placeholders</a><a href="popovers.html" class="nav-item"><i class="bi bi-chat-square"></i> Popovers</a><a href="progress.html" class="nav-item"><i class="bi bi-bar-chart"></i> Progress</a><a href="spinners.html" class="nav-item"><i class="bi bi-arrow-repeat"></i> Spinners</a><a href="toasts.html" class="nav-item active"><i class="bi bi-bell"></i> Toasts</a><a href="tooltips.html" class="nav-item"><i class="bi bi-info-circle"></i> Tooltips</a></nav></div><div class="main-content"><div class="header"><h1><i class="bi bi-bell"></i> Toasts</h1><p>Push notifications</p></div><div class="demo-section"><button type="button" class="btn btn-primary" id="liveToastBtn">Show toast</button><div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="liveToast" class="toast" role="alert"><div class="toast-header"><strong class="me-auto">Bootstrap</strong><small>11 mins ago</small><button type="button" class="btn-close" data-bs-dismiss="toast"></button></div><div class="toast-body">Hello, world! This is a toast message.</div></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script>const toastBtn=document.getElementById('liveToastBtn');if(toastBtn){toastBtn.addEventListener('click',()=>{const toastEl=document.getElementById('liveToast');const toast=new bootstrap.Toast(toastEl);toast.show();});};</script></body></html>
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Toasts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .toast-modern{background:linear-gradient(135deg,rgba(30,41,59,0.98),rgba(15,23,42,0.95));backdrop-filter:blur(20px);border:1px solid rgba(148,163,184,0.2);border-radius:1rem}
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="brand"><i class="bi bi-bootstrap-fill"></i><span>Modern 2026</span></div>
+        <nav class="nav-menu"><a href="index.html" class="nav-item"><i class="bi bi-house-door"></i> Dashboard</a><div class="nav-section">Components</div><a href="toasts.html" class="nav-item active"><i class="bi bi-bell"></i> Toasts</a><a href="buttons.html" class="nav-item"><i class="bi bi-hand-index"></i> Buttons</a></nav>
+    </div>
+    <div class="main-content">
+        <div class="header"><h1><i class="bi bi-bell"></i> Advanced Toasts</h1><p>12 Professional Notification Styles</p></div>
+        <div class="demo-section"><h3>1. Modern Toast Notifications</h3>
+            <button class="btn btn-primary me-2" onclick="showToast('toast1')">Show Success</button>
+            <button class="btn btn-danger me-2" onclick="showToast('toast2')">Show Error</button>
+            <button class="btn btn-warning me-2" onclick="showToast('toast3')">Show Warning</button>
+        </div>
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="toast1" class="toast toast-modern" role="alert"><div class="toast-header" style="background:rgba(16,185,129,0.2);border:none"><i class="bi bi-check-circle text-success me-2"></i><strong class="me-auto">Success</strong><button type="button" class="btn-close" data-bs-dismiss="toast"></button></div><div class="toast-body">Your changes have been saved successfully!</div></div>
+            <div id="toast2" class="toast toast-modern" role="alert"><div class="toast-header" style="background:rgba(239,68,68,0.2);border:none"><i class="bi bi-x-circle text-danger me-2"></i><strong class="me-auto">Error</strong><button type="button" class="btn-close" data-bs-dismiss="toast"></button></div><div class="toast-body">Failed to connect to server.</div></div>
+            <div id="toast3" class="toast toast-modern" role="alert"><div class="toast-header" style="background:rgba(245,158,11,0.2);border:none"><i class="bi bi-exclamation-triangle text-warning me-2"></i><strong class="me-auto">Warning</strong><button type="button" class="btn-close" data-bs-dismiss="toast"></button></div><div class="toast-body">Your session will expire in 5 minutes.</div></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>function showToast(id){const toast=new bootstrap.Toast(document.getElementById(id));toast.show();}</script>
+</body>
+</html>
