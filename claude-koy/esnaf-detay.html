@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Köy Marketim - Detay | Palabıyık Köyü</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    .business-header {
+      background: linear-gradient(135deg, var(--yesil), var(--gok));
+      padding: 4rem 0 3rem;
+      color: white;
+    }
+    .business-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: var(--toprak);
+      box-shadow: var(--shadow-lg);
+      border: 4px solid white;
+    }
+    .nav-tabs .nav-link {
+      color: var(--gri);
+      font-weight: 600;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 1rem 1.5rem;
+    }
+    .nav-tabs .nav-link:hover {
+      border-bottom-color: var(--acik-gri);
+    }
+    .nav-tabs .nav-link.active {
+      color: var(--toprak);
+      background: transparent;
+      border-bottom-color: var(--toprak);
+    }
+    .feature-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.25rem;
+      background: var(--krem);
+      border: 1px solid var(--acik-gri);
+      border-radius: 12px;
+      margin: 0.5rem;
+    }
+    .review-card {
+      background: var(--beyaz);
+      border: 1px solid var(--acik-gri);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-corporate sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-mountain me-2"></i>Palabıyık Köyü
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Yönetim</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yonetim.html">Köy Yönetimi</a></li>
+              <li><a class="dropdown-item" href="gecmis-yonetimler.html">Geçmiş Yönetimler</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dernek</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="dernek-baskani.html">Dernek Başkanı</a></li>
+              <li><a class="dropdown-item" href="dernek-kurulu.html">Yönetim Kurulu</a></li>
+              <li><a class="dropdown-item" href="dernek-uyeler.html">Üyelerimiz</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="esnaflarimiz.html">Esnaflarımız</a></li>
+          <li class="nav-item"><a class="nav-link" href="haberler.html">Haberler</a></li>
+          <li class="nav-item"><a class="nav-link" href="etkinlikler.html">Etkinlikler</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="business-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <div class="business-logo">
+            <i class="fas fa-shopping-basket"></i>
+          </div>
+        </div>
+        <div class="col">
+          <div class="d-flex align-items-center mb-2">
+            <h1 class="mb-0 me-3" style="font-weight: 800; font-size: 2.5rem;">Köy Marketim</h1>
+            <span class="badge" style="background: var(--bugday); font-size: 1rem; padding: 0.5rem 1rem;">
+              <i class="fas fa-check-circle me-1"></i>Doğrulanmış
+            </span>
+          </div>
+          <p class="mb-3" style="font-size: 1.125rem; opacity: 0.95;"><i class="fas fa-tag me-2"></i>Gıda & Market</p>
+          <div class="d-flex align-items-center mb-3">
+            <div class="me-4">
+              <i class="fas fa-star" style="color: var(--bugday);"></i>
+              <i class="fas fa-star" style="color: var(--bugday);"></i>
+              <i class="fas fa-star" style="color: var(--bugday);"></i>
+              <i class="fas fa-star" style="color: var(--bugday);"></i>
+              <i class="fas fa-star" style="color: var(--bugday);"></i>
+              <span class="ms-2" style="font-weight: 700;">5.0</span>
+              <span style="opacity: 0.8;">(45 değerlendirme)</span>
+            </div>
+            <div class="me-4">
+              <i class="fas fa-clock me-2"></i>
+              <span style="font-weight: 600;">Açık</span>
+              <span style="opacity: 0.8;">08:00 - 20:00</span>
+            </div>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="tel:+905551112233" class="btn btn-light"><i class="fas fa-phone me-2"></i>Ara</a>
+            <a href="#iletisim" class="btn btn-light"><i class="fas fa-directions me-2"></i>Yol Tarifi</a>
+            <a href="#" class="btn btn-light"><i class="fas fa-share-alt me-2"></i>Paylaş</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-corporate" style="padding-top: 3rem;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <ul class="nav nav-tabs mb-4" id="businessTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button">
+                <i class="fas fa-info-circle me-2"></i>Hakkında
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="services-tab" data-bs-toggle="tab" data-bs-target="#services" type="button">
+                <i class="fas fa-list-check me-2"></i>Ürün & Hizmetler
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="gallery-tab" data-bs-toggle="tab" data-bs-target="#gallery" type="button">
+                <i class="fas fa-images me-2"></i>Galeri
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">
+                <i class="fas fa-star me-2"></i>Değerlendirmeler
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <!-- About Tab -->
+            <div class="tab-pane fade show active" id="about">
+              <div class="card-corporate">
+                <h3 class="mb-4" style="font-weight: 800; color: var(--toprak);">Köy Marketim Hakkında</h3>
+                <p class="text-muted" style="line-height: 1.8; font-size: 1.0625rem;">
+                  Köy Marketim, 2005 yılından bu yana Palabıyık Köyü'nde hizmet veren, köylülerimizin günlük ihtiyaçlarını karşılayan güvenilir bir markettir. Taze ve kaliteli ürünler sunma anlayışıyla, müşteri memnuniyetini her zaman ön planda tutuyoruz.
+                </p>
+                <p class="text-muted" style="line-height: 1.8; font-size: 1.0625rem;">
+                  Marketimizde temel gıda maddelerinden temizlik ürünlerine, organik köy ürünlerinden hazır yemeklere kadar geniş bir ürün yelpazesi bulabilirsiniz. Ayrıca köyümüzde üretilen ev yapımı tereyağı, peynir ve organik sebze-meyveleri de satışa sunuyoruz.
+                </p>
+                
+                <h4 class="mt-5 mb-3" style="font-weight: 700; color: var(--toprak);">Neden Bizi Seçmelisiniz?</h4>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="feature-badge w-100">
+                      <i class="fas fa-leaf text-success me-2"></i>
+                      <span>Organik ve Doğal Ürünler</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-badge w-100">
+                      <i class="fas fa-truck-fast text-primary me-2"></i>
+                      <span>Hızlı ve Güvenilir Hizmet</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-badge w-100">
+                      <i class="fas fa-tags text-warning me-2"></i>
+                      <span>Uygun Fiyat Garantisi</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-badge w-100">
+                      <i class="fas fa-clock text-info me-2"></i>
+                      <span>Esnek Çalışma Saatleri</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-badge w-100">
+                      <i class="fas fa-home text-danger me-2"></i>
+                      <span>Eve Teslimat Hizmeti</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-badge w-100">
+                      <i class="fas fa-credit-card text-secondary me-2"></i>
+                      <span>Kredi Kartı ile Ödeme</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Services Tab -->
+            <div class="tab-pane fade" id="services">
+              <div class="card-corporate">
+                <h3 class="mb-4" style="font-weight: 800; color: var(--toprak);">Ürün ve Hizmetlerimiz</h3>
+                
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <div class="p-3 rounded" style="background: var(--krem);">
+                      <h5 style="font-weight: 700; color: var(--toprak); margin-bottom: 1rem;">
+                        <i class="fas fa-carrot me-2"></i>Taze Meyve & Sebze
+                      </h5>
+                      <ul class="text-muted mb-0" style="line-height: 2;">
+                        <li>Mevsim meyveleri</li>
+                        <li>Organik sebzeler</li>
+                        <li>Köy domatesi, biberi</li>
+                        <li>Taze yeşillikler</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 rounded" style="background: var(--krem);">
+                      <h5 style="font-weight: 700; color: var(--yesil); margin-bottom: 1rem;">
+                        <i class="fas fa-cheese me-2"></i>Süt Ürünleri
+                      </h5>
+                      <ul class="text-muted mb-0" style="line-height: 2;">
+                        <li>Ev yapımı tereyağı</li>
+                        <li>Köy peyniri</li>
+                        <li>Taze yoğurt</li>
+                        <li>Kaymak ve süt</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 rounded" style="background: var(--krem);">
+                      <h5 style="font-weight: 700; color: var(--bugday); margin-bottom: 1rem;">
+                        <i class="fas fa-bread-slice me-2"></i>Temel Gıda
+                      </h5>
+                      <ul class="text-muted mb-0" style="line-height: 2;">
+                        <li>Un, pirinc, şeker</li>
+                        <li>Makarna ve bak lagiller</li>
+                        <li>Konserve ürünler</li>
+                        <li>Kahvaltılık malzemeler</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 rounded" style="background: var(--krem);">
+                      <h5 style="font-weight: 700; color: var(--gok); margin-bottom: 1rem;">
+                        <i class="fas fa-spray-can me-2"></i>Temizlik & Kozmetik
+                      </h5>
+                      <ul class="text-muted mb-0" style="line-height: 2;">
+                        <li>Deterjan ve yumugatcı</li>
+                        <li>Kişisel bakım ürünleri</li>
+                        <li>Çamaşır ve bulaşık malzemeleri</li>
+                        <li>Ev temizlik ürünleri</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 p-4 rounded" style="background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(45, 80, 22, 0.1)); border: 2px dashed var(--toprak);">
+                  <h5 style="font-weight: 700; color: var(--toprak); margin-bottom: 0.5rem;">
+                    <i class="fas fa-truck me-2"></i>Ek Hizmetlerimiz
+                  </h5>
+                  <p class="text-muted mb-0">Eve teslimat (50 TL üzeri ücretsiz) • Kredi kartı ile ödeme • Veresiye defteri • Toplu alışverişte indirim</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Tab -->
+            <div class="tab-pane fade" id="gallery">
+              <div class="card-corporate">
+                <h3 class="mb-4" style="font-weight: 800; color: var(--toprak);">Fotoğraf Galerisi</h3>
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80" alt="Market" class="gallery-img">
+                  </div>
+                  <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&w=600&q=80" alt="Ürünler" class="gallery-img">
+                  </div>
+                  <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80" alt="Sebze-Meyve" class="gallery-img">
+                  </div>
+                  <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499?auto=format&fit=crop&w=600&q=80" alt="Organik" class="gallery-img">
+                  </div>
+                  <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?auto=format&fit=crop&w=600&q=80" alt="Peynir" class="gallery-img">
+                  </div>
+                  <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1606787619918-e40f5e5c1c06?auto=format&fit=crop&w=600&q=80" alt="Market İçi" class="gallery-img">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-pane fade" id="reviews">
+              <div class="card-corporate">
+                <h3 class="mb-4" style="font-weight: 800; color: var(--toprak);">Müşteri Değerlendirmeleri</h3>
+                
+                <div class="review-card">
+                  <div class="d-flex align-items-center mb-2">
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--toprak); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 1rem;">
+                      AY
+                    </div>
+                    <div>
+                      <h6 class="mb-0" style="font-weight: 700;">Ahmet Yılmaz</h6>
+                      <div>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <span class="text-muted small ms-2">5 gün önce</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mb-0">Yıllardır bu marketten alışveriş yapıyorum. Ürünler her zaman taze ve kaliteli. Özellikle köy peyniri ve tereyağı harika. Aile işletmesi olması ve samimi hizmet anlayışları çok güzel.</p>
+                </div>
+
+                <div class="review-card">
+                  <div class="d-flex align-items-center mb-2">
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--yesil); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 1rem;">
+                      FK
+                    </div>
+                    <div>
+                      <h6 class="mb-0" style="font-weight: 700;">Fatma Kaya</h6>
+                      <div>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <span class="text-muted small ms-2">1 hafta önce</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mb-0">Eve teslimat hizmeti çok işe yarıyor. Telefon ediyorum, kısa sürede sipariaim kapıma geliyor. Fiyatlar da makul, teşekkür ederim.</p>
+                </div>
+
+                <div class="review-card">
+                  <div class="d-flex align-items-center mb-2">
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--bugday); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 1rem;">
+                      MÖ
+                    </div>
+                    <div>
+                      <h6 class="mb-0" style="font-weight: 700;">Mehmet Öztürk</h6>
+                      <div>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <i class="fas fa-star" style="color: var(--bugday); font-size: 0.875rem;"></i>
+                        <span class="text-muted small ms-2">2 hafta önce</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mb-0">Organik sebze ve meyvelerin kalitesi mükemmel. Her şey taze ve doğal. Köyümüzde böyle bir market olması çok güzel, başarılarınızın devamını dilerim.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="card-corporate mb-4" id="iletisim">
+            <h5 style="font-weight: 700; color: var(--toprak); margin-bottom: 1.5rem;">
+              <i class="fas fa-address-card me-2"></i>İletişim Bilgileri
+            </h5>
+            <div class="mb-3">
+              <div class="d-flex align-items-start mb-3">
+                <i class="fas fa-map-marker-alt" style="color: var(--toprak); font-size: 1.25rem; margin-right: 1rem; margin-top: 0.25rem;"></i>
+                <div>
+                  <strong class="d-block mb-1">Adres</strong>
+                  <p class="text-muted mb-0">Köy Meydanı No:15<br>Palabıyık / Çorum</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-3">
+                <i class="fas fa-phone" style="color: var(--yesil); font-size: 1.25rem; margin-right: 1rem; margin-top: 0.25rem;"></i>
+                <div>
+                  <strong class="d-block mb-1">Telefon</strong>
+                  <p class="text-muted mb-0">+90 (555) 111 22 33</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-3">
+                <i class="fas fa-clock" style="color: var(--bugday); font-size: 1.25rem; margin-right: 1rem; margin-top: 0.25rem;"></i>
+                <div>
+                  <strong class="d-block mb-1">Çalışma Saatleri</strong>
+                  <p class="text-muted mb-1">Pazartesi - Cumartesi: 08:00 - 20:00</p>
+                  <p class="text-muted mb-0">Pazar: 09:00 - 19:00</p>
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <a href="tel:+905551112233" class="btn btn-primary"><i class="fas fa-phone me-2"></i>Hemen Ara</a>
+              <a href="#" class="btn btn-outline-primary"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="card-corporate">
+            <h5 style="font-weight: 700; color: var(--toprak); margin-bottom: 1.5rem;">
+              <i class="fas fa-map me-2"></i>Konum
+            </h5>
+            <div class="ratio ratio-16x9" style="border-radius: 12px; overflow: hidden;">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12170.826543169727!2d34.90828555!3d40.4153949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x408103c1e284f331%3A0x892a7e78d2274488!2sPalab%C4%B1y%C4%B1k!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" loading="lazy" style="border: 0;"></iframe>
+            </div>
+            <a href="https://maps.google.com/?q=Palabiyik+Corum" target="_blank" class="btn btn-outline-primary w-100 mt-3">
+              <i class="fas fa-directions me-2"></i>Google Maps'te Aç
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="esnaflarimiz.html" class="btn btn-outline-primary">
+          <i class="fas fa-arrow-left me-2"></i>Tüm İşletmelere Dön
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-corporate">
+    <div class="container">
+      <div class="row g-5 mb-4">
+        <div class="col-lg-4">
+          <h3 class="footer-title"><i class="fas fa-mountain me-2"></i>Palabıyık Köyü</h3>
+          <p style="opacity: 0.9;">Çorum'un doğal güzellikleri ve kültürel zenginlikleriyle öne çıkan köyümüz.</p>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Hızlı Linkler</h5>
+          <a href="index.html" class="footer-link">Ana Sayfa</a>
+          <a href="esnaflarimiz.html" class="footer-link">Esnaflarımız</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Yönetim</h5>
+          <a href="yonetim.html" class="footer-link">Köy Yönetimi</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">İletişim</h5>
+          <p style="opacity: 0.9; margin: 0;"><i class="fas fa-phone me-2"></i>+90 (555) 123 45 67</p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
+        <p style="margin: 0; opacity: 0.8;">&copy; <span data-year>2026</span> Palabıyık Köyü.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
