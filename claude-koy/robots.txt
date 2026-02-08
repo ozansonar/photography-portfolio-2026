@@ -1,0 +1,15 @@
+# Palabıyık Köyü - Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow specific paths (if needed in the future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://ozansonar.github.io/photography-portfolio-2026/claude-koy/sitemap.xml
+
+# Crawl delay (optional - 1 second between requests)
+Crawl-delay: 1
