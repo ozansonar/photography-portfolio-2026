@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödüller & Başarılar | Premium Fotoğrafçılık</title>
+    <meta name="description" content="15 yıllık kariyerimde kazandığım ödüller ve başarılar. Uluslararası fotoğraf yarışmaları ve sertifikalar.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .timeline { position: relative; padding: 2rem 0; }
+        .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #FF6B6B, #4ECDC4); }
+        .timeline-item { position: relative; margin-bottom: 3rem; }
+        .timeline-content { width: 45%; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); position: relative; }
+        [data-theme="light"] .timeline-content { background: #F9FAFB; border-color: #E5E7EB; }
+        .timeline-item:nth-child(odd) .timeline-content { margin-left: 55%; }
+        .timeline-item:nth-child(even) .timeline-content { margin-right: 55%; text-align: right; }
+        .timeline-dot { position: absolute; left: 50%; top: 2rem; transform: translateX(-50%); width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, #FF6B6B, #4ECDC4); border: 4px solid var(--darker); z-index: 2; }
+        .timeline-year { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #FF6B6B, #4ECDC4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
+        .timeline-title { font-size: 1.3rem; color: var(--light); margin-bottom: 0.5rem; }
+        [data-theme="light"] .timeline-title { color: var(--dark); }
+        .timeline-desc { color: var(--gray); line-height: 1.8; }
+        .timeline-badge { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3); border-radius: 50px; font-size: 0.75rem; color: var(--primary); margin-top: 1rem; }
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-content { width: calc(100% - 60px) !important; margin-left: 60px !important; text-align: left !important; }
+            .timeline-dot { left: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-screen"><div class="loading-content"><div class="loading-logo">📸</div><div class="loading-text">LOADING</div><div class="loading-bar"><div class="loading-progress"></div></div></div></div>
+
+    <header class="ultra-header">
+        <div class="container-fluid px-4">
+            <div class="header-content">
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#gradient1)" stroke-width="2"/><circle cx="20" cy="20" r="10" fill="url(#gradient1)"/><defs><linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="100%" stop-color="#4ECDC4"/></linearGradient></defs></svg></div>
+                    <div class="logo-text"><span class="logo-main">PHOTOGRAPHY</span><span class="logo-sub">Premium Portfolio</span></div>
+                </a>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-item"><span>Ana Sayfa</span><div class="nav-underline"></div></a>
+                    <a href="galeri.html" class="nav-item"><span>Galeri</span><div class="nav-underline"></div></a>
+                    <a href="blog.html" class="nav-item"><span>Blog</span><div class="nav-underline"></div></a>
+                    <a href="awards.html" class="nav-item active"><span>Ödüller</span><div class="nav-underline"></div></a>
+                    <a href="hakkimda.html" class="nav-item"><span>Hakkımda</span><div class="nav-underline"></div></a>
+                    <a href="iletisim.html" class="nav-item"><span>İletişim</span><div class="nav-underline"></div></a>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-btn" id="themeToggle"><i class="bi bi-sun-fill"></i></button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="index.html" class="mobile-nav-item">Ana Sayfa</a>
+            <a href="galeri.html" class="mobile-nav-item">Galeri</a>
+            <a href="blog.html" class="mobile-nav-item">Blog</a>
+            <a href="awards.html" class="mobile-nav-item">Ödüller</a>
+            <a href="hakkimda.html" class="mobile-nav-item">Hakkımda</a>
+            <a href="iletisim.html" class="mobile-nav-item">İletişim</a>
+        </div>
+    </div>
+
+    <section class="page-header"><div class="container"><h1 data-aos="fade-up">Ödüller & Başarılar</h1><p data-aos="fade-up" data-aos-delay="100">15 yıllık kariyer yolculuğumda kazandığım ödüller</p></div></section>
+
+    <section class="about-content-section">
+        <div class="container">
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2026</div>
+                        <h3 class="timeline-title">🏆 International Photography Awards - Birincili</h3>
+                        <p class="timeline-desc">"Doğal Işık Portre" serimle IPA 2026'da portre kategorisinde birincili kazandım. 120 ülkeden 15.000 fotoğraf arasından seçildi.</p>
+                        <span class="timeline-badge">Portre Kategorisi</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">⭐ Sony World Photography Awards - Finalist</h3>
+                        <p class="timeline-desc">Düğün fotoğraflarım Sony World Photography Awards'ta finalde. Londra'daki sergileme için seçildi.</p>
+                        <span class="timeline-badge">Düğün</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3 class="timeline-title">🌟 National Geographic Photo Contest - Özel Man</h3>
+                        <p class="timeline-desc">"Dağların Ruhu" fotorafımla National Geographic'in yıllık yarışmasında özel manşiyon kazandım.</p>
+                        <span class="timeline-badge">Doğa</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">📸 Türkiye Fotoğraf Sanatı Derneği - Yılın Fotoğrafçısı</h3>
+                        <p class="timeline-desc">TFSF tarafından "Yılın Fotoğrafçısı" seçildim. Toplam 8 farklı kategoride ödül alan tek fotoğrafçı.</p>
+                        <span class="timeline-badge">Yılın Fotoğrafçısı</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3 class="timeline-title">🎨 Wedding Photographer of the Year - Top 10</h3>
+                        <p class="timeline-desc">Dünya çapındaki en iyi 10 düğün fotoğrafçısı arasına girdim. New York'taki sergide yer aldım.</p>
+                        <span class="timeline-badge">Düğün</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3 class="timeline-title">🌍 National Geographic Türkiye - Kapa</h3>
+                        <p class="timeline-desc">"Anadolu'nun Yüzüleri" projem National Geographic Türkiye'nin kapağında yer aldı. 6 sayfalık özel dosya yayınlandı.</p>
+                        <span class="timeline-badge">Portre</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="timeline-title">🎯 Canon Usta Fotoğrafçı Sertifikası</h3>
+                        <p class="timeline-desc">Canon tarafından verilen "Usta Fotoğrafçı" unvanını kazandım. Türkiye'de bu sertifikaya sahip 50 fotoğrafçıdan biriyim.</p>
+                        <span class="timeline-badge">Sertifika</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">🎓 Profesyonel Fotoğrafçılık Sertifikası</h3>
+                        <p class="timeline-desc">New York Film Academy'den Profesyonel Fotoğrafçılık eğitimini tamamladım. Honor derecesiyle mezun oldum.</p>
+                        <span class="timeline-badge">Eğitim</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2011</div>
+                        <h3 class="timeline-title">🌟 İlk Fotoğraf Yarışması Ödülü</h3>
+                        <p class="timeline-desc">Kariyer başlangıcım: "İstanbul'un Yüzleri" temalı yarışmada üçüncülük. Fotoğraf tutkumun profesyonelleştiği dönem.</p>
+                        <span class="timeline-badge">Başlangıç</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-brand"><h3>PHOTOGRAPHY</h3><p>Her kare bir hikaye.</p></div><div class="footer-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-twitter"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div></div><div class="footer-col"><h4>Bağlantılar</h4><ul><li><a href="index.html">Ana Sayfa</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="blog.html">Blog</a></li><li><a href="awards.html">Ödüller</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div><div class="footer-col"><h4>Hizmetler</h4><ul><li><a href="#">Portre</a></li><li><a href="#">Düğün</a></li><li><a href="#">Ürün</a></li><li><a href="#">Mimari</a></li></ul></div><div class="footer-col"><h4>İletişim</h4><ul class="footer-contact"><li><i class="bi bi-geo-alt-fill"></i> İstanbul</li><li><i class="bi bi-envelope-fill"></i> info@photo.com</li><li><i class="bi bi-telephone-fill"></i> +90 555 123 4567</li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 Photography</p><p>Made with ❤️ by <strong>Ozan SONAR</strong></p></div></div></footer>
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

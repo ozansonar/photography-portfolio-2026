@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Fotoğrafçılık İpuçları & Hikayeler</title>
+    <meta name="description" content="Fotoğrafçılık üzerine makaleler, ipucu ve hikayeler. Profesyonel fotoğrafçılık tekniklerini keşfedin.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .blog-card { background: rgba(255,255,255,0.03); border-radius: 1rem; overflow: hidden; transition: all 0.4s; border: 1px solid rgba(255,255,255,0.1); }
+        [data-theme="light"] .blog-card { background: #F9FAFB; border-color: #E5E7EB; }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(255,107,107,0.2); }
+        .blog-image { width: 100%; height: 250px; object-fit: cover; }
+        .blog-content { padding: 2rem; }
+        .blog-meta { display: flex; gap: 1.5rem; margin-bottom: 1rem; font-size: 0.85rem; color: var(--gray); }
+        .blog-title { font-size: 1.5rem; color: var(--light); margin-bottom: 1rem; }
+        [data-theme="light"] .blog-title { color: var(--dark); }
+        .blog-excerpt { color: var(--gray); line-height: 1.8; margin-bottom: 1.5rem; }
+        .blog-tag { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3); border-radius: 50px; font-size: 0.75rem; color: var(--primary); margin-right: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="loading-screen"><div class="loading-content"><div class="loading-logo">📸</div><div class="loading-text">LOADING</div><div class="loading-bar"><div class="loading-progress"></div></div></div></div>
+
+    <header class="ultra-header">
+        <div class="container-fluid px-4">
+            <div class="header-content">
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#gradient1)" stroke-width="2"/><circle cx="20" cy="20" r="10" fill="url(#gradient1)"/><defs><linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="100%" stop-color="#4ECDC4"/></linearGradient></defs></svg></div>
+                    <div class="logo-text"><span class="logo-main">PHOTOGRAPHY</span><span class="logo-sub">Premium Portfolio</span></div>
+                </a>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-item"><span>Ana Sayfa</span><div class="nav-underline"></div></a>
+                    <a href="galeri.html" class="nav-item"><span>Galeri</span><div class="nav-underline"></div></a>
+                    <a href="blog.html" class="nav-item active"><span>Blog</span><div class="nav-underline"></div></a>
+                    <a href="awards.html" class="nav-item"><span>Ödüller</span><div class="nav-underline"></div></a>
+                    <a href="hakkimda.html" class="nav-item"><span>Hakkımda</span><div class="nav-underline"></div></a>
+                    <a href="iletisim.html" class="nav-item"><span>İletişim</span><div class="nav-underline"></div></a>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-btn" id="themeToggle"><i class="bi bi-sun-fill"></i></button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="index.html" class="mobile-nav-item">Ana Sayfa</a>
+            <a href="galeri.html" class="mobile-nav-item">Galeri</a>
+            <a href="blog.html" class="mobile-nav-item">Blog</a>
+            <a href="awards.html" class="mobile-nav-item">Ödüller</a>
+            <a href="hakkimda.html" class="mobile-nav-item">Hakkımda</a>
+            <a href="iletisim.html" class="mobile-nav-item">İletişim</a>
+        </div>
+    </div>
+
+    <section class="page-header"><div class="container"><h1 data-aos="fade-up">Blog & Makaleler</h1><p data-aos="fade-up" data-aos-delay="100">Fotoğrafçılık üzerine hikayeler ve ipucu</p></div></section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="blog-grid">
+                <div class="blog-card" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&h=600&fit=crop" alt="Blog" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta"><span><i class="bi bi-calendar"></i> 5 Şubat 2026</span><span><i class="bi bi-eye"></i> 1.2K görüntüleme</span></div>
+                        <span class="blog-tag">Portre</span><span class="blog-tag">Teknik</span>
+                        <h3 class="blog-title">Doğal Işıkta Portre Çekiminin 10 Altın Kuralı</h3>
+                        <p class="blog-excerpt">Doğal ışık kullanarak profesyonel portre fotoğrafları çekmek için bilmeniz gereken her şey. Sabah ve akşam ışıklarının nasıl kullanılacağından kompozisyon tekniklerine...</p>
+                        <a href="#" class="service-link-modern">Devamını Oku →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop" alt="Blog" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta"><span><i class="bi bi-calendar"></i> 2 Şubat 2026</span><span><i class="bi bi-eye"></i> 2.5K görüntüleme</span></div>
+                        <span class="blog-tag">Düğün</span><span class="blog-tag">Hikaye</span>
+                        <h3 class="blog-title">Unutulmaz Düğün Fotoğrafları Çekmenin Sırrı</h3>
+                        <p class="blog-excerpt">15 yıllık deneyimimle öğrendiklerim: Düğün fotoğrafçılığında en özel anları yakalamak için stratejiler, hazırlık ipucu ve duygusal anları ölümsüzleştirme...</p>
+                        <a href="#" class="service-link-modern">Devamını Oku →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&h=600&fit=crop" alt="Blog" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta"><span><i class="bi bi-calendar"></i> 28 Ocak 2026</span><span><i class="bi bi-eye"></i> 1.8K görüntüleme</span></div>
+                        <span class="blog-tag">Ekipman</span><span class="blog-tag">Rehber</span>
+                        <h3 class="blog-title">2026'da Fotoğrafçıların Kullanması Gereken 5 Lens</h3>
+                        <p class="blog-excerpt">Portreden manzaraya, her türlü çekim için ideal lens seçimleri. Canon, Sony ve Nikon kullanıcıları için detaylı karşılaştırmalar ve tavsiyeler...</p>
+                        <a href="#" class="service-link-modern">Devamını Oku →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1606926938768-72b97c0de4cd?w=800&h=600&fit=crop" alt="Blog" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta"><span><i class="bi bi-calendar"></i> 25 Ocak 2026</span><span><i class="bi bi-eye"></i> 3.1K görüntüleme</span></div>
+                        <span class="blog-tag">Edit</span><span class="blog-tag">Lightroom</span>
+                        <h3 class="blog-title">Lightroom'da Sinematik Renk Düzenleme</h3>
+                        <p class="blog-excerpt">Fotoğraflarınıza film tadı katmanın en etkili yöntemleri. HSL ayarlarından renk derecelendirmeye, profesyonel sonuçlar için adım adım rehber...</p>
+                        <a href="#" class="service-link-modern">Devamını Oku →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Blog" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta"><span><i class="bi bi-calendar"></i> 20 Ocak 2026</span><span><i class="bi bi-eye"></i> 2.7K görüntüleme</span></div>
+                        <span class="blog-tag">Doğa</span><span class="blog-tag">Seyahat</span>
+                        <h3 class="blog-title">Manzara Fotoğrafçılığında Kompozisyon Nasıl Kurulur?</h3>
+                        <p class="blog-excerpt">Üçte bir kuralından önde gelen çizgilere, derinlik hissinden simetri kullanımına kadar manzara çekimlerinde kompozisyon sırları...</p>
+                        <a href="#" class="service-link-modern">Devamını Oku →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&h=600&fit=crop" alt="Blog" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta"><span><i class="bi bi-calendar"></i> 15 Ocak 2026</span><span><i class="bi bi-eye"></i> 1.9K görüntüleme</span></div>
+                        <span class="blog-tag">Sokak</span><span class="blog-tag">Hikaye</span>
+                        <h3 class="blog-title">Sokak Fotoğrafçılığı: Anları Yakalamak</h3>
+                        <p class="blog-excerpt">Şehrin nabzını fotoğraflamak. Sokak fotoğrafçılığında timing, cesaret ve hikaye anlatma sanatı. Gerçek yaşamdan kesitler...</p>
+                        <a href="#" class="service-link-modern">Devamını Oku →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-brand"><h3>PHOTOGRAPHY</h3><p>Her kare bir hikaye.</p></div><div class="footer-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-twitter"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div></div><div class="footer-col"><h4>Bağlantılar</h4><ul><li><a href="index.html">Ana Sayfa</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="blog.html">Blog</a></li><li><a href="awards.html">Ödüller</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div><div class="footer-col"><h4>Hizmetler</h4><ul><li><a href="#">Portre</a></li><li><a href="#">Düğün</a></li><li><a href="#">Ürün</a></li><li><a href="#">Mimari</a></li></ul></div><div class="footer-col"><h4>İletişim</h4><ul class="footer-contact"><li><i class="bi bi-geo-alt-fill"></i> İstanbul</li><li><i class="bi bi-envelope-fill"></i> info@photo.com</li><li><i class="bi bi-telephone-fill"></i> +90 555 123 4567</li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 Photography</p><p>Made with ❤️ by <strong>Ozan SONAR</strong></p></div></div></footer>
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
