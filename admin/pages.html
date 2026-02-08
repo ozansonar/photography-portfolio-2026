@@ -1,0 +1,793 @@
+<!-- =================================
+     BLOG YÖNETİMİ PAGE
+     ================================= -->
+<div class="page-content" id="blog">
+    <div class="page-header animate__animated animate__fadeInDown">
+        <div>
+            <h1>Blog Yönetimi</h1>
+            <p>Makalelerinizi oluşturun ve yönetin</p>
+        </div>
+        <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#newPostModal">
+            <i class="bi bi-plus-lg"></i> Yeni Makale
+        </button>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card-small">
+                <i class="bi bi-file-text"></i>
+                <div>
+                    <h4 class="counter" data-count="24">0</h4>
+                    <p>Toplam Makale</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card-small">
+                <i class="bi bi-eye"></i>
+                <div>
+                    <h4 class="counter" data-count="15420">0</h4>
+                    <p>Toplam Okunma</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card-small">
+                <i class="bi bi-chat"></i>
+                <div>
+                    <h4 class="counter" data-count="342">0</h4>
+                    <p>Toplam Yorum</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card-small">
+                <i class="bi bi-clock-history"></i>
+                <div>
+                    <h4 class="counter" data-count="3">0</h4>
+                    <p>Taslak</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="filter-tabs">
+                <button class="tab-btn active">Tümü</button>
+                <button class="tab-btn">Yayında</button>
+                <button class="tab-btn">Taslak</button>
+                <button class="tab-btn">Arşiv</button>
+            </div>
+            <div class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Makale ara...">
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Başlık</th>
+                            <th>Kategori</th>
+                            <th>Yazar</th>
+                            <th>Tarih</th>
+                            <th>Durum</th>
+                            <th>Okunma</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="post-title">
+                                    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=50&h=50&fit=crop" alt="">
+                                    <div>
+                                        <h4>Doğal Işıkta Portre Çekimi</h4>
+                                        <p>10 altın kural ve ipuçları</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge-cat bg-primary">Portre</span></td>
+                            <td>Ozan SONAR</td>
+                            <td>5 Şub 2026</td>
+                            <td><span class="status-badge success">Yayında</span></td>
+                            <td>2,540</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-icon-sm" title="Düzenle"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn-icon-sm" title="Görüntüle"><i class="bi bi-eye"></i></button>
+                                    <button class="btn-icon-sm" title="Sil"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="post-title">
+                                    <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=50&h=50&fit=crop" alt="">
+                                    <div>
+                                        <h4>Unutulmaz Düğün Fotoğrafları</h4>
+                                        <p>Profesyonel ipuçları</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge-cat bg-success">Düğün</span></td>
+                            <td>Ozan SONAR</td>
+                            <td>2 Şub 2026</td>
+                            <td><span class="status-badge success">Yayında</span></td>
+                            <td>1,890</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-icon-sm"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="post-title">
+                                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=50&h=50&fit=crop" alt="">
+                                    <div>
+                                        <h4>2026'da En İyi Lensler</h4>
+                                        <p>Ekipman rehberi</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge-cat bg-warning">Ekipman</span></td>
+                            <td>Ozan SONAR</td>
+                            <td>28 Oca 2026</td>
+                            <td><span class="status-badge draft">Taslak</span></td>
+                            <td>-</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-icon-sm"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =================================
+     KULLANICILAR PAGE
+     ================================= -->
+<div class="page-content" id="users">
+    <div class="page-header animate__animated animate__fadeInDown">
+        <div>
+            <h1>Kullanıcı Yönetimi</h1>
+            <p>Kullanıcıları görüntüleyin ve yönetin</p>
+        </div>
+        <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#newUserModal">
+            <i class="bi bi-plus-lg"></i> Yeni Kullanıcı
+        </button>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card-small">
+                <i class="bi bi-people"></i>
+                <div>
+                    <h4 class="counter" data-count="1248">0</h4>
+                    <p>Toplam Kullanıcı</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card-small">
+                <i class="bi bi-person-check"></i>
+                <div>
+                    <h4 class="counter" data-count="890">0</h4>
+                    <p>Aktif Kullanıcı</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card-small">
+                <i class="bi bi-person-plus"></i>
+                <div>
+                    <h4 class="counter" data-count="45">0</h4>
+                    <p>Bu Ay Yeni</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card-small">
+                <i class="bi bi-shield-check"></i>
+                <div>
+                    <h4 class="counter" data-count="12">0</h4>
+                    <p>Admin</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="filter-tabs">
+                <button class="tab-btn active">Tümü</button>
+                <button class="tab-btn">Admin</button>
+                <button class="tab-btn">Editör</button>
+                <button class="tab-btn">Abone</button>
+            </div>
+            <div class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Kullanıcı ara...">
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kullanıcı</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Kayıt Tarihi</th>
+                            <th>Son Giriş</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="user-cell">
+                                    <img src="https://i.pravatar.cc/50?img=12" alt="">
+                                    <div>
+                                        <h4>Ozan SONAR</h4>
+                                        <p>@ozansonar</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>ozan@example.com</td>
+                            <td><span class="badge-cat bg-danger">Admin</span></td>
+                            <td>15 Oca 2024</td>
+                            <td>Az önce</td>
+                            <td><span class="status-badge success"><i class="bi bi-circle-fill"></i> Aktif</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-icon-sm"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-envelope"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-cell">
+                                    <img src="https://i.pravatar.cc/50?img=25" alt="">
+                                    <div>
+                                        <h4>Ayşe Yılmaz</h4>
+                                        <p>@ayseyilmaz</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>ayse@example.com</td>
+                            <td><span class="badge-cat bg-primary">Editör</span></td>
+                            <td>20 Şub 2024</td>
+                            <td>2 saat önce</td>
+                            <td><span class="status-badge success"><i class="bi bi-circle-fill"></i> Aktif</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-icon-sm"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-envelope"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-cell">
+                                    <img src="https://i.pravatar.cc/50?img=33" alt="">
+                                    <div>
+                                        <h4>Mehmet Kaya</h4>
+                                        <p>@mehmetkaya</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>mehmet@example.com</td>
+                            <td><span class="badge-cat bg-info">Abone</span></td>
+                            <td>5 Mar 2025</td>
+                            <td>1 gün önce</td>
+                            <td><span class="status-badge inactive"><i class="bi bi-circle-fill"></i> Pasif</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-icon-sm"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-envelope"></i></button>
+                                    <button class="btn-icon-sm"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =================================
+     MESAJLAR PAGE
+     ================================= -->
+<div class="page-content" id="messages">
+    <div class="page-header animate__animated animate__fadeInDown">
+        <div>
+            <h1>Mesajlar</h1>
+            <p>Gelen kutunuz ve iletişim mesajları</p>
+        </div>
+        <button class="btn-primary">
+            <i class="bi bi-pencil-square"></i> Yeni Mesaj
+        </button>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Klasörler</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="message-folders">
+                        <div class="folder-item active">
+                            <i class="bi bi-inbox"></i>
+                            <span>Gelen Kutusu</span>
+                            <span class="count">38</span>
+                        </div>
+                        <div class="folder-item">
+                            <i class="bi bi-send"></i>
+                            <span>Gönderilenler</span>
+                            <span class="count">142</span>
+                        </div>
+                        <div class="folder-item">
+                            <i class="bi bi-star"></i>
+                            <span>Yıldızlı</span>
+                            <span class="count">12</span>
+                        </div>
+                        <div class="folder-item">
+                            <i class="bi bi-trash"></i>
+                            <span>Çöp Kutusu</span>
+                            <span class="count">5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Gelen Kutusu</h3>
+                    <div class="message-actions">
+                        <button class="btn-icon-sm"><i class="bi bi-arrow-clockwise"></i></button>
+                        <button class="btn-icon-sm"><i class="bi bi-trash"></i></button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="messages-list">
+                        <div class="message-item unread">
+                            <input type="checkbox">
+                            <img src="https://i.pravatar.cc/40?img=15" alt="">
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>Ahmet Yılmaz</h4>
+                                    <span>15 dakika önce</span>
+                                </div>
+                                <h5>Düğün Fotoğrafçılığı Teklifi</h5>
+                                <p>Merhaba, 15 Mayıs tarihinde düğünüm var. Fiyat teklifi alabilir miyim?</p>
+                            </div>
+                        </div>
+                        <div class="message-item unread">
+                            <input type="checkbox">
+                            <img src="https://i.pravatar.cc/40?img=22" alt="">
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>Zeynep Kara</h4>
+                                    <span>1 saat önce</span>
+                                </div>
+                                <h5>Portfolyo İnceleme</h5>
+                                <p>Portfolyonuzu inceledim, çok beğendim. Görüşmek isterim.</p>
+                            </div>
+                        </div>
+                        <div class="message-item">
+                            <input type="checkbox">
+                            <img src="https://i.pravatar.cc/40?img=8" alt="">
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>Can Demir</h4>
+                                    <span>3 saat önce</span>
+                                </div>
+                                <h5>Ürün Çekimi</h5>
+                                <p>E-ticaret sitesi için ürün fotoğrafları çektirmek istiyorum.</p>
+                            </div>
+                        </div>
+                        <div class="message-item">
+                            <input type="checkbox">
+                            <img src="https://i.pravatar.cc/40?img=30" alt="">
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>Elif Şahin</h4>
+                                    <span>Dün</span>
+                                </div>
+                                <h5>Portre Çekimi</h5>
+                                <p>Profesyonel portre fotoğrafları için randevu alabilir miyim?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =================================
+     ANALİTİK PAGE
+     ================================= -->
+<div class="page-content" id="analytics">
+    <div class="page-header animate__animated animate__fadeInDown">
+        <div>
+            <h1>Analitik & Raporlar</h1>
+            <p>Detaylı istatistikler ve performans raporları</p>
+        </div>
+        <div class="date-range-picker">
+            <button class="btn-secondary"><i class="bi bi-calendar"></i> Son 30 Gün</button>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-xl-3 col-md-6">
+            <div class="stat-card-gradient purple">
+                <div class="stat-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <div>
+                    <p>Toplam Trafik</p>
+                    <h3 class="counter" data-count="48520">0</h3>
+                    <span class="trend up"><i class="bi bi-arrow-up"></i> 23.5%</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="stat-card-gradient blue">
+                <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
+                <div>
+                    <p>Ort. Süre</p>
+                    <h3>3:45</h3>
+                    <span class="trend up"><i class="bi bi-arrow-up"></i> 12.3%</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="stat-card-gradient green">
+                <div class="stat-icon"><i class="bi bi-cursor"></i></div>
+                <div>
+                    <p>Bounce Rate</p>
+                    <h3>24.8%</h3>
+                    <span class="trend down"><i class="bi bi-arrow-down"></i> 5.2%</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="stat-card-gradient orange">
+                <div class="stat-icon"><i class="bi bi-heart"></i></div>
+                <div>
+                    <p>Dönüşüm</p>
+                    <h3>8.4%</h3>
+                    <span class="trend up"><i class="bi bi-arrow-up"></i> 3.1%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Aylık Performans</h3>
+                    <div class="card-actions">
+                        <button class="btn-sm active">Görüntüleme</button>
+                        <button class="btn-sm">Ziyaretçi</button>
+                        <button class="btn-sm">Gelir</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="performanceChart" height="80"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Cihaz Dağılımı</h3>
+                </div>
+                <div class="card-body">
+                    <canvas id="deviceChart" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>En Çok Ziyaret Edilen Sayfalar</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="top-pages-list">
+                        <div class="top-page-item">
+                            <div class="page-info">
+                                <h4>Ana Sayfa</h4>
+                                <p>/index.html</p>
+                            </div>
+                            <div class="page-stats">
+                                <span class="views">12,540</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-page-item">
+                            <div class="page-info">
+                                <h4>Galeri</h4>
+                                <p>/galeri.html</p>
+                            </div>
+                            <div class="page-stats">
+                                <span class="views">8,920</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-page-item">
+                            <div class="page-info">
+                                <h4>Blog</h4>
+                                <p>/blog.html</p>
+                            </div>
+                            <div class="page-stats">
+                                <span class="views">6,480</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 45%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-page-item">
+                            <div class="page-info">
+                                <h4>Hakkımda</h4>
+                                <p>/hakkimda.html</p>
+                            </div>
+                            <div class="page-stats">
+                                <span class="views">4,320</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Coğrafi Dağılım</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="geo-list">
+                        <div class="geo-item">
+                            <div class="country">
+                                <span class="flag">🇹🇷</span>
+                                <span>Türkiye</span>
+                            </div>
+                            <div class="geo-stats">
+                                <span>42.5%</span>
+                                <div class="progress-bar">
+                                    <div class="progress bg-primary" style="width: 42.5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="geo-item">
+                            <div class="country">
+                                <span class="flag">🇺🇸</span>
+                                <span>Amerika</span>
+                            </div>
+                            <div class="geo-stats">
+                                <span>28.3%</span>
+                                <div class="progress-bar">
+                                    <div class="progress bg-success" style="width: 28.3%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="geo-item">
+                            <div class="country">
+                                <span class="flag">🇩🇪</span>
+                                <span>Almanya</span>
+                            </div>
+                            <div class="geo-stats">
+                                <span>15.8%</span>
+                                <div class="progress-bar">
+                                    <div class="progress bg-warning" style="width: 15.8%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="geo-item">
+                            <div class="country">
+                                <span class="flag">🇬🇧</span>
+                                <span>İngiltere</span>
+                            </div>
+                            <div class="geo-stats">
+                                <span>13.4%</span>
+                                <div class="progress-bar">
+                                    <div class="progress bg-danger" style="width: 13.4%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =================================
+     AYARLAR PAGE
+     ================================= -->
+<div class="page-content" id="settings">
+    <div class="page-header animate__animated animate__fadeInDown">
+        <div>
+            <h1>Ayarlar</h1>
+            <p>Profil ve panel ayarlarınızı yönetin</p>
+        </div>
+        <button class="btn-primary"><i class="bi bi-check-lg"></i> Değişiklikleri Kaydet</button>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-3">
+            <div class="card settings-sidebar">
+                <div class="settings-nav">
+                    <a href="#profile" class="settings-nav-item active">
+                        <i class="bi bi-person"></i>
+                        <span>Profil Bilgileri</span>
+                    </a>
+                    <a href="#security" class="settings-nav-item">
+                        <i class="bi bi-shield-lock"></i>
+                        <span>Güvenlik</span>
+                    </a>
+                    <a href="#notifications" class="settings-nav-item">
+                        <i class="bi bi-bell"></i>
+                        <span>Bildirimler</span>
+                    </a>
+                    <a href="#appearance" class="settings-nav-item">
+                        <i class="bi bi-palette"></i>
+                        <span>Görünüm</span>
+                    </a>
+                    <a href="#preferences" class="settings-nav-item">
+                        <i class="bi bi-sliders"></i>
+                        <span>Tercihler</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Profil Bilgileri</h3>
+                    <p>Kişisel bilgilerinizi güncelleyin</p>
+                </div>
+                <div class="card-body">
+                    <div class="profile-upload">
+                        <img src="https://i.pravatar.cc/120?img=12" alt="" id="profileImage">
+                        <div>
+                            <button class="btn-secondary"><i class="bi bi-upload"></i> Fotoğraf Yükle</button>
+                            <p>JPG, PNG veya GIF. Max 2MB</p>
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Ad Soyad</label>
+                            <input type="text" class="form-control" value="Ozan SONAR">
+                        </div>
+                        <div class="form-group">
+                            <label>Kullanıcı Adı</label>
+                            <input type="text" class="form-control" value="@ozansonar">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" value="ozan@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input type="tel" class="form-control" value="+90 555 123 4567">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Biyografi</label>
+                            <textarea class="form-control" rows="4">15 yıllık deneyimle profesyonel fotoğrafçılık hizmeti sunuyorum. Portre, düğün ve ürün fotoğrafçılığı alanında uzmanım.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Website</label>
+                            <input type="url" class="form-control" value="https://ozansonar.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Konum</label>
+                            <input type="text" class="form-control" value="İstanbul, Türkiye">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h3>Sosyal Medya</h3>
+                    <p>Sosyal medya hesaplarınızı bağlayın</p>
+                </div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label><i class="bi bi-instagram text-danger"></i> Instagram</label>
+                            <input type="text" class="form-control" value="@ozansonar_photo">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="bi bi-facebook text-primary"></i> Facebook</label>
+                            <input type="text" class="form-control" value="ozansonarphotography">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="bi bi-twitter text-info"></i> Twitter</label>
+                            <input type="text" class="form-control" value="@ozansonar">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="bi bi-linkedin text-primary"></i> LinkedIn</label>
+                            <input type="text" class="form-control" value="ozan-sonar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h3>Güvenlik</h3>
+                    <p>Şifre ve güvenlik ayarları</p>
+                </div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Mevcut Şifre</label>
+                            <input type="password" class="form-control" placeholder="••••••••">
+                        </div>
+                        <div class="form-group">
+                            <label>Yeni Şifre</label>
+                            <input type="password" class="form-control" placeholder="••••••••">
+                        </div>
+                        <div class="form-group">
+                            <label>Şifre Tekrar</label>
+                            <input type="password" class="form-control" placeholder="••••••••">
+                        </div>
+                    </div>
+                    <div class="security-options">
+                        <div class="security-item">
+                            <div>
+                                <h4>İki Faktörlü Kimlik Doğrulama</h4>
+                                <p>Ekstra güvenlik katmanı ekleyin</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="security-item">
+                            <div>
+                                <h4>Oturum Bildirimleri</h4>
+                                <p>Yeni giriş yapıldığında bildirim al</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
