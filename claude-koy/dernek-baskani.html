@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dernek Başkanı | Palabıyık Köyü Derneği</title>
+  <title>Dernek Başkanı | Palabıyık Köyü</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +14,7 @@
   <nav class="navbar navbar-expand-lg navbar-corporate sticky-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <i class="fas fa-mountain me-2"></i>Palabıyık Köyü
+        <i class="fas fa-mountain"></i>Palabıyık Köyü
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -32,11 +33,12 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Dernek</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="dernek-baskani.html">Dernek Başkanı</a></li>
+              <li><a class="dropdown-item active" href="dernek-baskani.html">Dernek Başkanı</a></li>
               <li><a class="dropdown-item" href="dernek-kurulu.html">Yönetim Kurulu</a></li>
               <li><a class="dropdown-item" href="dernek-uyeler.html">Üyelerimiz</a></li>
             </ul>
           </li>
+          <li class="nav-item"><a class="nav-link" href="esnaflarimiz.html">Esnaflarımız</a></li>
           <li class="nav-item"><a class="nav-link" href="haberler.html">Haberler</a></li>
           <li class="nav-item"><a class="nav-link" href="etkinlikler.html">Etkinlikler</a></li>
           <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
@@ -46,55 +48,44 @@
     </div>
   </nav>
 
-  <section class="hero-corporate" style="height: 40vh; min-height: 350px;">
+  <section class="hero-corporate">
     <div class="container hero-content">
-      <h1 class="hero-title">Dernek Başkanı</h1>
-      <p class="hero-subtitle">Palabıyık Köyü Kalkınma ve Dayanışma Derneği</p>
+      <h1 class="hero-title">Dernek Başkanımız</h1>
+      <p class="hero-subtitle">Derneğimizi temsil eden değerli başkanımız</p>
     </div>
   </section>
 
   <section class="section-corporate">
     <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5">
-          <div class="profile-card">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Dernek Başkanı" class="profile-img" style="width: 250px; height: 250px;">
-            <h3 class="profile-name">Hasan Koç</h3>
-            <p class="profile-position">Dernek Başkanı</p>
-            <div class="profile-info text-start">
-              <p><strong>Görev Süresi:</strong> 2023 - 2027</p>
-              <p><strong>Telefon:</strong> +90 (555) 987 65 43</p>
-              <p><strong>E-posta:</strong> baskan@palabiyikdernegi.org</p>
-              <hr>
-              <p class="small"><strong>Meslek:</strong> Emekli Öğretmen</p>
-              <p class="small"><strong>Eğitim:</strong> Gazi Üniversitesi - Eğitim Fakültesi</p>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card-corporate">
+            <div class="row g-4">
+              <div class="col-md-4 text-center">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Hasan Koç" class="profile-img" style="width: 200px; height: 200px;">
+              </div>
+              <div class="col-md-8">
+                <h3 style="font-weight: 800; color: var(--toprak); margin-bottom: 0.5rem;">Hasan Koç</h3>
+                <p style="color: var(--yesil); font-weight: 600; font-size: 1.125rem; margin-bottom: 1rem;">Dernek Başkanı</p>
+                <p class="text-muted mb-2"><i class="fas fa-calendar me-2" style="color: var(--toprak);"></i>Görev Süresi: 2023 - 2027</p>
+                <p class="text-muted mb-3"><i class="fas fa-phone me-2" style="color: var(--toprak);"></i>+90 (555) 987 65 43</p>
+                <p class="text-muted mb-3"><i class="fas fa-envelope me-2" style="color: var(--toprak);"></i>hasan.koc@palabiyik.com</p>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-7">
-          <div class="mb-5">
-            <span class="section-badge">MESAJ</span>
-            <h2 class="section-title">Başkandan Mesaj</h2>
-            <p class="text-muted" style="font-size: 1.125rem; line-height: 1.8;">
-              Kıymetli hemşehrilerimiz,
-            </p>
-            <p class="text-muted" style="line-height: 1.8;">
-              Palabıyık Köyü Kalkınma ve Dayanışma Derneği Başkanı olarak, köyümüzün gelişimi ve hemşehrilerimizin dayanışması için çalışmaktan gurur duyuyorum.
-            </p>
-            <p class="text-muted" style="line-height: 1.8;">
-              Derneğimiz, 1995 yılından bu yana köyümüzün sosyal, kültürel ve ekonomik gelişimine katkıda bulunmak amacıyla çalışmalarına devam etmektedir. Eğitim bursu programlarımız, kültürel etkinliklerimiz ve altyapı desteklerimizle köyümüzün gelişimine katkı sağlamaya devam ediyoruz.
-            </p>
-            <p class="text-muted" style="line-height: 1.8;">
-              Gençlerimizin eğitim hayatında başarılı olmaları, köyümüzde yaşayan yaşlılarımızın sağlıklı ve huzurlu bir yaşam sürmesi, ve köyümüzün tarihi dokusunun korunarak gelecek nesillere aktarılması en önemli hedeflerimiz arasındadır.
-            </p>
-            <p class="text-muted" style="line-height: 1.8;">
-              Tüm hemşehrilerimizi derneğimize üye olmaya ve etkinliklerimize katılmaya davet ediyorum. Birlik ve beraberlik içinde, köyümüzü daha da güzel yarınlara taşıyacağımıza inanıyorum.
-            </p>
-            <p class="text-muted" style="line-height: 1.8; margin-top: 2rem;">
-              Saygılarımla,<br>
-              <strong style="color: var(--toprak);">Hasan Koç</strong><br>
-              <em style="font-size: 0.95rem;">Dernek Başkanı</em>
-            </p>
+            <hr style="border-top: 2px solid var(--acik-gri); margin: 2rem 0;">
+            <div>
+              <h5 style="font-weight: 700; color: var(--toprak); margin-bottom: 1rem;">Hakkında</h5>
+              <p class="text-muted" style="line-height: 1.8;">
+                1975 yılında köyümüzde doğan Hasan Koç, İşletme mezunudur. Uzun yıllar özel sektörde yönetici olarak görev yaptıktan sonra, köyümüze hizmet etmek için derneğimizin başkanlığına aday olmuş ve 2023 yılında başkan seçilmiştir.
+              </p>
+              <p class="text-muted" style="line-height: 1.8;">
+                Gençlerin eğitimine ve köyümüzün kalkınmasına büyük önem veren başkanımız, döneminde birçok sosyal sorumluluk projesini hayata geçirmiştir. Burs programları, kültürel etkinlikler ve altyapı projelerinde aktif rol almaktadır.
+              </p>
+              <h5 style="font-weight: 700; color: var(--toprak); margin: 2rem 0 1rem;">Vizyon</h5>
+              <p class="text-muted" style="line-height: 1.8;">
+                "Köyümüzün gençlerinin eğitim seviyesini yükseltmek, kültürel değerlerimizi koruyarak gelecek nesillere aktarmak ve köyümüzün ekonomik olarak kalkınmasını sağlamak en önemli hedeflerimizdir."
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -104,69 +95,29 @@
   <section class="section-corporate" style="background: var(--beyaz);">
     <div class="container">
       <div class="section-header">
-        <span class="section-badge">VİZYON & MİSYON</span>
-        <h2 class="section-title">Derneğimizin Amaçları</h2>
+        <span class="section-badge">PROJELER</span>
+        <h2 class="section-title">Tamamlanan Projeler</h2>
       </div>
       <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card-corporate">
+        <div class="col-lg-4 col-md-6">
+          <div class="card-corporate h-100">
             <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
-            <h4 class="card-title">Eğitim Desteği</h4>
-            <p class="card-text">Köyümüz gençlerine burs ve eğitim desteği sağlayarak eğitim hayatında başarılı olmalarını desteklemek.</p>
+            <h5 class="card-title">Burs Programı</h5>
+            <p class="card-text">Üniversite öğrencilerine yönelik burs programı başlatıldı.</p>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card-corporate">
-            <div class="card-icon" style="background: linear-gradient(135deg, #4a7c2c, #2d5016);"><i class="fas fa-hand-holding-heart"></i></div>
-            <h4 class="card-title">Sosyal Dayanışma</h4>
-            <p class="card-text">Hemşehrilerimiz arasında dayanışma ve yardımlaşmayı artırarak sosyal bağları güçlendirmek.</p>
+        <div class="col-lg-4 col-md-6">
+          <div class="card-corporate h-100">
+            <div class="card-icon" style="background: linear-gradient(135deg, var(--yesil), var(--yesil-acik));"><i class="fas fa-users"></i></div>
+            <h5 class="card-title">Kültürel Etkinlikler</h5>
+            <p class="card-text">Yıl boyunca 15'ten fazla kültürel etkinlik düzenlendi.</p>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card-corporate">
-            <div class="card-icon" style="background: linear-gradient(135deg, #daa520, #b8860b);"><i class="fas fa-landmark"></i></div>
-            <h4 class="card-title">Kültür Koruma</h4>
-            <p class="card-text">Köyümüzün tarihi ve kültürel değerlerini koruyarak gelecek nesillere aktarmak.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card-corporate">
-            <div class="card-icon" style="background: linear-gradient(135deg, #5b7a9f, #4a6178);"><i class="fas fa-tools"></i></div>
-            <h4 class="card-title">Altyapı Geliştirme</h4>
-            <p class="card-text">Köyümüzün fiziki altyapısının geliştirilmesine katkıda bulunmak.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-corporate">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">BAŞARILAR</span>
-        <h2 class="section-title">Gerçekleştirilen Projeler</h2>
-        <p class="section-subtitle">2023-2026 döneminde tamamlanan önemli çalışmalar</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="text-center p-4 rounded" style="background: var(--krem);">
-            <div class="mb-3" style="font-size: 3.5rem; color: var(--toprak);"><i class="fas fa-user-graduate"></i></div>
-            <h3 style="font-weight: 800; color: var(--toprak);">45</h3>
-            <p class="text-muted mb-0">Burs Öğrenci</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="text-center p-4 rounded" style="background: var(--krem);">
-            <div class="mb-3" style="font-size: 3.5rem; color: var(--yesil);"><i class="fas fa-calendar-alt"></i></div>
-            <h3 style="font-weight: 800; color: var(--yesil);">28</h3>
-            <p class="text-muted mb-0">Etkinlik</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="text-center p-4 rounded" style="background: var(--krem);">
-            <div class="mb-3" style="font-size: 3.5rem; color: var(--bugday);"><i class="fas fa-hands-helping"></i></div>
-            <h3 style="font-weight: 800; color: var(--bugday);">120+</h3>
-            <p class="text-muted mb-0">Yardım Ailesi</p>
+        <div class="col-lg-4 col-md-6">
+          <div class="card-corporate h-100">
+            <div class="card-icon" style="background: linear-gradient(135deg, var(--bugday), var(--bugday-acik));"><i class="fas fa-hands-helping"></i></div>
+            <h5 class="card-title">Sosyal Yardım</h5>
+            <p class="card-text">Muhtac ailelere gıda ve kıyafet yardımı yapıldı.</p>
           </div>
         </div>
       </div>
@@ -181,28 +132,33 @@
           <p style="opacity: 0.9;">Çorum'un doğal güzellikleri ve kültürel zenginlikleriyle öne çıkan köyümüz.</p>
         </div>
         <div class="col-lg-2 col-md-4">
-          <h5 class="footer-title">Dernek</h5>
-          <a href="dernek-baskani.html" class="footer-link">Başkan</a>
-          <a href="dernek-kurulu.html" class="footer-link">Yönetim Kurulu</a>
-          <a href="dernek-uyeler.html" class="footer-link">Üyeler</a>
+          <h5 class="footer-title">Hızlı Linkler</h5>
+          <a href="index.html" class="footer-link">Ana Sayfa</a>
+          <a href="hakkimizda.html" class="footer-link">Hakkımızda</a>
+          <a href="haberler.html" class="footer-link">Haberler</a>
+          <a href="esnaflarimiz.html" class="footer-link">Esnaflarımız</a>
         </div>
         <div class="col-lg-3 col-md-4">
           <h5 class="footer-title">Yönetim</h5>
           <a href="yonetim.html" class="footer-link">Köy Yönetimi</a>
-          <a href="gecmis-yonetimler.html" class="footer-link">Geçmiş Yönetimler</a>
+          <a href="dernek-baskani.html" class="footer-link">Dernek Başkanı</a>
+          <a href="etkinlikler.html" class="footer-link">Etkinlikler</a>
         </div>
         <div class="col-lg-3 col-md-4">
           <h5 class="footer-title">İletişim</h5>
-          <p style="opacity: 0.9; margin: 0;"><i class="fas fa-phone me-2"></i>+90 (555) 987 65 43</p>
+          <p style="opacity: 0.9; margin: 0;"><i class="fas fa-phone me-2"></i>+90 (555) 123 45 67</p>
+          <p style="opacity: 0.9; margin: 0.5rem 0 0;"><i class="fas fa-envelope me-2"></i>info@palabiyik.com</p>
         </div>
       </div>
       <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
-        <p style="margin: 0; opacity: 0.8;">&copy; <span data-year>2026</span> Palabıyık Köyü Derneği.</p>
+        <p style="margin: 0; opacity: 0.8;">&copy; <span data-year>2026</span> Palabıyık Köyü. Tüm hakları saklıdır.</p>
       </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
