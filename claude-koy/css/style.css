@@ -1,24 +1,38 @@
-/* Palabıyık Köyü - Kurumsal Tasarım 2026 */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* ==============================================
+   PALABIYIK KÖYÜ - MODERN UI/UX STYLES
+   Enhanced with animations, gradients, glass effects
+   Target: Ages 30-55, Contemporary & Professional
+   ============================================== */
 
 :root {
-  /* Köy Renk Paleti - Doğal ve Kurumsal */
+  /* Color Palette - Köy tonları */
   --toprak: #8b4513;
   --toprak-acik: #a0522d;
   --yesil: #2d5016;
   --yesil-acik: #4a7c2c;
   --bugday: #daa520;
+  --bugday-acik: #f0c040;
   --gok: #5b7a9f;
+  --gok-acik: #7a9bc4;
   --krem: #f5f1e8;
   --beyaz: #ffffff;
-  --siyah: #1a1a1a;
-  --gri: #6b7280;
-  --acik-gri: #e5e7eb;
+  --gri: #333333;
+  --acik-gri: #e0e0e0;
   
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
+  
+  /* Glass effect */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.2);
 }
+
+/* ==============================================
+   GLOBAL STYLES & ANIMATIONS
+   ============================================== */
 
 * {
   margin: 0;
@@ -32,53 +46,197 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--krem);
-  color: var(--siyah);
+  color: var(--gri);
   line-height: 1.6;
+  background: var(--krem);
+  overflow-x: hidden;
 }
 
-/* Navbar */
+/* Smooth fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* ==============================================
+   NAVIGATION - Glass Morphism Style
+   ============================================== */
+
 .navbar-corporate {
-  background: var(--beyaz) !important;
-  border-bottom: 3px solid var(--toprak);
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
   padding: 1rem 0;
-  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-corporate.scrolled {
+  padding: 0.5rem 0;
+  box-shadow: var(--shadow-lg);
 }
 
 .navbar-brand {
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   color: var(--toprak) !important;
-  letter-spacing: -0.02em;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand:hover {
+  color: var(--toprak-acik) !important;
+  transform: translateX(3px);
 }
 
 .navbar-brand i {
-  color: var(--yesil);
+  margin-right: 0.5rem;
+  animation: float 3s ease-in-out infinite;
 }
 
 .nav-link {
   color: var(--gri) !important;
   font-weight: 600;
-  padding: 0.6rem 1rem !important;
-  border-radius: 8px;
+  font-size: 0.9375rem;
+  padding: 0.5rem 1rem !important;
+  position: relative;
   transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--toprak), var(--yesil));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
 }
 
 .nav-link:hover,
 .nav-link.active {
   color: var(--toprak) !important;
-  background: var(--krem);
 }
 
-/* Hero Section */
-.hero-corporate {
+.dropdown-menu {
+  border: none;
+  box-shadow: var(--shadow-lg);
+  border-radius: 12px;
+  padding: 0.75rem 0;
+  margin-top: 0.5rem;
+  animation: fadeInUp 0.3s ease;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+}
+
+.dropdown-item {
+  padding: 0.625rem 1.5rem;
+  font-weight: 600;
+  color: var(--gri);
+  transition: all 0.25s ease;
   position: relative;
-  height: 60vh;
-  min-height: 500px;
+  overflow: hidden;
+}
+
+.dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--toprak), var(--yesil));
+  transform: translateX(-3px);
+  transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover::before {
+  transform: translateX(0);
+}
+
+.dropdown-item:hover {
+  background: var(--krem);
+  color: var(--toprak);
+  padding-left: 2rem;
+}
+
+/* ==============================================
+   HERO SECTION - Modern Gradient
+   ============================================== */
+
+.hero-corporate {
+  background: linear-gradient(135deg, var(--yesil) 0%, var(--gok) 50%, var(--toprak-acik) 100%);
+  min-height: 65vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--yesil), var(--gok));
+  color: white;
 }
 
 .hero-corporate::before {
@@ -88,51 +246,140 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=80') center/cover;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(91, 122, 159, 0.1) 0%, transparent 50%);
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-corporate::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
   opacity: 0.3;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  color: white;
+  text-align: center;
+  animation: fadeInUp 0.8s ease;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-subtitle {
+  font-size: 1.375rem;
+  font-weight: 400;
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+/* ==============================================
+   SECTIONS
+   ============================================== */
+
+.section-corporate {
+  padding: 5rem 0;
+  animation: fadeIn 0.6s ease;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.6s ease;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, var(--toprak), var(--toprak-acik));
+  color: white;
+  border-radius: 50px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+  transition: all 0.3s ease;
+}
+
+.section-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+}
+
+.section-title {
+  font-size: 2.5rem;
   font-weight: 800;
+  color: var(--toprak);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
-.hero-subtitle {
-  font-size: 1.25rem;
-  font-weight: 400;
-  opacity: 0.95;
-  max-width: 600px;
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--gri);
+  opacity: 0.8;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* Cards */
+/* ==============================================
+   CARDS - Modern Design with Hover Effects
+   ============================================== */
+
 .card-corporate {
   background: var(--beyaz);
   border: 1px solid var(--acik-gri);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-corporate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
   height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.card-corporate:hover::before {
+  left: 100%;
 }
 
 .card-corporate:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--toprak);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--bugday-acik);
 }
 
 .card-icon {
   width: 64px;
   height: 64px;
-  border-radius: 12px;
+  border-radius: 16px;
   background: linear-gradient(135deg, var(--toprak), var(--toprak-acik));
   display: flex;
   align-items: center;
@@ -140,103 +387,143 @@ body {
   font-size: 1.75rem;
   color: white;
   margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.25);
+  transition: all 0.3s ease;
+}
+
+.card-corporate:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .card-title {
   font-size: 1.375rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: var(--siyah);
+  color: var(--toprak);
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.card-corporate:hover .card-title {
+  color: var(--toprak-acik);
 }
 
 .card-text {
   color: var(--gri);
-  line-height: 1.6;
+  opacity: 0.85;
+  line-height: 1.7;
+  font-size: 0.9375rem;
 }
 
-/* Section Styling */
-.section-corporate {
-  padding: 5rem 0;
-}
+/* ==============================================
+   BUTTONS - Modern with Ripple Effect
+   ============================================== */
 
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-badge {
-  display: inline-block;
-  padding: 0.5rem 1.25rem;
-  background: var(--bugday);
-  color: white;
-  border-radius: 50px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-}
-
-.section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  color: var(--toprak);
-  margin-bottom: 1rem;
-}
-
-.section-subtitle {
-  font-size: 1.125rem;
-  color: var(--gri);
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* Buttons */
 .btn-primary {
-  background: var(--toprak);
+  background: linear-gradient(135deg, var(--toprak), var(--toprak-acik));
   border: none;
   padding: 0.875rem 2rem;
-  border-radius: 8px;
-  font-weight: 700;
+  font-weight: 600;
+  border-radius: 12px;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-primary:hover {
-  background: var(--toprak-acik);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.35);
 }
 
 .btn-outline-primary {
   border: 2px solid var(--toprak);
   color: var(--toprak);
-  padding: 0.875rem 2rem;
-  border-radius: 8px;
-  font-weight: 700;
   background: transparent;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  border-radius: 12px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-outline-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--toprak), var(--toprak-acik));
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.btn-outline-primary:hover::before {
+  left: 0;
 }
 
 .btn-outline-primary:hover {
-  background: var(--toprak);
   color: white;
-  transform: translateY(-2px);
+  border-color: var(--toprak-acik);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(139, 69, 19, 0.25);
 }
 
-/* Management Pages */
+/* ==============================================
+   PROFILE CARDS
+   ============================================== */
+
 .profile-card {
   background: var(--beyaz);
   border: 1px solid var(--acik-gri);
-  border-radius: 12px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--toprak), var(--yesil), var(--bugday));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.profile-card:hover::after {
+  transform: scaleX(1);
 }
 
 .profile-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
 }
 
 .profile-img {
@@ -245,189 +532,216 @@ body {
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 1.5rem;
+  display: block;
   border: 4px solid var(--bugday);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 25px rgba(218, 165, 32, 0.3);
+  transition: all 0.4s ease;
+}
+
+.profile-card:hover .profile-img {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(218, 165, 32, 0.4);
 }
 
 .profile-name {
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 700;
   color: var(--toprak);
   margin-bottom: 0.5rem;
 }
 
 .profile-position {
-  color: var(--yesil);
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  font-size: 1.125rem;
+  color: var(--yesil);
+  margin-bottom: 1.5rem;
 }
 
 .profile-info {
-  color: var(--gri);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  text-align: left;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--acik-gri);
 }
 
-/* Timeline */
-.timeline {
-  position: relative;
-  padding: 2rem 0;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--bugday);
-  transform: translateX(-50%);
-}
+/* ==============================================
+   TIMELINE - Vertical Design
+   ============================================== */
 
 .timeline-item {
   position: relative;
-  margin-bottom: 3rem;
-  padding: 0 2rem;
+  padding-left: 3rem;
+  padding-bottom: 3rem;
+  animation: fadeInUp 0.6s ease;
 }
 
-.timeline-item:nth-child(odd) {
-  text-align: right;
-  padding-right: calc(50% + 3rem);
+.timeline-item:last-child {
+  padding-bottom: 0;
 }
 
-.timeline-item:nth-child(even) {
-  text-align: left;
-  padding-left: calc(50% + 3rem);
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 30px;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--bugday), var(--bugday-acik));
+}
+
+.timeline-item:last-child::before {
+  display: none;
 }
 
 .timeline-dot {
   position: absolute;
-  left: 50%;
+  left: 0;
   top: 0;
   width: 20px;
   height: 20px;
-  background: var(--toprak);
-  border: 4px solid var(--beyaz);
   border-radius: 50%;
-  transform: translateX(-50%);
-  box-shadow: var(--shadow-md);
+  background: var(--toprak);
+  box-shadow: 0 0 0 6px var(--krem), 0 0 0 8px var(--bugday);
+  transition: all 0.3s ease;
 }
 
-.timeline-content {
-  background: var(--beyaz);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--acik-gri);
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 8px var(--krem), 0 0 0 10px var(--bugday);
 }
 
-.timeline-year {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--toprak);
-  margin-bottom: 0.75rem;
-}
+/* ==============================================
+   TABLE - Modern Design
+   ============================================== */
 
-.timeline-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-/* Table */
 .table-corporate {
   background: var(--beyaz);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+  animation: fadeInUp 0.6s ease;
 }
 
 .table-corporate thead {
-  background: var(--toprak);
+  background: linear-gradient(135deg, var(--toprak), var(--toprak-acik));
   color: white;
 }
 
 .table-corporate thead th {
   padding: 1.25rem;
   font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 0.5px;
   border: none;
 }
 
-.table-corporate tbody td {
-  padding: 1.25rem;
+.table-corporate tbody tr {
+  transition: all 0.3s ease;
   border-bottom: 1px solid var(--acik-gri);
 }
 
 .table-corporate tbody tr:hover {
   background: var(--krem);
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Footer */
+.table-corporate tbody td {
+  padding: 1rem 1.25rem;
+  vertical-align: middle;
+}
+
+/* ==============================================
+   FOOTER
+   ============================================== */
+
 .footer-corporate {
-  background: var(--toprak);
-  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, var(--gri) 0%, #1a1a1a 100%);
+  color: white;
   padding: 4rem 0 2rem;
   margin-top: 5rem;
 }
 
 .footer-title {
-  color: white;
   font-weight: 700;
   margin-bottom: 1.5rem;
   font-size: 1.125rem;
 }
 
 .footer-link {
+  display: block;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  display: block;
   margin-bottom: 0.75rem;
   transition: all 0.3s ease;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.footer-link::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover::before {
+  opacity: 1;
+  left: -5px;
 }
 
 .footer-link:hover {
-  color: var(--bugday);
-  padding-left: 0.5rem;
+  color: var(--bugday-acik);
+  padding-left: 1.5rem;
 }
 
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  margin-right: 0.75rem;
-  transition: all 0.3s ease;
-}
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
 
-.social-link:hover {
-  background: var(--bugday);
-  transform: translateY(-3px);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 0;
+  .hero-title {
+    font-size: 2.25rem;
   }
   
-  .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) {
-    text-align: left;
-    padding-left: 3rem;
-    padding-right: 0;
+  .hero-subtitle {
+    font-size: 1.125rem;
   }
   
-  .timeline-dot {
-    left: 0;
+  .section-title {
+    font-size: 2rem;
   }
   
   .section-corporate {
     padding: 3rem 0;
   }
+  
+  .card-corporate {
+    padding: 1.5rem;
+  }
+}
+
+/* ==============================================
+   UTILITY ANIMATIONS
+   ============================================== */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
