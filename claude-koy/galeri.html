@@ -8,6 +8,329 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="css/style.css" rel="stylesheet">
+  
+  <style>
+    /* Gallery Hero */
+    .gallery-hero {
+      background: linear-gradient(135deg, 
+        rgba(101, 67, 33, 0.95), 
+        rgba(46, 125, 50, 0.85), 
+        rgba(90, 122, 140, 0.9), 
+        rgba(218, 165, 32, 0.85)
+      );
+      color: white;
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1464207687429-7505649dae38?auto=format&fit=crop&w=1920&q=80') center/cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    .gallery-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .gallery-hero h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+    }
+    .gallery-hero p {
+      font-size: 1.5rem;
+      opacity: 0.95;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    /* Gallery Stats */
+    .gallery-stat {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
+    }
+    .gallery-stat:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+    .gallery-stat i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .gallery-stat h3 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+    .gallery-stat p {
+      margin: 0;
+      color: var(--gri);
+      font-weight: 600;
+    }
+    
+    /* Category Filters */
+    .category-filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      padding: 0.875rem 2rem;
+      border-radius: 50px;
+      border: 2px solid var(--acik-gri);
+      background: white;
+      color: var(--gri);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .filter-btn:hover {
+      border-color: var(--toprak);
+      background: var(--toprak);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(101, 67, 33, 0.3);
+    }
+    .filter-btn.active {
+      border-color: var(--toprak);
+      background: var(--toprak);
+      color: white;
+      box-shadow: 0 4px 15px rgba(101, 67, 33, 0.3);
+    }
+    .filter-btn i {
+      font-size: 1.125rem;
+    }
+    
+    /* Photo Grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .photo-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      aspect-ratio: 4/3;
+    }
+    .photo-item:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .photo-item:hover img {
+      transform: scale(1.1);
+    }
+    .photo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 1.5rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .photo-item:hover .photo-overlay {
+      transform: translateY(0);
+    }
+    .photo-overlay h5 {
+      color: white;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      font-size: 1.125rem;
+    }
+    .photo-overlay p {
+      color: rgba(255,255,255,0.9);
+      margin: 0;
+      font-size: 0.875rem;
+    }
+    .photo-category {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.95);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--toprak);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .photo-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--toprak);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .photo-item:hover .photo-icon {
+      opacity: 1;
+    }
+    
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 1200px;
+      max-height: 90vh;
+      position: relative;
+    }
+    .lightbox-content img {
+      width: 100%;
+      height: auto;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -3rem;
+      right: 0;
+      background: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      color: var(--toprak);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-close:hover {
+      transform: scale(1.1) rotate(90deg);
+      background: var(--toprak);
+      color: white;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      color: var(--toprak);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-nav:hover {
+      transform: translateY(-50%) scale(1.1);
+      background: var(--toprak);
+      color: white;
+    }
+    .lightbox-prev {
+      left: -4rem;
+    }
+    .lightbox-next {
+      right: -4rem;
+    }
+    .lightbox-info {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+    .lightbox-info h4 {
+      font-weight: 800;
+      color: var(--toprak);
+      margin-bottom: 0.5rem;
+    }
+    .lightbox-info p {
+      color: var(--gri);
+      margin: 0;
+    }
+    
+    /* Filter Animation */
+    .photo-item.hide {
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-hero h1 {
+        font-size: 2.5rem;
+      }
+      .gallery-hero p {
+        font-size: 1.125rem;
+      }
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .filter-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+      }
+      .lightbox-prev {
+        left: 1rem;
+      }
+      .lightbox-next {
+        right: 1rem;
+      }
+      .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   
@@ -16,7 +339,7 @@
       <a class="navbar-brand" href="index.html">
         <i class="fas fa-mountain"></i>Palabıyık Köyü
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Menü">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -24,14 +347,14 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
           <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Yönetim</a>
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Yönetim</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="yonetim.html">Köy Yönetimi</a></li>
               <li><a class="dropdown-item" href="gecmis-yonetimler.html">Geçmiş Yönetimler</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dernek</a>
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dernek</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="dernek-baskani.html">Dernek Başkanı</a></li>
               <li><a class="dropdown-item" href="dernek-kurulu.html">Yönetim Kurulu</a></li>
@@ -41,31 +364,309 @@
           <li class="nav-item"><a class="nav-link" href="esnaflarimiz.html">Esnaflarımız</a></li>
           <li class="nav-item"><a class="nav-link" href="haberler.html">Haberler</a></li>
           <li class="nav-item"><a class="nav-link" href="etkinlikler.html">Etkinlikler</a></li>
-          <li class="nav-item"><a class="nav-link active" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link active" href="galeri.html" aria-current="page">Galeri</a></li>
           <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <section class="hero-corporate">
-    <div class="container hero-content">
-      <h1 class="hero-title">Fotoğraf Galerisi</h1>
-      <p class="hero-subtitle">Köyümüzün doğal güzellikleri ve yaşamından kareler</p>
+  <!-- Gallery Hero -->
+  <section class="gallery-hero">
+    <div class="container text-center">
+      <h1>Fotoğraf Galerisi</h1>
+      <p>Köyümüzün doğal güzellikleri ve yaşamından kareler</p>
     </div>
   </section>
 
-  <section class="section-corporate">
+  <!-- Gallery Stats -->
+  <section class="section-corporate" style="padding: 3rem 0;">
     <div class="container">
-      <p class="text-center text-muted mb-5">Galeri sayfamız yakında yenilenecektir. Lütfen daha sonra tekrar ziyaret edin.</p>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-stat">
+            <i class="fas fa-images" style="color: var(--toprak);" aria-hidden="true"></i>
+            <h3 style="color: var(--toprak);">150+</h3>
+            <p>Fotoğraf</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-stat">
+            <i class="fas fa-layer-group" style="color: var(--yesil);" aria-hidden="true"></i>
+            <h3 style="color: var(--yesil);">6</h3>
+            <p>Kategori</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-stat">
+            <i class="fas fa-calendar-alt" style="color: var(--bugday);" aria-hidden="true"></i>
+            <h3 style="color: var(--bugday);">2026</h3>
+            <p>Güncel</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="gallery-stat">
+            <i class="fas fa-eye" style="color: var(--gok);" aria-hidden="true"></i>
+            <h3 style="color: var(--gok);">5K+</h3>
+            <p>Görüntülenme</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Category Filters -->
+  <section class="section-corporate" style="background: var(--beyaz);">
+    <div class="container">
+      <div class="category-filters">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-th" aria-hidden="true"></i>
+          <span>Tümü</span>
+        </button>
+        <button class="filter-btn" data-filter="doga">
+          <i class="fas fa-tree" aria-hidden="true"></i>
+          <span>Doğa</span>
+        </button>
+        <button class="filter-btn" data-filter="etkinlik">
+          <i class="fas fa-calendar-check" aria-hidden="true"></i>
+          <span>Etkinlikler</span>
+        </button>
+        <button class="filter-btn" data-filter="koy">
+          <i class="fas fa-home" aria-hidden="true"></i>
+          <span>Köy Yaşamı</span>
+        </button>
+        <button class="filter-btn" data-filter="tarim">
+          <i class="fas fa-tractor" aria-hidden="true"></i>
+          <span>Tarım</span>
+        </button>
+        <button class="filter-btn" data-filter="kisi">
+          <i class="fas fa-users" aria-hidden="true"></i>
+          <span>nsanlar</span>
+        </button>
+        <button class="filter-btn" data-filter="mimarisiyle">
+          <i class="fas fa-mosque" aria-hidden="true"></i>
+          <span>Mimari</span>
+        </button>
+      </div>
+
+      <!-- Photo Grid -->
+      <div class="photo-grid" id="photoGrid">
+        
+        <!-- Doğa Fotoğrafları -->
+        <div class="photo-item" data-category="doga" data-index="0">
+          <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?auto=format&fit=crop&w=800&q=80" alt="Köy manzarası" loading="lazy">
+          <span class="photo-category">Doğa</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Köy Manzarası</h5>
+            <p>Palabıyık Köyü'nün muhteşem doğa manzarası</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="doga" data-index="1">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Dağ manzarası" loading="lazy">
+          <span class="photo-category">Doğa</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Dağ Manzarası</h5>
+            <p>Köyümüzü çevreleyen dağlar</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="doga" data-index="2">
+          <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80" alt="Günbatımı" loading="lazy">
+          <span class="photo-category">Doğa</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Günbatımı</h5>
+            <p>Köyümüzde muhteşem günbatımı</p>
+          </div>
+        </div>
+
+        <!-- Etkinlik Fotoğrafları -->
+        <div class="photo-item" data-category="etkinlik" data-index="3">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Bahar şenliği" loading="lazy">
+          <span class="photo-category">Etkinlik</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Bahar Şenliği</h5>
+            <p>2025 Bahar Şenliği etkinliğinden kareler</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="etkinlik" data-index="4">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Düğün" loading="lazy">
+          <span class="photo-category">Etkinlik</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Köy Düğünü</h5>
+            <p>Geleneksel köy düğünü</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="etkinlik" data-index="5">
+          <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80" alt="Konser" loading="lazy">
+          <span class="photo-category">Etkinlik</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Müzik Etkinliği</h5>
+            <p>Yerel sanatçılar konseri</p>
+          </div>
+        </div>
+
+        <!-- Köy Yaşamı -->
+        <div class="photo-item" data-category="koy" data-index="6">
+          <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80" alt="Köy evleri" loading="lazy">
+          <span class="photo-category">Köy Yaşamı</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Köy Evleri</h5>
+            <p>Geleneksel köy evleri mimarisi</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="koy" data-index="7">
+          <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80" alt="Köy yolu" loading="lazy">
+          <span class="photo-category">Köy Yaşamı</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Köy Yolları</h5>
+            <p>Asfaltlanmış köy yolları</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="koy" data-index="8">
+          <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=800&q=80" alt="Köy meydanı" loading="lazy">
+          <span class="photo-category">Köy Yaşamı</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Köy Meydanı</h5>
+            <p>Merkez meydan ve park alanı</p>
+          </div>
+        </div>
+
+        <!-- Tarım -->
+        <div class="photo-item" data-category="tarim" data-index="9">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Buğday tarlaları" loading="lazy">
+          <span class="photo-category">Tarım</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Buğday Tarlaları</h5>
+            <p>Hasat dönemi buğday tarlaları</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="tarim" data-index="10">
+          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80" alt="Traktör" loading="lazy">
+          <span class="photo-category">Tarım</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Tarım Araçları</h5>
+            <p>Modern tarım ekipmanları</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="tarim" data-index="11">
+          <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=800&q=80" alt="Hasat" loading="lazy">
+          <span class="photo-category">Tarım</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Hasat Mevsimi</h5>
+            <p>2025 hasat dönemi</p>
+          </div>
+        </div>
+
+        <!-- nsanlar -->
+        <div class="photo-item" data-category="kisi" data-index="12">
+          <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80" alt="Yaşlılar" loading="lazy">
+          <span class="photo-category">İnsanlar</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Büyüklerimiz</h5>
+            <p>Köyümüzün yaşlı nesli</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="kisi" data-index="13">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80" alt="Çocuklar" loading="lazy">
+          <span class="photo-category">İnsanlar</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Çocuklarımız</h5>
+            <p>Köyümüzün geleceği</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="kisi" data-index="14">
+          <img src="https://images.unsplash.com/photo-1542909168-82c3e7fdca44?auto=format&fit=crop&w=800&q=80" alt="Aile" loading="lazy">
+          <span class="photo-category">İnsanlar</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Ailelerimiz</h5>
+            <p>Palabıyık aileleri</p>
+          </div>
+        </div>
+
+        <!-- Mimari -->
+        <div class="photo-item" data-category="mimari" data-index="15">
+          <img src="https://images.unsplash.com/photo-1542862210-3920a4a8c3d7?auto=format&fit=crop&w=800&q=80" alt="Cami" loading="lazy">
+          <span class="photo-category">Mimari</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Köy Camii</h5>
+            <p>Merkez cami mimarisi</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="mimari" data-index="16">
+          <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80" alt="Muhtar lık" loading="lazy">
+          <span class="photo-category">Mimari</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Muhtarlık Binası</h5>
+            <p>Köy muhtarlığı</p>
+          </div>
+        </div>
+
+        <div class="photo-item" data-category="mimari" data-index="17">
+          <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80" alt="Dernek" loading="lazy">
+          <span class="photo-category">Mimari</span>
+          <div class="photo-icon"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
+          <div class="photo-overlay">
+            <h5>Dernek Binası</h5>
+            <p>Palabıyık Köyü Derneği</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="closeLightbox" aria-label="Kapat">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+      <button class="lightbox-nav lightbox-prev" id="prevImage" aria-label="Önceki">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <button class="lightbox-nav lightbox-next" id="nextImage" aria-label="Sonraki">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </button>
+      <img id="lightboxImage" src="" alt="Lightbox görsel">
+      <div class="lightbox-info">
+        <h4 id="lightboxTitle"></h4>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer-corporate">
     <div class="container">
       <div class="row g-5 mb-4">
         <div class="col-lg-4">
-          <h3 class="footer-title"><i class="fas fa-mountain me-2"></i>Palabıyık Köyü</h3>
+          <h3 class="footer-title"><i class="fas fa-mountain me-2" aria-hidden="true"></i>Palabıyık Köyü</h3>
           <p style="opacity: 0.9;">Çorum'un doğal güzellikleri ve kültürel zenginlikleriyle öne çıkan köyümüz.</p>
         </div>
         <div class="col-lg-2 col-md-4">
@@ -83,8 +684,8 @@
         </div>
         <div class="col-lg-3 col-md-4">
           <h5 class="footer-title">İletişim</h5>
-          <p style="opacity: 0.9; margin: 0;"><i class="fas fa-phone me-2"></i>+90 (555) 123 45 67</p>
-          <p style="opacity: 0.9; margin: 0.5rem 0 0;"><i class="fas fa-envelope me-2"></i>info@palabiyik.com</p>
+          <p style="opacity: 0.9; margin: 0;"><i class="fas fa-phone me-2" aria-hidden="true"></i><a href="tel:+905551234567" style="color: inherit; text-decoration: none;">+90 (555) 123 45 67</a></p>
+          <p style="opacity: 0.9; margin: 0.5rem 0 0;"><i class="fas fa-envelope me-2" aria-hidden="true"></i><a href="mailto:info@palabiyik.com" style="color: inherit; text-decoration: none;">info@palabiyik.com</a></p>
         </div>
       </div>
       <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
@@ -95,7 +696,109 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
   <script src="js/script.js"></script>
+  
+  <script>
+    // Gallery Filter System
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const photoItems = document.querySelectorAll('.photo-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        
+        photoItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.classList.remove('hide');
+          } else {
+            item.classList.add('hide');
+          }
+        });
+      });
+    });
+    
+    // Lightbox System
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const closeLightbox = document.getElementById('closeLightbox');
+    const prevImage = document.getElementById('prevImage');
+    const nextImage = document.getElementById('nextImage');
+    
+    let currentIndex = 0;
+    let currentCategory = 'all';
+    
+    // Get visible photos
+    function getVisiblePhotos() {
+      return Array.from(photoItems).filter(item => !item.classList.contains('hide'));
+    }
+    
+    // Open lightbox
+    photoItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        const visiblePhotos = getVisiblePhotos();
+        currentIndex = visiblePhotos.indexOf(item);
+        openLightbox(item);
+      });
+    });
+    
+    function openLightbox(item) {
+      const img = item.querySelector('img');
+      const title = item.querySelector('.photo-overlay h5').textContent;
+      const desc = item.querySelector('.photo-overlay p').textContent;
+      
+      lightboxImage.src = img.src;
+      lightboxTitle.textContent = title;
+      lightboxDesc.textContent = desc;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Close lightbox
+    closeLightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Navigate photos
+    prevImage.addEventListener('click', () => {
+      const visiblePhotos = getVisiblePhotos();
+      currentIndex = (currentIndex - 1 + visiblePhotos.length) % visiblePhotos.length;
+      openLightbox(visiblePhotos[currentIndex]);
+    });
+    
+    nextImage.addEventListener('click', () => {
+      const visiblePhotos = getVisiblePhotos();
+      currentIndex = (currentIndex + 1) % visiblePhotos.length;
+      openLightbox(visiblePhotos[currentIndex]);
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      } else if (e.key === 'ArrowLeft') {
+        prevImage.click();
+      } else if (e.key === 'ArrowRight') {
+        nextImage.click();
+      }
+    });
+  </script>
 </body>
 </html>
