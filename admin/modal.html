@@ -1,1 +1,763 @@
-<!DOCTYPE html><html lang="tr" data-theme="dark"><head><meta charset="UTF-8"><title>Modal - Bootstrap 5.3.3</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><div class="sidebar"><div class="brand"><i class="bi bi-bootstrap"></i><span>Bootstrap 5.3.3</span></div><nav class="nav-menu"><a href="index.html" class="nav-item"><i class="bi bi-house"></i> Dashboard</a><div class="nav-section">COMPONENTS</div><a href="accordion.html" class="nav-item"><i class="bi bi-list-nested"></i> Accordion</a><a href="alerts.html" class="nav-item"><i class="bi bi-exclamation-triangle"></i> Alerts</a><a href="badge.html" class="nav-item"><i class="bi bi-tag"></i> Badge</a><a href="breadcrumb.html" class="nav-item"><i class="bi bi-signpost"></i> Breadcrumb</a><a href="buttons.html" class="nav-item"><i class="bi bi-hand-index"></i> Buttons</a><a href="button-group.html" class="nav-item"><i class="bi bi-collection"></i> Button Group</a><a href="card.html" class="nav-item"><i class="bi bi-card-text"></i> Card</a><a href="carousel.html" class="nav-item"><i class="bi bi-images"></i> Carousel</a><a href="collapse.html" class="nav-item"><i class="bi bi-chevron-expand"></i> Collapse</a><a href="dropdowns.html" class="nav-item"><i class="bi bi-chevron-down"></i> Dropdowns</a><a href="list-group.html" class="nav-item"><i class="bi bi-list-ul"></i> List Group</a><a href="modal.html" class="nav-item active"><i class="bi bi-window"></i> Modal</a><a href="navbar.html" class="nav-item"><i class="bi bi-menu-button"></i> Navbar</a><a href="navs-tabs.html" class="nav-item"><i class="bi bi-layout-three-columns"></i> Navs & Tabs</a><a href="offcanvas.html" class="nav-item"><i class="bi bi-layout-sidebar"></i> Offcanvas</a><a href="pagination.html" class="nav-item"><i class="bi bi-three-dots"></i> Pagination</a><a href="placeholders.html" class="nav-item"><i class="bi bi-dash-square"></i> Placeholders</a><a href="popovers.html" class="nav-item"><i class="bi bi-chat-square"></i> Popovers</a><a href="progress.html" class="nav-item"><i class="bi bi-bar-chart"></i> Progress</a><a href="spinners.html" class="nav-item"><i class="bi bi-arrow-repeat"></i> Spinners</a><a href="toasts.html" class="nav-item"><i class="bi bi-bell"></i> Toasts</a><a href="tooltips.html" class="nav-item"><i class="bi bi-info-circle"></i> Tooltips</a></nav></div><div class="main-content"><div class="header"><h1><i class="bi bi-window"></i> Modal</h1><p>Dialog prompts</p></div><div class="demo-section"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch modal</button><div class="modal fade" id="exampleModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Modal title</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body">Modal body text goes here.</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Save changes</button></div></div></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Modals - Modern Admin 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ADVANCED MODAL ANIMATIONS */
+        .modal.fade .modal-dialog {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .modal.modal-slide-up .modal-dialog {
+            transform: translateY(100px);
+        }
+        
+        .modal.modal-slide-up.show .modal-dialog {
+            transform: translateY(0);
+        }
+        
+        .modal.modal-scale .modal-dialog {
+            transform: scale(0.7);
+        }
+        
+        .modal.modal-scale.show .modal-dialog {
+            transform: scale(1);
+        }
+        
+        .modal.modal-rotate .modal-dialog {
+            transform: rotate(45deg) scale(0);
+        }
+        
+        .modal.modal-rotate.show .modal-dialog {
+            transform: rotate(0) scale(1);
+        }
+        
+        /* Gradient Modal */
+        .modal-gradient .modal-content {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(236, 72, 153, 0.95));
+            border: none;
+        }
+        
+        /* Glassmorphism Modal */
+        .modal-glass .modal-content {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Neon Modal */
+        .modal-neon .modal-content {
+            background: rgba(10, 14, 39, 0.95);
+            border: 2px solid #6366F1;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.5),
+                        0 0 60px rgba(236, 72, 153, 0.3),
+                        inset 0 0 20px rgba(99, 102, 241, 0.1);
+        }
+        
+        /* Full Screen Modal */
+        .modal-fullscreen-custom {
+            padding: 0 !important;
+        }
+        
+        .modal-fullscreen-custom .modal-dialog {
+            max-width: 100%;
+            margin: 0;
+            height: 100vh;
+        }
+        
+        .modal-fullscreen-custom .modal-content {
+            height: 100vh;
+            border-radius: 0;
+        }
+        
+        /* Side Panel Modal */
+        .modal-side .modal-dialog {
+            position: fixed;
+            margin: 0;
+            width: 500px;
+            height: 100%;
+            right: 0;
+            max-width: 100%;
+        }
+        
+        .modal-side .modal-content {
+            height: 100%;
+            border-radius: 0;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Card Stack Modal */
+        .modal-card-stack .card-stack-item {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-card-stack .card-stack-item:hover {
+            transform: translateX(10px);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Timeline Modal */
+        .timeline-modal .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-modal .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #6366F1, #EC4899);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+        
+        .timeline-modal .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.5), transparent);
+        }
+        
+        .timeline-modal .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        /* Pricing Modal */
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid #6366F1;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366F1, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Media Gallery Modal */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        
+        .media-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .media-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Form Wizard Modal */
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .wizard-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(148, 163, 184, 0.2);
+            z-index: 0;
+        }
+        
+        .wizard-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .wizard-step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid rgba(148, 163, 184, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .wizard-step.active .wizard-step-circle {
+            background: linear-gradient(135deg, #6366F1, #EC4899);
+            border-color: #6366F1;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+        
+        .wizard-step.completed .wizard-step-circle {
+            background: #10B981;
+            border-color: #10B981;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="brand"><i class="bi bi-bootstrap-fill"></i><span>Modern 2026</span></div>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-item"><i class="bi bi-house-door"></i> Dashboard</a>
+            <div class="nav-section">Components</div>
+            <a href="accordion.html" class="nav-item"><i class="bi bi-list-nested"></i> Accordion</a>
+            <a href="alerts.html" class="nav-item"><i class="bi bi-exclamation-triangle"></i> Alerts</a>
+            <a href="badge.html" class="nav-item"><i class="bi bi-tag"></i> Badge</a>
+            <a href="breadcrumb.html" class="nav-item"><i class="bi bi-signpost"></i> Breadcrumb</a>
+            <a href="buttons.html" class="nav-item"><i class="bi bi-hand-index"></i> Buttons</a>
+            <a href="button-group.html" class="nav-item"><i class="bi bi-collection"></i> Button Group</a>
+            <a href="card.html" class="nav-item"><i class="bi bi-card-text"></i> Card</a>
+            <a href="carousel.html" class="nav-item"><i class="bi bi-images"></i> Carousel</a>
+            <a href="collapse.html" class="nav-item"><i class="bi bi-chevron-expand"></i> Collapse</a>
+            <a href="dropdowns.html" class="nav-item"><i class="bi bi-chevron-down"></i> Dropdowns</a>
+            <a href="list-group.html" class="nav-item"><i class="bi bi-list-ul"></i> List Group</a>
+            <a href="modal.html" class="nav-item active"><i class="bi bi-window"></i> Modal</a>
+            <a href="navbar.html" class="nav-item"><i class="bi bi-menu-button"></i> Navbar</a>
+            <a href="navs-tabs.html" class="nav-item"><i class="bi bi-layout-three-columns"></i> Navs & Tabs</a>
+            <a href="offcanvas.html" class="nav-item"><i class="bi bi-layout-sidebar"></i> Offcanvas</a>
+            <a href="pagination.html" class="nav-item"><i class="bi bi-three-dots"></i> Pagination</a>
+            <a href="placeholders.html" class="nav-item"><i class="bi bi-dash-square"></i> Placeholders</a>
+            <a href="popovers.html" class="nav-item"><i class="bi bi-chat-square"></i> Popovers</a>
+            <a href="progress.html" class="nav-item"><i class="bi bi-bar-chart"></i> Progress</a>
+            <a href="spinners.html" class="nav-item"><i class="bi bi-arrow-repeat"></i> Spinners</a>
+            <a href="toasts.html" class="nav-item"><i class="bi bi-bell"></i> Toasts</a>
+            <a href="tooltips.html" class="nav-item"><i class="bi bi-info-circle"></i> Tooltips</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1><i class="bi bi-window"></i> Advanced Modal Gallery</h1>
+            <p>12 Different Professional Modal Types - 2026 Design Trends</p>
+        </div>
+
+        <!-- Modal Triggers Grid -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-3">
+                <button class="btn btn-primary w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal1">
+                    <i class="bi bi-stars me-2"></i>Classic Centered
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-secondary w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal2">
+                    <i class="bi bi-gradient me-2"></i>Gradient Modal
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-success w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal3">
+                    <i class="bi bi-droplet me-2"></i>Glassmorphism
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-danger w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal4">
+                    <i class="bi bi-lightning me-2"></i>Neon Effects
+                </button>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-3">
+                <button class="btn btn-warning w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal5">
+                    <i class="bi bi-arrows-angle-expand me-2"></i>Full Screen
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-info w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal6">
+                    <i class="bi bi-layout-sidebar-reverse me-2"></i>Side Panel
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal7">
+                    <i class="bi bi-collection me-2"></i>Card Stack
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-secondary w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal8">
+                    <i class="bi bi-clock-history me-2"></i>Timeline
+                </button>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-3">
+                <button class="btn btn-success w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal9">
+                    <i class="bi bi-currency-dollar me-2"></i>Pricing Table
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-danger w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal10">
+                    <i class="bi bi-images me-2"></i>Media Gallery
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-warning w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal11">
+                    <i class="bi bi-list-ol me-2"></i>Form Wizard
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-info w-100 py-3" data-bs-toggle="modal" data-bs-target="#modal12">
+                    <i class="bi bi-check2-circle me-2"></i>Confirmation
+                </button>
+            </div>
+        </div>
+
+        <!-- 1. Classic Centered Modal -->
+        <div class="modal fade modal-scale" id="modal1" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-stars me-2"></i>Classic Centered Modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-3">This is a professionally styled centered modal with modern animations and glassmorphism effects.</p>
+                        <div class="alert alert-primary">
+                            <i class="bi bi-info-circle me-2"></i>Smooth scale animation on open
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Gradient Modal -->
+        <div class="modal fade modal-gradient" id="modal2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title text-white"><i class="bi bi-gradient me-2"></i>Gradient Modal</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-white">
+                        <p class="mb-3">Beautiful gradient background from primary to secondary colors.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-light">Action 1</button>
+                            <button class="btn btn-outline-light">Action 2</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Glassmorphism Modal -->
+        <div class="modal fade modal-glass" id="modal3" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-droplet me-2"></i>Glassmorphism Effect</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Advanced glassmorphism with backdrop blur and transparency.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="p-3 rounded" style="background: rgba(99, 102, 241, 0.1);">
+                                    <h6>Feature 1</h6>
+                                    <p class="mb-0 text-secondary">Glass card effect</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 rounded" style="background: rgba(236, 72, 153, 0.1);">
+                                    <h6>Feature 2</h6>
+                                    <p class="mb-0 text-secondary">Blur background</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Neon Modal -->
+        <div class="modal fade modal-neon" id="modal4" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title text-gradient"><i class="bi bi-lightning me-2"></i>Neon Effects Modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Cyberpunk-inspired neon glow effects with vibrant borders.</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <span class="badge bg-primary" style="box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);">Neon Badge</span>
+                            <span class="badge bg-danger" style="box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);">Glowing</span>
+                            <span class="badge bg-success" style="box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);">Effects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Full Screen Modal -->
+        <div class="modal fade modal-fullscreen-custom" id="modal5" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-arrows-angle-expand me-2"></i>Full Screen Experience</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container py-5">
+                            <h2 class="text-gradient mb-4">Immersive Full Screen</h2>
+                            <p class="lead">Perfect for detailed content, forms, or presentations.</p>
+                            <div class="row g-4 mt-4">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <i class="bi bi-speedometer2 display-4 text-primary"></i>
+                                            <h5 class="mt-3">Fast</h5>
+                                            <p class="text-secondary">Lightning quick performance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <i class="bi bi-shield-check display-4 text-success"></i>
+                                            <h5 class="mt-3">Secure</h5>
+                                            <p class="text-secondary">Enterprise-grade security</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <i class="bi bi-palette display-4 text-danger"></i>
+                                            <h5 class="mt-3">Beautiful</h5>
+                                            <p class="text-secondary">Modern design system</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Side Panel Modal -->
+        <div class="modal fade modal-side" id="modal6" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-layout-sidebar-reverse me-2"></i>Side Panel</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="mb-3">Settings</h6>
+                        <div class="mb-3">
+                            <label class="form-label">Theme</label>
+                            <select class="form-select">
+                                <option>Dark Mode</option>
+                                <option>Light Mode</option>
+                                <option>Auto</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Language</label>
+                            <select class="form-select">
+                                <option>English</option>
+                                <option>Türkçe</option>
+                                <option>Español</option>
+                            </select>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="notifications">
+                            <label class="form-check-label" for="notifications">Enable Notifications</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="analytics" checked>
+                            <label class="form-check-label" for="analytics">Analytics</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Card Stack Modal -->
+        <div class="modal fade modal-card-stack" id="modal7" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-collection me-2"></i>Card Stack Layout</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" style="max-height: 500px; overflow-y: auto;">
+                        <div class="card-stack-item">
+                            <h6><i class="bi bi-1-circle me-2"></i>Step One</h6>
+                            <p class="mb-0 text-secondary">Create your account with email verification</p>
+                        </div>
+                        <div class="card-stack-item">
+                            <h6><i class="bi bi-2-circle me-2"></i>Step Two</h6>
+                            <p class="mb-0 text-secondary">Complete your profile information</p>
+                        </div>
+                        <div class="card-stack-item">
+                            <h6><i class="bi bi-3-circle me-2"></i>Step Three</h6>
+                            <p class="mb-0 text-secondary">Choose your subscription plan</p>
+                        </div>
+                        <div class="card-stack-item">
+                            <h6><i class="bi bi-4-circle me-2"></i>Step Four</h6>
+                            <p class="mb-0 text-secondary">Start exploring features</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Timeline Modal -->
+        <div class="modal fade timeline-modal" id="modal8" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-clock-history me-2"></i>Project Timeline</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="timeline-item">
+                            <h6>Planning Phase</h6>
+                            <p class="text-secondary mb-0">Jan 2026 - Requirements gathering and research</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6>Design Phase</h6>
+                            <p class="text-secondary mb-0">Feb 2026 - UI/UX design and prototyping</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6>Development</h6>
+                            <p class="text-secondary mb-0">Mar 2026 - Building core features</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6>Testing</h6>
+                            <p class="text-secondary mb-0">Apr 2026 - Quality assurance and bug fixes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. Pricing Modal -->
+        <div class="modal fade" id="modal9" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-currency-dollar me-2"></i>Choose Your Plan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="pricing-card">
+                                    <h5>Starter</h5>
+                                    <div class="price">$9<span style="font-size: 1rem;">/mo</span></div>
+                                    <ul class="list-unstyled mt-3">
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>5 Projects</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>10 GB Storage</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Basic Support</li>
+                                    </ul>
+                                    <button class="btn btn-outline-primary w-100">Select Plan</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="pricing-card featured">
+                                    <div class="badge bg-primary mb-2">Popular</div>
+                                    <h5>Pro</h5>
+                                    <div class="price">$29<span style="font-size: 1rem;">/mo</span></div>
+                                    <ul class="list-unstyled mt-3">
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Unlimited Projects</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>100 GB Storage</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Priority Support</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Advanced Analytics</li>
+                                    </ul>
+                                    <button class="btn btn-primary w-100">Select Plan</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="pricing-card">
+                                    <h5>Enterprise</h5>
+                                    <div class="price">$99<span style="font-size: 1rem;">/mo</span></div>
+                                    <ul class="list-unstyled mt-3">
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Everything in Pro</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Unlimited Storage</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>24/7 Support</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Custom Integration</li>
+                                    </ul>
+                                    <button class="btn btn-outline-primary w-100">Contact Sales</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. Media Gallery Modal -->
+        <div class="modal fade" id="modal10" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-images me-2"></i>Media Gallery</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="media-grid">
+                            <div class="media-item">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop" alt="">
+                            </div>
+                            <div class="media-item">
+                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=300&h=300&fit=crop" alt="">
+                            </div>
+                            <div class="media-item">
+                                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop" alt="">
+                            </div>
+                            <div class="media-item">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop" alt="">
+                            </div>
+                            <div class="media-item">
+                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=300&h=300&fit=crop" alt="">
+                            </div>
+                            <div class="media-item">
+                                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. Form Wizard Modal -->
+        <div class="modal fade" id="modal11" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-list-ol me-2"></i>Multi-Step Form</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="wizard-steps">
+                            <div class="wizard-step active">
+                                <div class="wizard-step-circle"><i class="bi bi-person"></i></div>
+                                <small>Personal</small>
+                            </div>
+                            <div class="wizard-step">
+                                <div class="wizard-step-circle"><i class="bi bi-briefcase"></i></div>
+                                <small>Work</small>
+                            </div>
+                            <div class="wizard-step">
+                                <div class="wizard-step-circle"><i class="bi bi-credit-card"></i></div>
+                                <small>Payment</small>
+                            </div>
+                            <div class="wizard-step">
+                                <div class="wizard-step-circle"><i class="bi bi-check2"></i></div>
+                                <small>Complete</small>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" placeholder="John Doe">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="john@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" class="form-control" placeholder="+1 234 567 8900">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary">Previous</button>
+                        <button type="button" class="btn btn-primary">Next Step</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Confirmation Modal -->
+        <div class="modal fade" id="modal12" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center">
+                    <div class="modal-body py-5">
+                        <div class="mb-4">
+                            <i class="bi bi-check-circle display-1 text-success" style="animation: bounce 1s ease;"></i>
+                        </div>
+                        <h3 class="mb-3">Action Confirmed!</h3>
+                        <p class="text-secondary mb-4">Your changes have been successfully saved.</p>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
