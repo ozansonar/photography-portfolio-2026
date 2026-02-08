@@ -1,0 +1,56 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #333;
+}
+
+.navbar-brand {
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #198754 !important;
+}
+
+.carousel-caption h1 {
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.bg-success-light {
+    background-color: #e8f5e9;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    border-top: 4px solid #198754;
+}
+
+#map-container iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+}
+
+.gallery-img {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.gallery-img:hover {
+    opacity: 0.8;
+}
