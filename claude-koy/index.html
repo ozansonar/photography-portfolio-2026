@@ -8,6 +8,98 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="css/style.css" rel="stylesheet">
+  <style>
+    /* Hero Slider Styles */
+    .hero-swiper {
+      width: 100%;
+      height: 80vh;
+      min-height: 500px;
+    }
+    .hero-swiper .swiper-slide {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-swiper .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(101, 67, 33, 0.8), rgba(46, 125, 50, 0.6));
+      z-index: 1;
+    }
+    .hero-swiper .slide-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      max-width: 900px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .hero-swiper .slide-content h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+      line-height: 1.2;
+    }
+    .hero-swiper .slide-content p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero-swiper .swiper-button-next,
+    .hero-swiper .swiper-button-prev {
+      color: white;
+      background: rgba(255, 255, 255, 0.2);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      backdrop-filter: blur(10px);
+    }
+    .hero-swiper .swiper-button-next:after,
+    .hero-swiper .swiper-button-prev:after {
+      font-size: 1.5rem;
+    }
+    .hero-swiper .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: white;
+      opacity: 0.5;
+    }
+    .hero-swiper .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: white;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-swiper {
+        height: 60vh;
+        min-height: 400px;
+      }
+      .hero-swiper .slide-content h1 {
+        font-size: 2rem;
+      }
+      .hero-swiper .slide-content p {
+        font-size: 1.125rem;
+      }
+    }
+  </style>
 </head>
 <body>
   
@@ -48,16 +140,71 @@
     </div>
   </nav>
 
-  <section class="hero-corporate">
-    <div class="container hero-content">
-      <h1 class="hero-title">Palabıyık Köyüne Hoş Geldiniz</h1>
-      <p class="hero-subtitle">Çorum'un doğal güzellikleri ve zengin kültürü ile öne çıkan köyümüz</p>
-      <div class="mt-4">
-        <a href="hakkimizda.html" class="btn btn-primary me-3"><i class="fas fa-info-circle me-2"></i>Hakkımızda</a>
-        <a href="iletisim.html" class="btn btn-outline-primary" style="border-color: white; color: white;"><i class="fas fa-envelope me-2"></i>İletişim</a>
+  <!-- Hero Slider -->
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+      
+      <!-- Slide 1 -->
+      <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1464207687429-7505649dae38?auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <h1>Palabıyık Köyüne Hoş Geldiniz</h1>
+          <p>Çorum'un doğal güzellikleri ve zengin kültürü ile öne çıkan köyümüz</p>
+          <div class="mt-4">
+            <a href="hakkimizda.html" class="btn btn-primary btn-lg me-3"><i class="fas fa-info-circle me-2"></i>Hakkımızda</a>
+            <a href="iletisim.html" class="btn btn-outline-light btn-lg"><i class="fas fa-envelope me-2"></i>İletişim</a>
+          </div>
+        </div>
       </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <h1>Geleneksel Değerlerimiz</h1>
+          <p>Yüzyıllık kültürümüzü yaşatarak geleceğe taşıyoruz</p>
+          <div class="mt-4">
+            <a href="hakkimizda.html" class="btn btn-primary btn-lg me-3"><i class="fas fa-landmark me-2"></i>Tarihimiz</a>
+            <a href="galeri.html" class="btn btn-outline-light btn-lg"><i class="fas fa-images me-2"></i>Galeri</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <h1>Canlı Toplumumuz</h1>
+          <p>450 hemşehrimizle birlikte güçlü bir dayanışma içindeyiz</p>
+          <div class="mt-4">
+            <a href="etkinlikler.html" class="btn btn-primary btn-lg me-3"><i class="fas fa-calendar me-2"></i>Etkinlikler</a>
+            <a href="dernek-uyeler.html" class="btn btn-outline-light btn-lg"><i class="fas fa-users me-2"></i>Üyelerimiz</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <h1>Ekonomik Kalkınma</h1>
+          <p>24 işletmemiz ve esnaflarımızla yerel ekonomiyi güçlendiriyoruz</p>
+          <div class="mt-4">
+            <a href="esnaflarimiz.html" class="btn btn-primary btn-lg me-3"><i class="fas fa-store me-2"></i>Esnaflarımız</a>
+            <a href="iletisim.html" class="btn btn-outline-light btn-lg"><i class="fas fa-handshake me-2"></i>İş Birliği</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+    
+    <!-- Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
 
   <!-- Quick Stats with Counter Animation -->
   <section class="section-corporate" style="padding: 3rem 0;">
@@ -386,5 +533,28 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
   <script src="js/script.js"></script>
+  <script>
+    // Hero Slider
+    new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      speed: 1000,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      pagination: {
+        el: '.hero-swiper .swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.hero-swiper .swiper-button-next',
+        prevEl: '.hero-swiper .swiper-button-prev',
+      },
+    });
+  </script>
 </body>
 </html>
