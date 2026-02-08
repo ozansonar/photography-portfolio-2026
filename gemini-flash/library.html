@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Kütüphane | ATK Dijital Kaynaklar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root { --blue: #1e3a8a; --light: #f8fafc; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--light); padding: 3rem 5%; }
+        .search-section { text-align: center; margin-bottom: 3rem; }
+        .search-bar { max-width: 600px; margin: 0 auto; display: flex; gap: 0.5rem; }
+        .search-bar input { flex: 1; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 50px; outline: none; }
+        .lib-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .book-card { background: white; padding: 1.5rem; border-radius: 1rem; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .book-card:hover { transform: translateY(-5px); border: 1px solid var(--blue); }
+        .book-cover { width: 120px; height: 180px; background: #e2e8f0; margin: 0 auto 1rem; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--blue); }
+    </style>
+</head>
+<body>
+    <div class="search-section">
+        <h1>📚 ATK Dijital Kütüphane</h1>
+        <p>Binlerce kaynak parmaklarınızın ucunda.</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Kitap, yazar veya konu ara...">
+            <button style="background:var(--blue); color:white; border:none; padding:0 2rem; border-radius:50px;">Ara</button>
+        </div>
+    </div>
+    <div class="lib-grid">
+        <div class="book-card"><div class="book-cover"><i class="bi bi-book"></i></div><h3>Fizik I</h3><p>Newton Mekaniği</p><button style="margin-top:1rem; border:none; background:none; color:var(--blue); font-weight:700;">Oku <i class="bi bi-arrow-right"></i></button></div>
+        <div class="book-card"><div class="book-cover"><i class="bi bi-journal-text"></i></div><h3>Dünya Tarihi</h3><p>Modern Çağ</p><button style="margin-top:1rem; border:none; background:none; color:var(--blue); font-weight:700;">Oku <i class="bi bi-arrow-right"></i></button></div>
+        <div class="book-card"><div class="book-cover"><i class="bi bi-calculator"></i></div><h3>İleri Matematik</h3><p>Kalkülüs</p><button style="margin-top:1rem; border:none; background:none; color:var(--blue); font-weight:700;">Oku <i class="bi bi-arrow-right"></i></button></div>
+        <div class="book-card"><div class="book-cover"><i class="bi bi-translate"></i></div><h3>İngilizce</h3><p>C1 Level</p><button style="margin-top:1rem; border:none; background:none; color:var(--blue); font-weight:700;">Oku <i class="bi bi-arrow-right"></i></button></div>
+    </div>
+</body>
+</html>
