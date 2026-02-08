@@ -1,0 +1,193 @@
+<!-- Bu dosya admin/index.html içine entegre edilecek -->
+<!-- Blog Management Page İçeriği -->
+
+<div class="page-header animate__animated animate__fadeInDown">
+    <div>
+        <h1>Blog Yönetimi</h1>
+        <p>Blog yazılarınızı oluşturun ve yönetin</p>
+    </div>
+    <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#newBlogModal">
+        <i class="bi bi-plus-lg"></i> Yeni Blog Yazısı
+    </button>
+</div>
+
+<!-- Stats Row -->
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon bg-primary"><i class="bi bi-file-text"></i></div>
+            <div class="stat-info">
+                <h3>24</h3>
+                <p>Toplam Yazı</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon bg-success"><i class="bi bi-check-circle"></i></div>
+            <div class="stat-info">
+                <h3>18</h3>
+                <p>Yayında</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon bg-warning"><i class="bi bi-clock"></i></div>
+            <div class="stat-info">
+                <h3>4</h3>
+                <p>Taslak</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon bg-info"><i class="bi bi-eye"></i></div>
+            <div class="stat-info">
+                <h3>12.5K</h3>
+                <p>Toplam Görüntüleme</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Table -->
+<div class="card">
+    <div class="card-header">
+        <h3>Tüm Blog Yazıları</h3>
+        <div class="card-actions">
+            <input type="text" class="form-control" placeholder="Ara..." style="width: 250px;">
+            <select class="form-select" style="width: 150px;">
+                <option>Tümü</option>
+                <option>Yayında</option>
+                <option>Taslak</option>
+            </select>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>Kategori</th>
+                        <th>Yazar</th>
+                        <th>Tarih</th>
+                        <th>Görüntülenme</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=80&h=60&fit=crop" style="width:60px;height:45px;border-radius:0.5rem;object-fit:cover;">
+                                <div>
+                                    <strong>Doğal Işıkta Portre Çekimi</strong>
+                                    <small class="text-muted d-block">10 dakika okuma</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-primary">Portre</span></td>
+                        <td>Ozan SONAR</td>
+                        <td>5 Şub 2026</td>
+                        <td>1,245</td>
+                        <td><span class="badge bg-success">Yayında</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" title="Düzenle"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-sm btn-danger" title="Sil"><i class="bi bi-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=80&h=60&fit=crop" style="width:60px;height:45px;border-radius:0.5rem;object-fit:cover;">
+                                <div>
+                                    <strong>Düğün Fotoğrafçılığı Sırları</strong>
+                                    <small class="text-muted d-block">8 dakika okuma</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-danger">Düğün</span></td>
+                        <td>Ozan SONAR</td>
+                        <td>2 Şub 2026</td>
+                        <td>2,540</td>
+                        <td><span class="badge bg-success">Yayında</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=80&h=60&fit=crop" style="width:60px;height:45px;border-radius:0.5rem;object-fit:cover;">
+                                <div>
+                                    <strong>2026'da En İyi 5 Lens</strong>
+                                    <small class="text-muted d-block">12 dakika okuma</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-warning">Ekipman</span></td>
+                        <td>Ozan SONAR</td>
+                        <td>28 Oca 2026</td>
+                        <td>1,890</td>
+                        <td><span class="badge bg-warning">Taslak</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- New Blog Modal -->
+<div class="modal fade" id="newBlogModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background:var(--dark);border:1px solid rgba(255,255,255,0.1);border-radius:1rem;">
+            <div class="modal-header">
+                <h5 class="modal-title">Yeni Blog Yazısı</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Başlık</label>
+                        <input type="text" class="form-control" placeholder="Blog yazısı başlığı">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select class="form-select">
+                            <option>Portre</option>
+                            <option>Düğün</option>
+                            <option>Doğa</option>
+                            <option>Sokak</option>
+                            <option>Ekipman</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Özet</label>
+                        <textarea class="form-control" rows="3" placeholder="Kısa özet..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">İçerik</label>
+                        <textarea class="form-control" rows="8" placeholder="Blog yazısı içeriği..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kapak Görseli</label>
+                        <input type="file" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-warning">Taslak Olarak Kaydet</button>
+                <button type="button" class="btn btn-primary">Yayınla</button>
+            </div>
+        </div>
+    </div>
+</div>
