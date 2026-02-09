@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Butonlar - Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="css/admin-modern.css" rel="stylesheet">
+  <style>
+    .button-showcase {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+    }
+    .button-showcase h5 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .button-showcase h5 i {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-size: 1.125rem;
+    }
+    .button-group-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    /* Primary Buttons */
+    .btn-primary-custom {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    .btn-primary-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+    }
+    
+    /* Success Buttons */
+    .btn-success-custom {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+    .btn-success-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+    }
+    
+    /* Danger Buttons */
+    .btn-danger-custom {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    }
+    .btn-danger-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(239, 68, 68, 0.5);
+    }
+    
+    /* Warning Buttons */
+    .btn-warning-custom {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+    .btn-warning-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
+    }
+    
+    /* Info Buttons */
+    .btn-info-custom {
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+    }
+    .btn-info-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(6, 182, 212, 0.5);
+    }
+    
+    /* Outline Buttons */
+    .btn-outline-custom {
+      background: transparent;
+      border: 2px solid #667eea;
+      color: #667eea;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-custom:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-color: transparent;
+    }
+    
+    /* Ghost Buttons */
+    .btn-ghost {
+      background: transparent;
+      border: none;
+      color: #667eea;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-ghost:hover {
+      background: rgba(102, 126, 234, 0.1);
+      color: #667eea;
+    }
+    
+    /* Icon Buttons */
+    .btn-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      color: white;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .btn-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    }
+    .btn-icon.primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .btn-icon.success { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+    .btn-icon.danger { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+    .btn-icon.warning { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+    .btn-icon.info { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+    
+    /* Rounded Buttons */
+    .btn-rounded {
+      border-radius: 50px !important;
+      padding: 0.75rem 2rem;
+    }
+    
+    /* Square Buttons */
+    .btn-square {
+      border-radius: 8px !important;
+    }
+    
+    /* Large Buttons */
+    .btn-lg-custom {
+      padding: 1rem 2.5rem;
+      font-size: 1.125rem;
+    }
+    
+    /* Small Buttons */
+    .btn-sm-custom {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+    
+    /* Loading Button */
+    .btn-loading {
+      position: relative;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .btn-loading::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+      margin-top: -8px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spinner 0.6s linear infinite;
+    }
+    @keyframes spinner {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Block Buttons */
+    .btn-block-custom {
+      display: block;
+      width: 100%;
+    }
+    
+    /* Social Buttons */
+    .btn-facebook { background: #1877f2; }
+    .btn-twitter { background: #1da1f2; }
+    .btn-instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+    .btn-linkedin { background: #0077b5; }
+    .btn-youtube { background: #ff0000; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="modern-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <i class="fas fa-mountain"></i>
+      </div>
+      <div class="brand-text">
+        <h3>Palabıyık</h3>
+        <p>Admin Panel</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <a href="dashboard.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-chart-line"></i></div>
+        <span>Dashboard</span>
+      </a>
+      <a href="haberler.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-newspaper"></i></div>
+        <span>Haberler</span>
+        <span class="badge badge-primary">12</span>
+      </a>
+      <a href="etkinlikler.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-calendar-alt"></i></div>
+        <span>Etkinlikler</span>
+        <span class="badge badge-success">8</span>
+      </a>
+      <a href="esnaflar.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-store"></i></div>
+        <span>Esnaflar</span>
+        <span class="badge badge-warning">24</span>
+      </a>
+      <a href="galeri.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-images"></i></div>
+        <span>Galeri</span>
+      </a>
+      <a href="uyeler.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-users"></i></div>
+        <span>Üyeler</span>
+        <span class="badge badge-info">450</span>
+      </a>
+      
+      <!-- Yardımcılar Menüsü -->
+      <div class="menu-divider">
+        <span>Yardımcılar</span>
+      </div>
+      <a href="modals.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-window-restore"></i></div>
+        <span>Modallar</span>
+      </a>
+      <a href="buttons.html" class="menu-item active">
+        <div class="menu-icon"><i class="fas fa-mouse-pointer"></i></div>
+        <span>Butonlar</span>
+      </a>
+      
+      <div class="menu-divider"></div>
+      <a href="ayarlar.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-cog"></i></div>
+        <span>Ayarlar</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="Admin">
+      <div class="user-info">
+        <strong>Admin</strong>
+        <small>Yönetici</small>
+      </div>
+      <button class="btn-logout" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="page-title">
+        <h1><i class="fas fa-mouse-pointer me-3"></i>Butonlar</h1>
+        <p>Farklı stil ve varyasyonlarda buton örnekleri</p>
+      </div>
+      <div class="top-bar-actions">
+        <button class="action-btn" title="Bildirimler">
+          <i class="fas fa-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+        <button class="action-btn" title="Mesajlar">
+          <i class="fas fa-envelope"></i>
+        </button>
+        <a href="dashboard.html" class="btn btn-secondary modern-btn">
+          <i class="fas fa-arrow-left me-2"></i>
+          <span>Dashboard'a Dön</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+      
+      <!-- 1. Gradient Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-palette"></i>Gradient Butonlar</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-primary-custom"><i class="fas fa-magic me-2"></i>Primary</button>
+          <button class="btn-success-custom"><i class="fas fa-check me-2"></i>Success</button>
+          <button class="btn-danger-custom"><i class="fas fa-times me-2"></i>Danger</button>
+          <button class="btn-warning-custom"><i class="fas fa-exclamation me-2"></i>Warning</button>
+          <button class="btn-info-custom"><i class="fas fa-info me-2"></i>Info</button>
+        </div>
+      </div>
+
+      <!-- 2. Outline Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-border-style"></i>Outline Butonlar</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-outline-custom"><i class="fas fa-plus me-2"></i>Primary</button>
+          <button class="btn-outline-custom" style="border-color:#10b981;color:#10b981;"><i class="fas fa-save me-2"></i>Success</button>
+          <button class="btn-outline-custom" style="border-color:#ef4444;color:#ef4444;"><i class="fas fa-trash me-2"></i>Danger</button>
+          <button class="btn-outline-custom" style="border-color:#f59e0b;color:#f59e0b;"><i class="fas fa-bell me-2"></i>Warning</button>
+          <button class="btn-outline-custom" style="border-color:#06b6d4;color:#06b6d4;"><i class="fas fa-info-circle me-2"></i>Info</button>
+        </div>
+      </div>
+
+      <!-- 3. Ghost Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-ghost"></i>Ghost Butonlar</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-ghost">Primary</button>
+          <button class="btn-ghost" style="color:#10b981;">Success</button>
+          <button class="btn-ghost" style="color:#ef4444;">Danger</button>
+          <button class="btn-ghost" style="color:#f59e0b;">Warning</button>
+          <button class="btn-ghost" style="color:#06b6d4;">Info</button>
+        </div>
+      </div>
+
+      <!-- 4. Icon Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-icons"></i>İkon Butonlar</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-icon primary"><i class="fas fa-heart"></i></button>
+          <button class="btn-icon success"><i class="fas fa-check"></i></button>
+          <button class="btn-icon danger"><i class="fas fa-trash"></i></button>
+          <button class="btn-icon warning"><i class="fas fa-star"></i></button>
+          <button class="btn-icon info"><i class="fas fa-bell"></i></button>
+        </div>
+      </div>
+
+      <!-- 5. Rounded Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-circle"></i>Yuvarlak Butonlar</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-primary-custom btn-rounded"><i class="fas fa-rocket me-2"></i>Başlat</button>
+          <button class="btn-success-custom btn-rounded"><i class="fas fa-download me-2"></i>İndir</button>
+          <button class="btn-danger-custom btn-rounded"><i class="fas fa-ban me-2"></i>İptal</button>
+          <button class="btn-warning-custom btn-rounded"><i class="fas fa-pause me-2"></i>Durdur</button>
+          <button class="btn-info-custom btn-rounded"><i class="fas fa-play me-2"></i>Oynat</button>
+        </div>
+      </div>
+
+      <!-- 6. Square Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-square"></i>Kare Butonlar</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-primary-custom btn-square"><i class="fas fa-cog me-2"></i>Ayarlar</button>
+          <button class="btn-success-custom btn-square"><i class="fas fa-save me-2"></i>Kaydet</button>
+          <button class="btn-danger-custom btn-square"><i class="fas fa-trash me-2"></i>Sil</button>
+          <button class="btn-warning-custom btn-square"><i class="fas fa-edit me-2"></i>Düzenle</button>
+          <button class="btn-info-custom btn-square"><i class="fas fa-eye me-2"></i>Görüntüle</button>
+        </div>
+      </div>
+
+      <!-- 7. Size Variants -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-text-height"></i>Boyut Varyasyonları</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-primary-custom btn-sm-custom">Küçük</button>
+          <button class="btn-primary-custom">Normal</button>
+          <button class="btn-primary-custom btn-lg-custom">Büyük</button>
+        </div>
+      </div>
+
+      <!-- 8. Icon Only Large -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-expand"></i>Büyük İkon Butonlar</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-icon primary" style="width:60px;height:60px;font-size:1.5rem;"><i class="fas fa-plus"></i></button>
+          <button class="btn-icon success" style="width:60px;height:60px;font-size:1.5rem;"><i class="fas fa-check"></i></button>
+          <button class="btn-icon danger" style="width:60px;height:60px;font-size:1.5rem;"><i class="fas fa-times"></i></button>
+          <button class="btn-icon warning" style="width:60px;height:60px;font-size:1.5rem;"><i class="fas fa-star"></i></button>
+          <button class="btn-icon info" style="width:60px;height:60px;font-size:1.5rem;"><i class="fas fa-heart"></i></button>
+        </div>
+      </div>
+
+      <!-- 9. Loading Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-spinner"></i>Yükleme Butonları</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-primary-custom btn-loading">Yükleniyor...</button>
+          <button class="btn-success-custom btn-loading">Kaydetiliyor...</button>
+          <button class="btn-danger-custom btn-loading">Siliniyor...</button>
+          <button class="btn-info-custom btn-loading">İşleniyor...</button>
+        </div>
+      </div>
+
+      <!-- 10. Icon Left & Right -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-arrows-alt-h"></i>İkon Pozisyonları</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-primary-custom"><i class="fas fa-arrow-left me-2"></i>Sol İkon</button>
+          <button class="btn-success-custom">Sağ İkon<i class="fas fa-arrow-right ms-2"></i></button>
+          <button class="btn-warning-custom"><i class="fas fa-download me-2"></i>İndir<i class="fas fa-external-link-alt ms-2"></i></button>
+        </div>
+      </div>
+
+      <!-- 11. Social Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-share-alt"></i>Sosyal Medya Butonları</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-facebook" style="border:none;color:white;padding:0.75rem 1.5rem;border-radius:12px;font-weight:600;">
+            <i class="fab fa-facebook-f me-2"></i>Facebook
+          </button>
+          <button class="btn-twitter" style="border:none;color:white;padding:0.75rem 1.5rem;border-radius:12px;font-weight:600;">
+            <i class="fab fa-twitter me-2"></i>Twitter
+          </button>
+          <button class="btn-instagram" style="border:none;color:white;padding:0.75rem 1.5rem;border-radius:12px;font-weight:600;">
+            <i class="fab fa-instagram me-2"></i>Instagram
+          </button>
+          <button class="btn-linkedin" style="border:none;color:white;padding:0.75rem 1.5rem;border-radius:12px;font-weight:600;">
+            <i class="fab fa-linkedin-in me-2"></i>LinkedIn
+          </button>
+          <button class="btn-youtube" style="border:none;color:white;padding:0.75rem 1.5rem;border-radius:12px;font-weight:600;">
+            <i class="fab fa-youtube me-2"></i>YouTube
+          </button>
+        </div>
+      </div>
+
+      <!-- 12. Block Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-arrows-alt-v"></i>Tam Genişlik Butonlar</h5>
+        <div style="max-width:600px;">
+          <button class="btn-primary-custom btn-block-custom mb-2"><i class="fas fa-plus me-2"></i>Yeni Ekle</button>
+          <button class="btn-success-custom btn-block-custom mb-2"><i class="fas fa-save me-2"></i>Kaydet</button>
+          <button class="btn-danger-custom btn-block-custom"><i class="fas fa-trash me-2"></i>Sil</button>
+        </div>
+      </div>
+
+      <!-- 13. Button Groups -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-layer-group"></i>Buton Grupları</h5>
+        <div class="button-group-wrapper">
+          <div class="btn-group" role="group">
+            <button class="btn-primary-custom btn-square" style="border-radius:12px 0 0 12px !important;">
+              <i class="fas fa-align-left"></i>
+            </button>
+            <button class="btn-primary-custom btn-square" style="border-radius:0 !important;">
+              <i class="fas fa-align-center"></i>
+            </button>
+            <button class="btn-primary-custom btn-square" style="border-radius:0 12px 12px 0 !important;">
+              <i class="fas fa-align-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. Action Buttons -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-bolt"></i>Aksiyon Butonları</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-success-custom"><i class="fas fa-plus me-2"></i>Yeni Oluştur</button>
+          <button class="btn-primary-custom"><i class="fas fa-edit me-2"></i>Düzenle</button>
+          <button class="btn-warning-custom"><i class="fas fa-copy me-2"></i>Kopyala</button>
+          <button class="btn-info-custom"><i class="fas fa-share me-2"></i>Paylaş</button>
+          <button class="btn-danger-custom"><i class="fas fa-trash me-2"></i>Sil</button>
+        </div>
+      </div>
+
+      <!-- 15. Disabled State -->
+      <div class="button-showcase">
+        <h5><i class="fas fa-ban"></i>Pasif Butonlar</h5>
+        <div class="button-group-wrapper">
+          <button class="btn-primary-custom" disabled style="opacity:0.5;cursor:not-allowed;">Pasif Primary</button>
+          <button class="btn-success-custom" disabled style="opacity:0.5;cursor:not-allowed;">Pasif Success</button>
+          <button class="btn-danger-custom" disabled style="opacity:0.5;cursor:not-allowed;">Pasif Danger</button>
+          <button class="btn-outline-custom" disabled style="opacity:0.5;cursor:not-allowed;">Pasif Outline</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/admin-common.js"></script>
+</body>
+</html>
