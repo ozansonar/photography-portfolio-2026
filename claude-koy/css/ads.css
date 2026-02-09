@@ -1,0 +1,531 @@
+/*
+==============================================
+REKLAM ALANLARI - AD PLACEMENT SYSTEM
+==============================================
+
+Bu dosya sitenizin reklam alanlarını yönetir.
+Google AdSense, Yandex Direct veya diğer reklam ağları ile uyumludur.
+
+REKLAM ALANLARI:
+1. Header Banner (728x90 - Leaderboard)
+2. Sidebar Ads (300x250 - Medium Rectangle)
+3. In-Content Ads (336x280 - Large Rectangle)
+4. Footer Banner (728x90 - Leaderboard)
+5. Mobile Banner (320x100 - Mobile Banner)
+6. Sticky Sidebar (300x600 - Half Page)
+
+KULLANIM:
+1. HTML'e reklam alanlarını ekleyin
+2. Google AdSense kodlarını placeholder'ların yerine yerleştirin
+3. Responsive tasarım otomatik çalışır
+
+*/
+
+/* ==============================================
+   AD CONTAINER BASE
+   ============================================== */
+
+.ad-container {
+  margin: 2rem auto;
+  text-align: center;
+  position: relative;
+  background: var(--krem);
+  border-radius: 12px;
+  border: 2px dashed var(--acik-gri);
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.ad-container:hover {
+  border-color: var(--toprak);
+  background: white;
+  box-shadow: 0 4px 15px rgba(101, 67, 33, 0.1);
+}
+
+.ad-label {
+  font-size: 0.625rem;
+  color: var(--gri);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+
+/* Demo placeholder styles - remove when adding real ads */
+.ad-placeholder {
+  background: linear-gradient(135deg, var(--acik-gri), var(--krem));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gri);
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+
+/* ==============================================
+   HEADER / TOP BANNER
+   728x90 - Leaderboard
+   ============================================== */
+
+.ad-header-banner {
+  max-width: 728px;
+  margin: 1.5rem auto;
+}
+
+.ad-header-banner .ad-placeholder {
+  width: 728px;
+  height: 90px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ad-header-banner {
+    display: none; /* Hide on mobile, use mobile banner instead */
+  }
+}
+
+
+/* ==============================================
+   SIDEBAR ADS
+   300x250 - Medium Rectangle
+   ============================================== */
+
+.ad-sidebar {
+  margin: 2rem 0;
+  position: sticky;
+  top: 100px;
+}
+
+.ad-sidebar .ad-placeholder {
+  width: 300px;
+  height: 250px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .ad-sidebar {
+    position: relative;
+    top: 0;
+    margin: 2rem auto;
+    max-width: 300px;
+  }
+}
+
+
+/* ==============================================
+   SIDEBAR TALL (SKYSCRAPER)
+   300x600 - Half Page
+   ============================================== */
+
+.ad-sidebar-tall {
+  margin: 2rem 0;
+  position: sticky;
+  top: 100px;
+}
+
+.ad-sidebar-tall .ad-placeholder {
+  width: 300px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .ad-sidebar-tall {
+    display: none; /* Too tall for mobile */
+  }
+}
+
+
+/* ==============================================
+   IN-CONTENT ADS
+   336x280 - Large Rectangle
+   ============================================== */
+
+.ad-in-content {
+  margin: 3rem auto;
+  max-width: 336px;
+  clear: both;
+}
+
+.ad-in-content .ad-placeholder {
+  width: 336px;
+  height: 280px;
+  max-width: 100%;
+}
+
+/* Float option for text wrapping */
+.ad-in-content.ad-float-right {
+  float: right;
+  margin: 0 0 2rem 2rem;
+}
+
+.ad-in-content.ad-float-left {
+  float: left;
+  margin: 0 2rem 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .ad-in-content.ad-float-right,
+  .ad-in-content.ad-float-left {
+    float: none;
+    margin: 2rem auto;
+  }
+}
+
+
+/* ==============================================
+   FOOTER BANNER
+   728x90 - Leaderboard
+   ============================================== */
+
+.ad-footer-banner {
+  max-width: 728px;
+  margin: 2rem auto;
+}
+
+.ad-footer-banner .ad-placeholder {
+  width: 728px;
+  height: 90px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ad-footer-banner {
+    display: none; /* Hide on mobile */
+  }
+}
+
+
+/* ==============================================
+   MOBILE BANNER
+   320x100 - Mobile Banner
+   ============================================== */
+
+.ad-mobile-banner {
+  display: none;
+  margin: 1.5rem auto;
+}
+
+.ad-mobile-banner .ad-placeholder {
+  width: 320px;
+  height: 100px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ad-mobile-banner {
+    display: block;
+  }
+}
+
+
+/* ==============================================
+   BETWEEN POSTS / CARDS
+   336x280 - Large Rectangle
+   ============================================== */
+
+.ad-between-posts {
+  margin: 2rem 0;
+  padding: 2rem 1rem;
+  background: var(--beyaz);
+  border-radius: 20px;
+}
+
+.ad-between-posts .ad-placeholder {
+  width: 336px;
+  height: 280px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+
+/* ==============================================
+   RESPONSIVE AD (Auto-sizing)
+   For Google AdSense responsive ads
+   ============================================== */
+
+.ad-responsive {
+  margin: 2rem auto;
+  min-height: 90px;
+}
+
+.ad-responsive ins {
+  display: block;
+  text-align: center;
+}
+
+
+/* ==============================================
+   STICKY BOTTOM AD (Mobile)
+   Mobile sticky banner at bottom
+   ============================================== */
+
+.ad-sticky-bottom {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+  padding: 0.5rem;
+  border-top: 2px solid var(--toprak);
+}
+
+.ad-sticky-bottom .ad-close {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  background: var(--toprak);
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  line-height: 1;
+  z-index: 1;
+}
+
+.ad-sticky-bottom .ad-placeholder {
+  width: 320px;
+  height: 50px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ad-sticky-bottom {
+    display: block;
+  }
+}
+
+
+/* ==============================================
+   AD STYLES BY LOCATION
+   ============================================== */
+
+/* Hero/Header Area */
+.hero-ad {
+  margin: 2rem auto 0;
+}
+
+/* Above content */
+.above-content-ad {
+  margin-bottom: 3rem;
+}
+
+/* Below content */
+.below-content-ad {
+  margin-top: 3rem;
+}
+
+/* Between sections */
+.section-divider-ad {
+  padding: 3rem 0;
+  background: var(--beyaz);
+}
+
+.section-divider-ad .ad-container {
+  background: white;
+  border: 2px solid var(--krem);
+  box-shadow: var(--shadow-lg);
+}
+
+
+/* ==============================================
+   NATIVE ADS (Blends with content)
+   ============================================== */
+
+.ad-native {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.ad-native:hover {
+  border-color: var(--toprak);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.ad-native .ad-label {
+  background: var(--krem);
+  padding: 0.375rem 1rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+
+/* ==============================================
+   AD GRID (Multiple ads side by side)
+   ============================================== */
+
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .ad-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==============================================
+   SPECIAL AD CONTAINERS
+   ============================================== */
+
+/* Featured Ad */
+.ad-featured {
+  background: linear-gradient(135deg, var(--toprak), var(--toprak-acik));
+  border: 3px solid var(--bugday);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-xl);
+}
+
+.ad-featured .ad-label {
+  color: white;
+  background: rgba(255,255,255,0.2);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+}
+
+.ad-featured .ad-placeholder {
+  background: white;
+  border-radius: 12px;
+}
+
+
+/* Highlighted Ad */
+.ad-highlighted {
+  border: 3px solid var(--bugday);
+  background: white;
+  box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
+}
+
+
+/* ==============================================
+   AD VISIBILITY CONTROLS
+   ============================================== */
+
+/* Hide on specific pages */
+.page-esnaflarimiz .ad-sidebar,
+.page-iletisim .ad-footer-banner {
+  /* Customize as needed */
+}
+
+/* Show only on specific pages */
+.ad-homepage-only {
+  display: none;
+}
+
+.page-index .ad-homepage-only {
+  display: block;
+}
+
+
+/* ==============================================
+   LOADING STATES
+   ============================================== */
+
+.ad-loading {
+  animation: adPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes adPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+
+/* ==============================================
+   PRINT - Hide all ads when printing
+   ============================================== */
+
+@media print {
+  .ad-container,
+  .ad-header-banner,
+  .ad-sidebar,
+  .ad-sidebar-tall,
+  .ad-in-content,
+  .ad-footer-banner,
+  .ad-mobile-banner,
+  .ad-sticky-bottom,
+  .ad-between-posts,
+  .ad-responsive,
+  .ad-native,
+  .ad-featured {
+    display: none !important;
+  }
+}
+
+
+/* ==============================================
+   ACCESSIBILITY
+   ============================================== */
+
+.ad-container[aria-hidden="true"] {
+  display: none;
+}
+
+.ad-label::before {
+  content: '';
+  /* Screen reader friendly */
+}
+
+
+/* ==============================================
+   AD BLOCKER DETECTION MESSAGE (Optional)
+   ============================================== */
+
+.adblock-message {
+  background: var(--toprak);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 600px;
+  display: none;
+}
+
+.adblock-message h4 {
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.adblock-message p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Show when ad blocker detected */
+.adblock-detected .adblock-message {
+  display: block;
+}
+
+.adblock-detected .ad-container {
+  display: none;
+}

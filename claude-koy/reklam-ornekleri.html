@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reklam Alanı Örnekleri | Palabıyık Köyü</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/ads.css" rel="stylesheet">
+  
+  <style>
+    .demo-section {
+      padding: 3rem 0;
+      border-bottom: 3px dashed var(--acik-gri);
+    }
+    .demo-section:last-child {
+      border-bottom: none;
+    }
+    .demo-section h2 {
+      color: var(--toprak);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .demo-section .description {
+      color: var(--gri);
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: var(--krem);
+      border-radius: 12px;
+      border-left: 4px solid var(--toprak);
+    }
+    .code-block {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin-top: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+    }
+    .code-block code {
+      color: #f8f8f2;
+    }
+    .code-comment {
+      color: #6272a4;
+    }
+    .code-tag {
+      color: #ff79c6;
+    }
+    .code-class {
+      color: #50fa7b;
+    }
+    .code-string {
+      color: #f1fa8c;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-corporate sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-mountain"></i>Palabıyık Köyü
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link" href="haberler.html">Haberler</a></li>
+          <li class="nav-item"><a class="nav-link" href="etkinlikler.html">Etkinlikler</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section style="background: linear-gradient(135deg, var(--toprak), var(--toprak-acik)); color: white; padding: 4rem 0; text-align: center;">
+    <div class="container">
+      <h1 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">
+        <i class="fas fa-ad me-3"></i>Reklam Alanları
+      </h1>
+      <p style="font-size: 1.25rem; opacity: 0.9;">
+Site genişinde kullanılabilecek reklam alanları ve entegrasyon rehberi
+      </p>
+    </div>
+  </section>
+
+  <section class="section-corporate">
+    <div class="container">
+
+      <!-- 1. Header Banner -->
+      <div class="demo-section">
+        <h2><i class="fas fa-rectangle-ad me-2"></i> 1. Header Banner (728x90)</h2>
+        <div class="description">
+          <strong>Kullanım Yeri:</strong> Sayfa başlıklarında, hero bölümünün altında<br>
+          <strong>Boyut:</strong> 728x90 piksel (Leaderboard)<br>
+          <strong>Görünürlük:</strong> Sadece desktop/tablet (mobilde gizli)
+        </div>
+        
+        <!-- DEMO -->
+        <div class="ad-header-banner">
+          <div class="ad-container">
+            <div class="ad-label">Reklam</div>
+            <div class="ad-placeholder">
+              <i class="fas fa-ad me-2"></i> 728 x 90 - Header Banner
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+<span class="code-comment">&lt;!-- HTML Kodu --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-header-banner"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-container"</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-label"</span><span class="code-tag">&gt;</span>Reklam<span class="code-tag">&lt;/div&gt;</span>
+    <span class="code-comment">&lt;!-- Google AdSense kodunu buraya ekleyin --&gt;</span>
+    <span class="code-tag">&lt;script</span> async src=<span class="code-string">"https://pagead2.googlesyndication.com/..."</span><span class="code-tag">&gt;&lt;/script&gt;</span>
+  <span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;/div&gt;</span>
+        </div>
+      </div>
+
+      <!-- 2. Sidebar Ad -->
+      <div class="demo-section">
+        <h2><i class="fas fa-rectangle-ad me-2"></i> 2. Sidebar Ad (300x250)</h2>
+        <div class="description">
+          <strong>Kullanım Yeri:</strong> Sağ sidebar, blog detay sayfaları<br>
+          <strong>Boyut:</strong> 300x250 piksel (Medium Rectangle)<br>
+          <strong>Özellik:</strong> Sticky position (sayfada kaydırırken sabit kalır)
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-8">
+            <div style="background: white; padding: 2rem; border-radius: 12px;">
+              <h3>Ana İçerik</h3>
+              <p style="color: var(--gri);">Bu bölgede ana içerik bulunur. Sağ tarafta sticky reklam alanı vardır.</p>
+              <p style="color: var(--gri);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="ad-sidebar">
+              <div class="ad-container">
+                <div class="ad-label">Reklam</div>
+                <div class="ad-placeholder">
+                  <i class="fas fa-ad me-2"></i> 300 x 250<br>Sidebar Ad
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+<span class="code-comment">&lt;!-- HTML Kodu --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-sidebar"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-container"</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-label"</span><span class="code-tag">&gt;</span>Reklam<span class="code-tag">&lt;/div&gt;</span>
+    <span class="code-comment">&lt;!-- AdSense kodu --&gt;</span>
+  <span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;/div&gt;</span>
+        </div>
+      </div>
+
+      <!-- 3. In-Content Ad -->
+      <div class="demo-section">
+        <h2><i class="fas fa-rectangle-ad me-2"></i> 3. In-Content Ad (336x280)</h2>
+        <div class="description">
+          <strong>Kullanım Yeri:</strong> Makale/haber içeriklerinin arasında<br>
+          <strong>Boyut:</strong> 336x280 piksel (Large Rectangle)<br>
+          <strong>Seçenekler:</strong> Merkez, sağa yasla, sola yasla
+        </div>
+        
+        <div class="ad-in-content">
+          <div class="ad-container">
+            <div class="ad-label">Reklam</div>
+            <div class="ad-placeholder">
+              <i class="fas fa-ad me-2"></i> 336 x 280<br>In-Content Ad
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+<span class="code-comment">&lt;!-- Merkez --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-in-content"</span><span class="code-tag">&gt;</span>...<span class="code-tag">&lt;/div&gt;</span>
+
+<span class="code-comment">&lt;!-- Sağa yasla (text wrapping) --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-in-content ad-float-right"</span><span class="code-tag">&gt;</span>...<span class="code-tag">&lt;/div&gt;</span>
+
+<span class="code-comment">&lt;!-- Sola yasla (text wrapping) --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-in-content ad-float-left"</span><span class="code-tag">&gt;</span>...<span class="code-tag">&lt;/div&gt;</span>
+        </div>
+      </div>
+
+      <!-- 4. Mobile Banner -->
+      <div class="demo-section">
+        <h2><i class="fas fa-mobile-alt me-2"></i> 4. Mobile Banner (320x100)</h2>
+        <div class="description">
+          <strong>Kullanım Yeri:</strong> Mobil cihazlarda sayfa başlıkları<br>
+          <strong>Boyut:</strong> 320x100 piksel<br>
+          <strong>Görünürlük:</strong> Sadece mobil cihazlarda görünür
+        </div>
+        
+        <div class="ad-mobile-banner">
+          <div class="ad-container">
+            <div class="ad-label">Reklam</div>
+            <div class="ad-placeholder">
+              <i class="fas fa-ad me-2"></i> 320 x 100 - Mobile
+            </div>
+          </div>
+        </div>
+        
+        <div class="alert alert-info">
+          <i class="fas fa-info-circle me-2"></i> Bu reklam sadece mobil cihazlarda görünür. Test etmek için tarayıcınızı mobil görünüme geçirin.
+        </div>
+      </div>
+
+      <!-- 5. Between Posts -->
+      <div class="demo-section">
+        <h2><i class="fas fa-th-list me-2"></i> 5. Between Posts (336x280)</h2>
+        <div class="description">
+          <strong>Kullanım Yeri:</strong> Haber/etkinlik kartları arasında<br>
+          <strong>Boyut:</strong> 336x280 piksel<br>
+          <strong>Özellik:</strong> Kartlarla uyumlu tasarım
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+              <h5>Haber 1</h5>
+              <p style="color: var(--gri); margin: 0;">Haber içeriği...</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+              <h5>Haber 2</h5>
+              <p style="color: var(--gri); margin: 0;">Haber içeriği...</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+              <h5>Haber 3</h5>
+              <p style="color: var(--gri); margin: 0;">Haber içeriği...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-between-posts">
+          <div class="ad-container">
+            <div class="ad-label">Sponsorlu İçerik</div>
+            <div class="ad-placeholder">
+              <i class="fas fa-ad me-2"></i> 336 x 280<br>Between Posts
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+              <h5>Haber 4</h5>
+              <p style="color: var(--gri); margin: 0;">Haber içeriği...</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+              <h5>Haber 5</h5>
+              <p style="color: var(--gri); margin: 0;">Haber içeriği...</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+              <h5>Haber 6</h5>
+              <p style="color: var(--gri); margin: 0;">Haber içeriği...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Native Ad -->
+      <div class="demo-section">
+        <h2><i class="fas fa-newspaper me-2"></i> 6. Native Ad (Estetik Reklam)</h2>
+        <div class="description">
+          <strong>Kullanım Yeri:</strong> İçerikle karışan, doğal görünen reklamlar<br>
+          <strong>Özellik:</strong> Site tasarımıyla uyumlu, kart tarzı
+        </div>
+        
+        <div class="ad-native">
+          <div class="ad-label">Sponsorlu</div>
+          <h4 style="color: var(--toprak); font-weight: 800; margin-bottom: 1rem;">
+Reklam Başlığı
+          </h4>
+          <p style="color: var(--gri); margin-bottom: 1.5rem;">
+Bu alan native (doğal) reklam için kullanılabilir. Site tasarımıyla uyumlu olduğu için daha yüksek tıklama oranı sağlar.
+          </p>
+          <a href="#" class="btn btn-primary">
+            <i class="fas fa-external-link-alt me-2"></i>Daha Fazla Bilgi
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. Footer Banner -->
+      <div class="demo-section">
+        <h2><i class="fas fa-rectangle-ad me-2"></i> 7. Footer Banner (728x90)</h2>
+        <div class="description">
+          <strong>Kullanım Yeri:</strong> Sayfa altında, footer'dan önce<br>
+          <strong>Boyut:</strong> 728x90 piksel<br>
+          <strong>Görünürlük:</strong> Desktop/tablet (mobilde gizli)
+        </div>
+        
+        <div class="ad-footer-banner">
+          <div class="ad-container">
+            <div class="ad-label">Reklam</div>
+            <div class="ad-placeholder">
+              <i class="fas fa-ad me-2"></i> 728 x 90 - Footer Banner
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Integration Guide -->
+      <div class="demo-section">
+        <h2><i class="fas fa-code me-2"></i> Google AdSense Entegrasyonu</h2>
+        <div class="description">
+          <strong>Adım 1:</strong> Google AdSense hesabı oluşturun<br>
+          <strong>Adım 2:</strong> Reklam birimi oluşturun<br>
+          <strong>Adım 3:</strong> Verilen kodu aşağıdaki gibi yerleştirin
+        </div>
+
+        <div class="code-block">
+<span class="code-comment">&lt;!-- ads.css dosyasını ekleyin --&gt;</span>
+<span class="code-tag">&lt;link</span> <span class="code-class">href=</span><span class="code-string">"css/ads.css"</span> <span class="code-class">rel=</span><span class="code-string">"stylesheet"</span><span class="code-tag">&gt;</span>
+
+<span class="code-comment">&lt;!-- Reklam alanı --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-sidebar"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-container"</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;div</span> <span class="code-class">class=</span><span class="code-string">"ad-label"</span><span class="code-tag">&gt;</span>Reklam<span class="code-tag">&lt;/div&gt;</span>
+    
+    <span class="code-comment">&lt;!-- Google AdSense kodu buraya --&gt;</span>
+    <span class="code-tag">&lt;script</span> async src=<span class="code-string">"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"</span>
+         crossorigin=<span class="code-string">"anonymous"</span><span class="code-tag">&gt;&lt;/script&gt;</span>
+    <span class="code-tag">&lt;ins</span> <span class="code-class">class=</span><span class="code-string">"adsbygoogle"</span>
+         style=<span class="code-string">"display:block"</span>
+         data-ad-client=<span class="code-string">"ca-pub-XXXXXXXXXXXXXXXX"</span>
+         data-ad-slot=<span class="code-string">"1234567890"</span>
+         data-ad-format=<span class="code-string">"auto"</span>
+         data-full-width-responsive=<span class="code-string">"true"</span><span class="code-tag">&gt;&lt;/ins&gt;</span>
+    <span class="code-tag">&lt;script&gt;</span>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    <span class="code-tag">&lt;/script&gt;</span>
+  <span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;/div&gt;</span>
+        </div>
+      </div>
+
+      <!-- Best Practices -->
+      <div class="demo-section">
+        <h2><i class="fas fa-lightbulb me-2"></i> En İyi Uygulamalar</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-md); height: 100%;">
+              <h5 style="color: var(--yesil); margin-bottom: 1rem;">
+                <i class="fas fa-check-circle me-2"></i> Yapılması Gerekenler
+              </h5>
+              <ul style="color: var(--gri); line-height: 2;">
+                <li>Reklamları içerikle karıştırmayın ("Reklam" etiketi)</li>
+                <li>Kullanıcı deneyimini öne çıkarın</li>
+                <li>Responsive tasarım kullanın</li>
+                <li>Sayfa hızını kontrol edin</li>
+                <li>A/B testleri yapın</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-md); height: 100%;">
+              <h5 style="color: #dc3545; margin-bottom: 1rem;">
+                <i class="fas fa-times-circle me-2"></i> Yapılmaması Gerekenler
+              </h5>
+              <ul style="color: var(--gri); line-height: 2;">
+                <li>Çok fazla reklam kullanmayın</li>
+                <li>Pop-up reklamlardan kaçının</li>
+                <li>İçeriği engelleyen reklamlar koymayın</li>
+                <li>Otomatik ses çalan reklamlar kullanmayın</li>
+                <li>Google politikalarını ihlal etmeyin</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended Placements -->
+      <div class="demo-section">
+        <h2><i class="fas fa-map-marked-alt me-2"></i> Önerilen Reklam Yerleşimleri</h2>
+        
+        <div class="table-responsive">
+          <table class="table table-bordered" style="background: white;">
+            <thead style="background: var(--toprak); color: white;">
+              <tr>
+                <th>Sayfa</th>
+                <th>Reklam Alanı</th>
+                <th>Konum</th>
+                <th>Öncelik</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ana Sayfa</td>
+                <td>Header Banner (728x90)</td>
+                <td>Hero'dan sonra</td>
+                <td><span style="color: var(--yesil);"><i class="fas fa-star"></i> Yüksek</span></td>
+              </tr>
+              <tr>
+                <td>Haber Detay</td>
+                <td>Sidebar (300x250)</td>
+                <td>Sağ sidebar, sticky</td>
+                <td><span style="color: var(--yesil);"><i class="fas fa-star"></i> Yüksek</span></td>
+              </tr>
+              <tr>
+                <td>Haber Detay</td>
+                <td>In-Content (336x280)</td>
+                <td>İçerik ortasında</td>
+                <td><span style="color: var(--bugday);"><i class="fas fa-star"></i> Orta</span></td>
+              </tr>
+              <tr>
+                <td>Haberler Liste</td>
+                <td>Between Posts (336x280)</td>
+                <td>Her 6 haberden sonra</td>
+                <td><span style="color: var(--bugday);"><i class="fas fa-star"></i> Orta</span></td>
+              </tr>
+              <tr>
+                <td>Etkinlikler</td>
+                <td>Native Ad</td>
+                <td>Etkinlik kartları arasında</td>
+                <td><span style="color: var(--yesil);"><i class="fas fa-star"></i> Yüksek</span></td>
+              </tr>
+              <tr>
+                <td>Tüm Sayfalar</td>
+                <td>Footer Banner (728x90)</td>
+                <td>Footer'dan önce</td>
+                <td><span style="color: var(--gri);"><i class="fas fa-star"></i> Düşük</span></td>
+              </tr>
+              <tr>
+                <td>Mobil</td>
+                <td>Mobile Banner (320x100)</td>
+                <td>Sayfa başı</td>
+                <td><span style="color: var(--yesil);"><i class="fas fa-star"></i> Yüksek</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sticky Bottom Ad Demo (Mobile) -->
+  <div class="ad-sticky-bottom" id="stickyAd">
+    <button class="ad-close" onclick="document.getElementById('stickyAd').style.display='none'">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="ad-label">Reklam</div>
+    <div class="ad-placeholder">
+      <i class="fas fa-ad me-2"></i> Sticky Bottom (Mobil)
+    </div>
+  </div>
+
+  <footer class="footer-corporate">
+    <div class="container">
+      <div class="row g-5 mb-4">
+        <div class="col-lg-4">
+          <h3 class="footer-title"><i class="fas fa-mountain me-2"></i>Palabıyık Köyü</h3>
+          <p style="opacity: 0.9;">Çorum'un doğal güzellikleri ve kültürel zenginlikleriyle öne çıkan köyümüz.</p>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Hızlı Linkler</h5>
+          <a href="index.html" class="footer-link">Ana Sayfa</a>
+          <a href="hakkimizda.html" class="footer-link">Hakkımızda</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Yönetim</h5>
+          <a href="yonetim.html" class="footer-link">Köy Yönetimi</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">İletişim</h5>
+          <p style="opacity: 0.9; margin: 0;"><i class="fas fa-phone me-2"></i>+90 (555) 123 45 67</p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
+        <p style="margin: 0; opacity: 0.8;">&copy; 2026 Palabıyık Köyü.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
