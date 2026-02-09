@@ -144,9 +144,7 @@
   <!-- Sidebar -->
   <aside class="modern-sidebar">
     <div class="sidebar-brand">
-      <div class="brand-icon">
-        <i class="fas fa-mountain"></i>
-      </div>
+      <div class="brand-icon"><i class="fas fa-mountain"></i></div>
       <div class="brand-text">
         <h3>Palabıyık</h3>
         <p>Admin Panel</p>
@@ -183,18 +181,22 @@
         <span class="badge badge-info">450</span>
       </a>
       
-      <!-- Yardımcılar Menüsü -->
+      <!-- Yardımcılar Dropdown Menüsü -->
       <div class="menu-divider">
         <span>Yardımcılar</span>
       </div>
-      <a href="modals.html" class="menu-item active">
-        <div class="menu-icon"><i class="fas fa-window-restore"></i></div>
-        <span>Modallar</span>
-      </a>
-      <a href="buttons.html" class="menu-item">
-        <div class="menu-icon"><i class="fas fa-mouse-pointer"></i></div>
-        <span>Butonlar</span>
-      </a>
+      <div class="menu-dropdown open">
+        <div class="menu-dropdown-content">
+          <a href="modals.html" class="menu-item active">
+            <div class="menu-icon"><i class="fas fa-window-restore"></i></div>
+            <span>Modallar</span>
+          </a>
+          <a href="buttons.html" class="menu-item">
+            <div class="menu-icon"><i class="fas fa-mouse-pointer"></i></div>
+            <span>Butonlar</span>
+          </a>
+        </div>
+      </div>
       
       <div class="menu-divider"></div>
       <a href="ayarlar.html" class="menu-item">
@@ -215,7 +217,7 @@
     </div>
   </aside>
 
-  <!-- Main Content with rest of modals.html... (keeping existing content) -->
+  <!-- Main Content -->
   <main class="main-wrapper">
     <header class="top-bar">
       <div class="page-title">
@@ -236,19 +238,458 @@
         </a>
       </div>
     </header>
+    
     <div class="content-wrapper">
       <div class="row g-4">
-        <div class="col-lg-3 col-md-4 col-sm-6"><div class="modal-card" data-bs-toggle="modal" data-bs-target="#deleteModal"><div class="modal-card-icon danger"><i class="fas fa-trash"></i></div><h5>Silme Onayı</h5><p>Tehlikeli işlemler için</p></div></div>
-        <div class="col-lg-3 col-md-4 col-sm-6"><div class="modal-card" data-bs-toggle="modal" data-bs-target="#successModal"><div class="modal-card-icon success"><i class="fas fa-check-circle"></i></div><h5>Başarı Mesajı</h5><p>İşlem başarılı</p></div></div>
-        <div class="col-lg-3 col-md-4 col-sm-6"><div class="modal-card" data-bs-toggle="modal" data-bs-target="#warningModal"><div class="modal-card-icon warning"><i class="fas fa-exclamation-triangle"></i></div><h5>Uyarı Mesajı</h5><p>Kullanıcıyı uyar</p></div></div>
-        <div class="col-lg-3 col-md-4 col-sm-6"><div class="modal-card" data-bs-toggle="modal" data-bs-target="#infoModal"><div class="modal-card-icon info"><i class="fas fa-info-circle"></i></div><h5>Bilgi Mesajı</h5><p>Bilgilendirme</p></div></div>
-        <div class="col-lg-3 col-md-4 col-sm-6"><div class="modal-card" data-bs-toggle="modal" data-bs-target="#saveModal"><div class="modal-card-icon primary"><i class="fas fa-save"></i></div><h5>Kaydetme Onayı</h5><p>Değişiklikleri kaydet</p></div></div>
-        <div class="col-lg-3 col-md-4 col-sm-6"><div class="modal-card" data-bs-toggle="modal" data-bs-target="#logoutModal"><div class="modal-card-icon secondary"><i class="fas fa-sign-out-alt"></i></div><h5>Çıkış Onayı</h5><p>Oturumu kapat</p></div></div>
-        <div class="col-lg-3 col-md-4 col-sm-6"><div class="modal-card" data-bs-toggle="modal" data-bs-target="#formModal"><div class="modal-card-icon primary"><i class="fas fa-edit"></i></div><h5>Form Modalı</h5><p>Yeni kayıt ekle</p></div></div>
-        <div class="col-lg-3 col-md-4 col-sm-6"><div class="modal-card" data-bs-toggle="modal" data-bs-target="#loadingModal"><div class="modal-card-icon info"><i class="fas fa-spinner fa-spin"></i></div><h5>Yükleniyor</h5><p>İşlem sırasında</p></div></div>
+        <!-- 1. Delete Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            <div class="modal-card-icon danger"><i class="fas fa-trash"></i></div>
+            <h5>Silme Onayı</h5>
+            <p>Tehlikeli işlemler için kullanılır</p>
+          </div>
+        </div>
+        
+        <!-- 2. Success Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#successModal">
+            <div class="modal-card-icon success"><i class="fas fa-check-circle"></i></div>
+            <h5>Başarı Mesajı</h5>
+            <p>İşlem başarıyla tamamlandı</p>
+          </div>
+        </div>
+        
+        <!-- 3. Warning Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#warningModal">
+            <div class="modal-card-icon warning"><i class="fas fa-exclamation-triangle"></i></div>
+            <h5>Uyarı Mesajı</h5>
+            <p>Kullanıcıyı uyarmak için</p>
+          </div>
+        </div>
+        
+        <!-- 4. Info Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#infoModal">
+            <div class="modal-card-icon info"><i class="fas fa-info-circle"></i></div>
+            <h5>Bilgi Mesajı</h5>
+            <p>Bilgilendirme amaçlı</p>
+          </div>
+        </div>
+        
+        <!-- 5. Save Confirm -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#saveModal">
+            <div class="modal-card-icon primary"><i class="fas fa-save"></i></div>
+            <h5>Kaydetme Onayı</h5>
+            <p>Değişiklikleri kaydet</p>
+          </div>
+        </div>
+        
+        <!-- 6. Logout Confirm -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#logoutModal">
+            <div class="modal-card-icon secondary"><i class="fas fa-sign-out-alt"></i></div>
+            <h5>Çıkış Onayı</h5>
+            <p>Oturumu kapat</p>
+          </div>
+        </div>
+        
+        <!-- 7. Form Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#formModal">
+            <div class="modal-card-icon primary"><i class="fas fa-edit"></i></div>
+            <h5>Form Modalı</h5>
+            <p>Yeni kayıt ekle</p>
+          </div>
+        </div>
+        
+        <!-- 8. Loading Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#loadingModal">
+            <div class="modal-card-icon info"><i class="fas fa-spinner fa-spin"></i></div>
+            <h5>Yükleniyor</h5>
+            <p>İşlem sırasında göster</p>
+          </div>
+        </div>
+
+        <!-- 9. Confirmation Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#confirmModal">
+            <div class="modal-card-icon warning"><i class="fas fa-question-circle"></i></div>
+            <h5>Onay İsteği</h5>
+            <p>Kullanıcıdan onay al</p>
+          </div>
+        </div>
+
+        <!-- 10. Error Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#errorModal">
+            <div class="modal-card-icon danger"><i class="fas fa-times-circle"></i></div>
+            <h5>Hata Mesajı</h5>
+            <p>Hata durumlarını göster</p>
+          </div>
+        </div>
+
+        <!-- 11. Image Preview -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#imageModal">
+            <div class="modal-card-icon info"><i class="fas fa-image"></i></div>
+            <h5>Resim Önizleme</h5>
+            <p>Resim gösterimi</p>
+          </div>
+        </div>
+
+        <!-- 12. Video Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#videoModal">
+            <div class="modal-card-icon danger"><i class="fas fa-video"></i></div>
+            <h5>Video Modalı</h5>
+            <p>Video oynat</p>
+          </div>
+        </div>
+
+        <!-- 13. Detail Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#detailModal">
+            <div class="modal-card-icon primary"><i class="fas fa-file-alt"></i></div>
+            <h5>Detay Bilgi</h5>
+            <p>Detaylı bilgi göster</p>
+          </div>
+        </div>
+
+        <!-- 14. Share Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#shareModal">
+            <div class="modal-card-icon success"><i class="fas fa-share-alt"></i></div>
+            <h5>Paylaş</h5>
+            <p>Sosyal medyada paylaş</p>
+          </div>
+        </div>
+
+        <!-- 15. Comment Modal -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="modal-card" data-bs-toggle="modal" data-bs-target="#commentModal">
+            <div class="modal-card-icon warning"><i class="fas fa-comment"></i></div>
+            <h5>Yorum Ekle</h5>
+            <p>Yorum yazmak için</p>
+          </div>
+        </div>
       </div>
     </div>
   </main>
+
+  <!-- ALL MODALS BELOW -->
+
+  <!-- 1. Delete Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-danger">
+        <div class="modal-body icon-center-modal danger">
+          <div class="modal-main-icon">
+            <i class="fas fa-trash"></i>
+          </div>
+          <h4>Silmek İstediğinize Emin misiniz?</h4>
+          <p>Bu işlem geri alınamaz. Tüm veriler kalıcı olarak silinecek.</p>
+          <div class="d-flex gap-3 justify-content-center">
+            <button class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+            <button class="btn btn-lg btn-danger">Evet, Sil</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-success">
+        <div class="modal-body icon-center-modal success">
+          <div class="modal-main-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h4>İşlem Başarılı!</h4>
+          <p>Değişiklikleriniz başarıyla kaydedildi.</p>
+          <button class="btn btn-lg btn-success" data-bs-dismiss="modal">Tamam</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Warning Modal -->
+  <div class="modal fade" id="warningModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-warning">
+        <div class="modal-body icon-center-modal warning">
+          <div class="modal-main-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h4>Dikkat!</h4>
+          <p>Bu işlemi yapmadan önce lütfen bilgileri kontrol edin.</p>
+          <button class="btn btn-lg btn-warning" data-bs-dismiss="modal">Anlaşıldı</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Info Modal -->
+  <div class="modal fade" id="infoModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-info">
+        <div class="modal-body icon-center-modal info">
+          <div class="modal-main-icon">
+            <i class="fas fa-info-circle"></i>
+          </div>
+          <h4>Bilgilendirme</h4>
+          <p>Yeni bir güncelleme mevcut. Güncellemek için ayarlar sayfasını ziyaret edin.</p>
+          <button class="btn btn-lg btn-info" data-bs-dismiss="modal">Tamam</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Save Modal -->
+  <div class="modal fade" id="saveModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Değişiklikleri Kaydet</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Yaptığınız değişiklikleri kaydetmek istiyor musunuz?</p>
+          <p class="text-muted">Kaydedilmemiş değişiklikler kaybolacaktır.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+          <button class="btn btn-primary">Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Logout Modal -->
+  <div class="modal fade" id="logoutModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Çıkış Yap</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Çıkış yapmak istediğinize emin misiniz?</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Hayir</button>
+          <button class="btn btn-danger">Evet, Çıkış Yap</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Form Modal -->
+  <div class="modal fade" id="formModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Yeni Kayıt Ekle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Başlık</label>
+              <input type="text" class="form-control" placeholder="Başlık girin">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Açıklama</label>
+              <textarea class="form-control" rows="4" placeholder="Açıklama girin"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Kategori</label>
+              <select class="form-select">
+                <option>Kategori seçin</option>
+                <option>Haberler</option>
+                <option>Etkinlikler</option>
+                <option>Esnaflar</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Resim</label>
+              <input type="file" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+          <button class="btn btn-primary">Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Loading Modal -->
+  <div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body text-center py-5">
+          <div class="spinner-border text-primary mb-3" role="status" style="width:4rem;height:4rem;">
+            <span class="visually-hidden">Yükleniyor...</span>
+          </div>
+          <h5>Yükleniyor...</h5>
+          <p class="text-muted">Lütfen bekleyin</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Confirmation Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Onay Gerekli</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Bu işlemi yapmak istediğinize emin misiniz?</p>
+          <p class="text-muted">Bu eylem geri alınamaz.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Hayir</button>
+          <button class="btn btn-warning">Evet, Onaylıyorum</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. Error Modal -->
+  <div class="modal fade" id="errorModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-danger">
+        <div class="modal-body icon-center-modal danger">
+          <div class="modal-main-icon">
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <h4>Hata Oluştu!</h4>
+          <p>Bir hata meydana geldi. Lütfen daha sonra tekrar deneyin.</p>
+          <button class="btn btn-lg btn-danger" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. Image Preview Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Resim Önizleme</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80" 
+               class="img-fluid rounded" alt="Örnek Resim">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. Detail Modal -->
+  <div class="modal fade" id="detailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detaylı Bilgi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <h6 class="fw-bold">Başlık</h6>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <hr>
+          <h6 class="fw-bold">Açıklama</h6>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptatem.</p>
+          <hr>
+          <h6 class="fw-bold">Tarih</h6>
+          <p>10 Şubat 2026</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. Share Modal -->
+  <div class="modal fade" id="shareModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Paylaş</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex gap-3 justify-content-center">
+            <button class="btn btn-primary btn-lg"><i class="fab fa-facebook-f"></i></button>
+            <button class="btn btn-info btn-lg"><i class="fab fa-twitter"></i></button>
+            <button class="btn btn-danger btn-lg"><i class="fab fa-instagram"></i></button>
+            <button class="btn btn-success btn-lg"><i class="fab fa-whatsapp"></i></button>
+          </div>
+          <hr>
+          <div class="input-group">
+            <input type="text" class="form-control" value="https://palabiyik.com/share/123" readonly>
+            <button class="btn btn-outline-secondary">Kopyala</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. Comment Modal -->
+  <div class="modal fade" id="commentModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Yorum Ekle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Adınız</label>
+              <input type="text" class="form-control" placeholder="Adınızı girin">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Yorumunuz</label>
+              <textarea class="form-control" rows="4" placeholder="Yorumunuzu yazın"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+          <button class="btn btn-warning">Gönder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/admin-common.js"></script>
 </body>
