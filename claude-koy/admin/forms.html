@@ -251,6 +251,37 @@
       box-shadow: 0 0 0 0.25rem rgba(245, 158, 11, 0.25);
     }
     
+    /* COMPACT VERSIONS - Standard Bootstrap Style */
+    .compact-form-check {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      min-height: 1.5rem;
+    }
+    .compact-form-check .form-check-input {
+      width: 1.25em;
+      height: 1.25em;
+      margin-left: -1.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+    }
+    .compact-form-check .form-check-input:checked {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    .compact-form-check .form-check-label {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--dark);
+      cursor: pointer;
+    }
+    .compact-form-check.form-switch .form-check-input {
+      width: 2.5em;
+      height: 1.25em;
+      background-color: #e5e7eb;
+    }
+    .compact-form-check.form-switch .form-check-input:checked {
+      background-color: var(--primary);
+    }
+    
     /* Select2 Custom */
     .select2-container--bootstrap-5 .select2-selection {
       border-radius: 12px;
@@ -277,6 +308,23 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       color: var(--primary);
       font-weight: 600;
+    }
+    
+    /* Section Divider */
+    .version-divider {
+      margin: 2rem 0;
+      padding: 1rem;
+      background: rgba(99, 102, 241, 0.05);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .version-divider h5 {
+      margin: 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
@@ -630,7 +678,7 @@
         </div>
       </div>
 
-      <!-- 6. ENHANCED CHECKBOX, RADIO & SWITCH -->
+      <!-- 6. CHECKBOX, RADIO & SWITCH (BOTH VERSIONS) -->
       <div class="form-section">
         <div class="glass-card">
           <div class="card-body">
@@ -638,15 +686,16 @@
               <div class="section-icon" style="background: var(--gradient-success);"><i class="fas fa-check-square"></i></div>
               <div>
                 <h3>Checkbox, Radio & Switch</h3>
-                <p>Modern seçim bileşenleri ve aç/kapa düğmeleri</p>
+                <p>Modern seçim bileşenleri - Büyük ve kompakt versiyonlar</p>
               </div>
             </div>
             
             <form>
+              <!-- ENHANCED VERSION -->
               <div class="row g-4">
                 <!-- Checkbox Column -->
                 <div class="col-md-4">
-                  <label class="form-label d-block mb-3">Checkbox Seçenekleri</label>
+                  <label class="form-label d-block mb-3">Checkbox (Büyük)</label>
                   
                   <label class="custom-checkbox-wrapper checked" for="check1">
                     <input class="form-check-input" type="checkbox" id="check1" checked onchange="this.parentElement.classList.toggle('checked', this.checked)">
@@ -666,7 +715,7 @@
                 
                 <!-- Radio Column -->
                 <div class="col-md-4">
-                  <label class="form-label d-block mb-3">Radio Seçenekleri</label>
+                  <label class="form-label d-block mb-3">Radio (Büyük)</label>
                   
                   <label class="custom-radio-wrapper checked" for="radio1">
                     <input class="form-check-input" type="radio" name="radio" id="radio1" checked onchange="updateRadioWrappers('radio')">
@@ -686,7 +735,7 @@
                 
                 <!-- Switch Column -->
                 <div class="col-md-4">
-                  <label class="form-label d-block mb-3">Switch (Aç/Kapa)</label>
+                  <label class="form-label d-block mb-3">Switch (Büyük)</label>
                   
                   <label class="custom-switch-wrapper checked" for="switch1">
                     <span class="custom-switch-label">Bildirimler</span>
@@ -708,6 +757,74 @@
                       <input class="form-check-input" type="checkbox" id="switch3" checked onchange="this.closest('.custom-switch-wrapper').classList.toggle('checked', this.checked)">
                     </div>
                   </label>
+                </div>
+              </div>
+              
+              <!-- DIVIDER -->
+              <div class="version-divider">
+                <h5><i class="fas fa-arrows-alt-v me-2"></i>Kompakt Versiyon</h5>
+              </div>
+              
+              <!-- COMPACT VERSION -->
+              <div class="row g-4">
+                <!-- Checkbox Column -->
+                <div class="col-md-4">
+                  <label class="form-label d-block mb-3">Checkbox (Kompakt)</label>
+                  
+                  <div class="compact-form-check form-check">
+                    <input class="form-check-input" type="checkbox" id="checkSmall1" checked>
+                    <label class="form-check-label" for="checkSmall1">Seçenek 1</label>
+                  </div>
+                  
+                  <div class="compact-form-check form-check">
+                    <input class="form-check-input" type="checkbox" id="checkSmall2">
+                    <label class="form-check-label" for="checkSmall2">Seçenek 2</label>
+                  </div>
+                  
+                  <div class="compact-form-check form-check">
+                    <input class="form-check-input" type="checkbox" id="checkSmall3">
+                    <label class="form-check-label" for="checkSmall3">Seçenek 3</label>
+                  </div>
+                </div>
+                
+                <!-- Radio Column -->
+                <div class="col-md-4">
+                  <label class="form-label d-block mb-3">Radio (Kompakt)</label>
+                  
+                  <div class="compact-form-check form-check">
+                    <input class="form-check-input" type="radio" name="radioSmall" id="radioSmall1" checked>
+                    <label class="form-check-label" for="radioSmall1">Seçenek A</label>
+                  </div>
+                  
+                  <div class="compact-form-check form-check">
+                    <input class="form-check-input" type="radio" name="radioSmall" id="radioSmall2">
+                    <label class="form-check-label" for="radioSmall2">Seçenek B</label>
+                  </div>
+                  
+                  <div class="compact-form-check form-check">
+                    <input class="form-check-input" type="radio" name="radioSmall" id="radioSmall3">
+                    <label class="form-check-label" for="radioSmall3">Seçenek C</label>
+                  </div>
+                </div>
+                
+                <!-- Switch Column -->
+                <div class="col-md-4">
+                  <label class="form-label d-block mb-3">Switch (Kompakt)</label>
+                  
+                  <div class="compact-form-check form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="switchSmall1" checked>
+                    <label class="form-check-label" for="switchSmall1">Bildirimler</label>
+                  </div>
+                  
+                  <div class="compact-form-check form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="switchSmall2">
+                    <label class="form-check-label" for="switchSmall2">E-posta Gönder</label>
+                  </div>
+                  
+                  <div class="compact-form-check form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="switchSmall3" checked>
+                    <label class="form-check-label" for="switchSmall3">Otomatik Kaydet</label>
+                  </div>
                 </div>
               </div>
             </form>
