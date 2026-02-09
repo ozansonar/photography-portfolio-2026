@@ -262,6 +262,7 @@
       height: 1.25em;
       margin-left: -1.5rem;
       border: 1px solid rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
     }
     .compact-form-check .form-check-input:checked {
       background-color: var(--primary);
@@ -273,13 +274,52 @@
       color: var(--dark);
       cursor: pointer;
     }
+    
+    /* MODERN COMPACT SWITCH */
+    .compact-form-check.form-switch {
+      padding-left: 3rem;
+    }
     .compact-form-check.form-switch .form-check-input {
-      width: 2.5em;
-      height: 1.25em;
-      background-color: #e5e7eb;
+      width: 44px;
+      height: 24px;
+      margin-left: -3rem;
+      background-color: #d1d5db;
+      background-image: none;
+      border: 2px solid transparent;
+      border-radius: 24px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .compact-form-check.form-switch .form-check-input::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .compact-form-check.form-switch .form-check-input:hover {
+      background-color: #9ca3af;
     }
     .compact-form-check.form-switch .form-check-input:checked {
-      background-color: var(--primary);
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-color: transparent;
+    }
+    .compact-form-check.form-switch .form-check-input:checked::before {
+      transform: translateX(20px);
+      box-shadow: 0 2px 6px rgba(99, 102, 241, 0.4);
+    }
+    .compact-form-check.form-switch .form-check-input:checked:hover {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    }
+    .compact-form-check.form-switch .form-check-input:focus {
+      box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+      outline: none;
     }
     
     /* Select2 Custom */
