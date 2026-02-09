@@ -107,10 +107,148 @@
       font-size: 0.875rem;
     }
     
-    /* Checkbox & Radio Custom */
-    .form-check-input:checked {
+    /* ENHANCED CHECKBOX, RADIO & SWITCH */
+    .form-check {
+      padding-left: 0;
+      margin-bottom: 1rem;
+      min-height: auto;
+    }
+    
+    /* Custom Checkbox */
+    .custom-checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: white;
+      border: 2px solid rgba(99, 102, 241, 0.15);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 0.75rem;
+    }
+    .custom-checkbox-wrapper:hover {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.03);
+      transform: translateX(5px);
+    }
+    .custom-checkbox-wrapper input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: 2px solid rgba(99, 102, 241, 0.3);
+      flex-shrink: 0;
+    }
+    .custom-checkbox-wrapper input[type="checkbox"]:checked {
       background-color: var(--primary);
       border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+    .custom-checkbox-wrapper.checked {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.08);
+    }
+    .custom-checkbox-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      margin: 0;
+      user-select: none;
+    }
+    
+    /* Custom Radio */
+    .custom-radio-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: white;
+      border: 2px solid rgba(16, 185, 129, 0.15);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 0.75rem;
+    }
+    .custom-radio-wrapper:hover {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.03);
+      transform: translateX(5px);
+    }
+    .custom-radio-wrapper input[type="radio"] {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      border: 2px solid rgba(16, 185, 129, 0.3);
+      flex-shrink: 0;
+    }
+    .custom-radio-wrapper input[type="radio"]:checked {
+      background-color: #10b981;
+      border-color: #10b981;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .custom-radio-wrapper.checked {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.08);
+    }
+    .custom-radio-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      margin: 0;
+      user-select: none;
+    }
+    
+    /* Custom Switch */
+    .custom-switch-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: white;
+      border: 2px solid rgba(245, 158, 11, 0.15);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 0.75rem;
+    }
+    .custom-switch-wrapper:hover {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.03);
+      transform: translateX(5px);
+    }
+    .custom-switch-wrapper.checked {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.08);
+    }
+    .custom-switch-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      margin: 0;
+      user-select: none;
+    }
+    
+    /* Enhanced Bootstrap Switch */
+    .form-switch .form-check-input {
+      width: 54px;
+      height: 28px;
+      cursor: pointer;
+      border: 2px solid rgba(245, 158, 11, 0.3);
+      background-color: #e5e7eb;
+      background-image: none;
+      flex-shrink: 0;
+    }
+    .form-switch .form-check-input:checked {
+      background-color: #f59e0b;
+      border-color: #f59e0b;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+    .form-switch .form-check-input:focus {
+      box-shadow: 0 0 0 0.25rem rgba(245, 158, 11, 0.25);
     }
     
     /* Select2 Custom */
@@ -139,41 +277,6 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       color: var(--primary);
       font-weight: 600;
-    }
-    
-    /* Tags Input */
-    .tags-input-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      padding: 0.75rem;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 12px;
-      min-height: 45px;
-    }
-    .tag-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.375rem 0.75rem;
-      background: var(--primary);
-      color: white;
-      border-radius: 8px;
-      font-size: 0.875rem;
-    }
-    .tag-item .remove-tag {
-      cursor: pointer;
-      opacity: 0.8;
-    }
-    .tag-item .remove-tag:hover {
-      opacity: 1;
-    }
-    .tags-input {
-      border: none;
-      outline: none;
-      flex: 1;
-      min-width: 150px;
-      padding: 0.25rem;
     }
   </style>
 </head>
@@ -527,7 +630,7 @@
         </div>
       </div>
 
-      <!-- 6. CHECKBOX, RADIO & SWITCH -->
+      <!-- 6. ENHANCED CHECKBOX, RADIO & SWITCH -->
       <div class="form-section">
         <div class="glass-card">
           <div class="card-body">
@@ -541,52 +644,70 @@
             
             <form>
               <div class="row g-4">
+                <!-- Checkbox Column -->
                 <div class="col-md-4">
-                  <label class="form-label d-block">Checkbox Seçenekleri</label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="check1" checked>
-                    <label class="form-check-label" for="check1">Seçenek 1</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="check2">
-                    <label class="form-check-label" for="check2">Seçenek 2</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="check3">
-                    <label class="form-check-label" for="check3">Seçenek 3</label>
-                  </div>
+                  <label class="form-label d-block mb-3">Checkbox Seçenekleri</label>
+                  
+                  <label class="custom-checkbox-wrapper checked" for="check1">
+                    <input class="form-check-input" type="checkbox" id="check1" checked onchange="this.parentElement.classList.toggle('checked', this.checked)">
+                    <span class="custom-checkbox-label">Seçenek 1</span>
+                  </label>
+                  
+                  <label class="custom-checkbox-wrapper" for="check2">
+                    <input class="form-check-input" type="checkbox" id="check2" onchange="this.parentElement.classList.toggle('checked', this.checked)">
+                    <span class="custom-checkbox-label">Seçenek 2</span>
+                  </label>
+                  
+                  <label class="custom-checkbox-wrapper" for="check3">
+                    <input class="form-check-input" type="checkbox" id="check3" onchange="this.parentElement.classList.toggle('checked', this.checked)">
+                    <span class="custom-checkbox-label">Seçenek 3</span>
+                  </label>
                 </div>
                 
+                <!-- Radio Column -->
                 <div class="col-md-4">
-                  <label class="form-label d-block">Radio Seçenekleri</label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio" id="radio1" checked>
-                    <label class="form-check-label" for="radio1">Seçenek A</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio" id="radio2">
-                    <label class="form-check-label" for="radio2">Seçenek B</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio" id="radio3">
-                    <label class="form-check-label" for="radio3">Seçenek C</label>
-                  </div>
+                  <label class="form-label d-block mb-3">Radio Seçenekleri</label>
+                  
+                  <label class="custom-radio-wrapper checked" for="radio1">
+                    <input class="form-check-input" type="radio" name="radio" id="radio1" checked onchange="updateRadioWrappers('radio')">
+                    <span class="custom-radio-label">Seçenek A</span>
+                  </label>
+                  
+                  <label class="custom-radio-wrapper" for="radio2">
+                    <input class="form-check-input" type="radio" name="radio" id="radio2" onchange="updateRadioWrappers('radio')">
+                    <span class="custom-radio-label">Seçenek B</span>
+                  </label>
+                  
+                  <label class="custom-radio-wrapper" for="radio3">
+                    <input class="form-check-input" type="radio" name="radio" id="radio3" onchange="updateRadioWrappers('radio')">
+                    <span class="custom-radio-label">Seçenek C</span>
+                  </label>
                 </div>
                 
+                <!-- Switch Column -->
                 <div class="col-md-4">
-                  <label class="form-label d-block">Switch (Aç/Kapa)</label>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="switch1" checked>
-                    <label class="form-check-label" for="switch1">Bildirimler</label>
-                  </div>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="switch2">
-                    <label class="form-check-label" for="switch2">E-posta Gönder</label>
-                  </div>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="switch3" checked>
-                    <label class="form-check-label" for="switch3">Otomatik Kaydet</label>
-                  </div>
+                  <label class="form-label d-block mb-3">Switch (Aç/Kapa)</label>
+                  
+                  <label class="custom-switch-wrapper checked" for="switch1">
+                    <span class="custom-switch-label">Bildirimler</span>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" id="switch1" checked onchange="this.closest('.custom-switch-wrapper').classList.toggle('checked', this.checked)">
+                    </div>
+                  </label>
+                  
+                  <label class="custom-switch-wrapper" for="switch2">
+                    <span class="custom-switch-label">E-posta Gönder</span>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" id="switch2" onchange="this.closest('.custom-switch-wrapper').classList.toggle('checked', this.checked)">
+                    </div>
+                  </label>
+                  
+                  <label class="custom-switch-wrapper checked" for="switch3">
+                    <span class="custom-switch-label">Otomatik Kaydet</span>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" id="switch3" checked onchange="this.closest('.custom-switch-wrapper').classList.toggle('checked', this.checked)">
+                    </div>
+                  </label>
                 </div>
               </div>
             </form>
@@ -710,25 +831,29 @@
                   <input type="file" class="form-control" accept="image/*">
                 </div>
                 
-                <div class="col-md-4">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="featured" checked>
-                    <label class="form-check-label" for="featured">Öne Çıkar</label>
-                  </div>
-                </div>
-                
-                <div class="col-md-4">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="comments" checked>
-                    <label class="form-check-label" for="comments">Yorumlara Aç</label>
-                  </div>
-                </div>
-                
-                <div class="col-md-4">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="notify">
-                    <label class="form-check-label" for="notify">Bildirim Gönder</label>
-                  </div>
+                <div class="col-12">
+                  <label class="form-label d-block mb-3">Yayın Ayarları</label>
+                  
+                  <label class="custom-switch-wrapper checked" for="featured">
+                    <span class="custom-switch-label">Öne Çıkar</span>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" id="featured" checked onchange="this.closest('.custom-switch-wrapper').classList.toggle('checked', this.checked)">
+                    </div>
+                  </label>
+                  
+                  <label class="custom-switch-wrapper checked" for="comments">
+                    <span class="custom-switch-label">Yorumlara Aç</span>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" id="comments" checked onchange="this.closest('.custom-switch-wrapper').classList.toggle('checked', this.checked)">
+                    </div>
+                  </label>
+                  
+                  <label class="custom-switch-wrapper" for="notify">
+                    <span class="custom-switch-label">Bildirim Gönder</span>
+                    <div class="form-check form-switch m-0">
+                      <input class="form-check-input" type="checkbox" id="notify" onchange="this.closest('.custom-switch-wrapper').classList.toggle('checked', this.checked)">
+                    </div>
+                  </label>
                 </div>
                 
                 <div class="col-12">
@@ -774,6 +899,13 @@
   <script src="js/admin-common.js"></script>
   
   <script>
+    // Radio wrapper update function
+    function updateRadioWrappers(name) {
+      document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
+        radio.closest('.custom-radio-wrapper').classList.toggle('checked', radio.checked);
+      });
+    }
+    
     // Select2 Initialization
     $(document).ready(function() {
       // Single Select
