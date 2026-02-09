@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Üye Düzenle - Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link href="css/admin-modern.css" rel="stylesheet">
+</head>
+<body>
+
+  <aside class="modern-sidebar">
+    <div class="sidebar-brand"><div class="brand-icon"><i class="fas fa-mountain"></i></div><div class="brand-text"><h3>Palabıyık</h3><p>Admin Panel</p></div></div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html" class="menu-item"><div class="menu-icon"><i class="fas fa-chart-line"></i></div><span>Dashboard</span></a>
+      <a href="haberler.html" class="menu-item"><div class="menu-icon"><i class="fas fa-newspaper"></i></div><span>Haberler</span><span class="badge badge-primary">127</span></a>
+      <a href="etkinlikler.html" class="menu-item"><div class="menu-icon"><i class="fas fa-calendar-alt"></i></div><span>Etkinlikler</span><span class="badge badge-success">48</span></a>
+      <a href="esnaflar.html" class="menu-item"><div class="menu-icon"><i class="fas fa-store"></i></div><span>Esnaflar</span><span class="badge badge-warning">24</span></a>
+      <a href="galeri.html" class="menu-item"><div class="menu-icon"><i class="fas fa-images"></i></div><span>Galeri</span></a>
+      <a href="uyeler.html" class="menu-item active"><div class="menu-icon"><i class="fas fa-users"></i></div><span>Üyeler</span><span class="badge badge-info">450</span></a>
+      <a href="ayarlar.html" class="menu-item"><div class="menu-icon"><i class="fas fa-cog"></i></div><span>Ayarlar</span></a>
+    </nav>
+    <div class="sidebar-user"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="Admin"><div class="user-info"><strong>Admin</strong><small>Yönetici</small></div><button class="btn-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i></button></div>
+  </aside>
+
+  <main class="main-wrapper">
+    <header class="top-bar">
+      <div class="page-title"><h1>Üye Düzenle</h1><p>Üye bilgilerini düzenleyin</p></div>
+      <div class="top-bar-actions">
+        <a href="uyeler.html" class="btn btn-secondary"><i class="fas fa-arrow-left me-2"></i>Geri Dön</a>
+        <button class="btn btn-primary modern-btn" id="btnSave"><i class="fas fa-save me-2"></i>Kaydet</button>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+      <form id="memberForm">
+        <div class="row g-4">
+          
+          <div class="col-lg-8">
+            
+            <!-- Personal Info -->
+            <div class="glass-card mb-4">
+              <div class="card-header"><h4><i class="fas fa-user me-2"></i>Kişisel Bilgiler</h4></div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Ad <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="first_name" placeholder="Ahmet" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Soyad <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="last_name" placeholder="Yılmaz" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">TC Kimlik No <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="tc" placeholder="12345678901" maxlength="11" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Doğum Tarihi</label>
+                    <input type="text" class="form-control" id="birthDate" name="birth_date" placeholder="Gün/Ay/Yıl">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Cinsiyet</label>
+                    <select class="form-select" name="gender">
+                      <option value="">Seçiniz</option>
+                      <option value="male">Erkek</option>
+                      <option value="female">Kadın</option>
+                      <option value="other">Diğer</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Kan Grubu</label>
+                    <select class="form-select" name="blood_type">
+                      <option value="">Seçiniz</option>
+                      <option value="A+">A Rh+</option>
+                      <option value="A-">A Rh-</option>
+                      <option value="B+">B Rh+</option>
+                      <option value="B-">B Rh-</option>
+                      <option value="AB+">AB Rh+</option>
+                      <option value="AB-">AB Rh-</option>
+                      <option value="0+">0 Rh+</option>
+                      <option value="0-">0 Rh-</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="glass-card mb-4">
+              <div class="card-header"><h4><i class="fas fa-phone me-2"></i>İletişim Bilgileri</h4></div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Telefon <span class="text-danger">*</span></label>
+                    <input type="tel" class="form-control" name="phone" placeholder="+90 555 123 4567" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">E-posta <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" name="email" placeholder="ornek@email.com" required>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Adres</label>
+                  <textarea class="form-control" name="address" rows="3" placeholder="Tam adres..."></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label fw-bold">Mahalle/Köy</label>
+                    <input type="text" class="form-control" name="district" placeholder="Palabıyık Köyü">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label fw-bold">İlçe</label>
+                    <input type="text" class="form-control" name="city" placeholder="Çorum">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label fw-bold">Posta Kodu</label>
+                    <input type="text" class="form-control" name="postal_code" placeholder="19000">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Membership Info -->
+            <div class="glass-card mb-4">
+              <div class="card-header"><h4><i class="fas fa-id-card me-2"></i>Üyelik Bilgileri</h4></div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Üye No</label>
+                    <input type="text" class="form-control" name="member_no" placeholder="Otomatik" readonly>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Üyelik Tarihi</label>
+                    <input type="text" class="form-control" id="joinDate" name="join_date" placeholder="Gün/Ay/Yıl">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Üyelik Tipi <span class="text-danger">*</span></label>
+                    <select class="form-select" name="membership_type" required>
+                      <option value="regular">Asıl Üye</option>
+                      <option value="honorary">Onursal Üye</option>
+                      <option value="student">Öğrenci Üye</option>
+                      <option value="family">Aile Üyesi</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Üyelik Süresi</label>
+                    <select class="form-select" name="membership_duration">
+                      <option value="1">1 Yıl</option>
+                      <option value="3">3 Yıl</option>
+                      <option value="5">5 Yıl</option>
+                      <option value="lifetime">Süresiz</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Aidat Durumu</label>
+                  <select class="form-select" name="dues_status">
+                    <option value="paid">Ödendi</option>
+                    <option value="pending">Beklemede</option>
+                    <option value="overdue">Gecikmiş</option>
+                    <option value="exempt">Muaf</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="glass-card mb-4">
+              <div class="card-header"><h4><i class="fas fa-ambulance me-2"></i>Acil Durum İletişim</h4></div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Acil Kişi Adı</label>
+                    <input type="text" class="form-control" name="emergency_name" placeholder="Yakın adı">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Yakınlık Derecesi</label>
+                    <input type="text" class="form-control" name="emergency_relation" placeholder="Eş, Evlat, vb.">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Acil Telefon</label>
+                  <input type="tel" class="form-control" name="emergency_phone" placeholder="+90 555 999 8888">
+                </div>
+              </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="glass-card">
+              <div class="card-header"><h4><i class="fas fa-sticky-note me-2"></i>Notlar</h4></div>
+              <div class="card-body">
+                <textarea class="form-control" name="notes" rows="4" placeholder="Üye hakkında notlar..."></textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-4">
+            
+            <!-- Profile Photo -->
+            <div class="glass-card mb-4">
+              <div class="card-header"><h4><i class="fas fa-camera me-2"></i>Profil Fotoğrafı</h4></div>
+              <div class="card-body">
+                <div class="image-upload-area" id="photoUpload">
+                  <div class="upload-placeholder">
+                    <i class="fas fa-user-circle fa-3x mb-3"></i>
+                    <p>Fotoğraf yükle</p>
+                  </div>
+                  <img id="photoPreview" style="display:none; width:100%; border-radius:16px;">
+                  <input type="file" id="photoInput" accept="image/*" style="display:none;">
+                </div>
+                <button type="button" class="btn btn-outline-danger btn-sm mt-2 w-100" id="btnRemovePhoto" style="display:none;">
+                  <i class="fas fa-trash me-2"></i>Fotoğrafı Kaldır
+                </button>
+              </div>
+            </div>
+
+            <!-- Status -->
+            <div class="glass-card mb-4">
+              <div class="card-header"><h4><i class="fas fa-toggle-on me-2"></i>Durum</h4></div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Üyelik Durumu</label>
+                  <select class="form-select" name="status">
+                    <option value="active">Aktif</option>
+                    <option value="inactive">Pasif</option>
+                    <option value="suspended">Askıya Alınmış</option>
+                    <option value="banned">Engellenmiş</option>
+                  </select>
+                </div>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" name="email_verified" id="emailVerified">
+                  <label class="form-check-label" for="emailVerified">E-posta onaylı</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="phone_verified" id="phoneVerified">
+                  <label class="form-check-label" for="phoneVerified">Telefon onaylı</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Permissions -->
+            <div class="glass-card mb-4">
+              <div class="card-header"><h4><i class="fas fa-key me-2"></i>Yetkiler</h4></div>
+              <div class="card-body">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="perm_vote" id="permVote" checked>
+                  <label class="form-check-label" for="permVote">Oy kullanma</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="perm_event" id="permEvent" checked>
+                  <label class="form-check-label" for="permEvent">Etkinliklere katılım</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="perm_resource" id="permResource">
+                  <label class="form-check-label" for="permResource">Kaynaklara erişim</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="perm_board" id="permBoard">
+                  <label class="form-check-label" for="permBoard">Yönetim kurulu</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Communication Prefs -->
+            <div class="glass-card mb-4">
+              <div class="card-header"><h4><i class="fas fa-envelope me-2"></i>İletişim Tercihleri</h4></div>
+              <div class="card-body">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="notify_email" id="notifyEmail" checked>
+                  <label class="form-check-label" for="notifyEmail">E-posta bildirimleri</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="notify_sms" id="notifySms">
+                  <label class="form-check-label" for="notifySms">SMS bildirimleri</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="notify_newsletter" id="notifyNewsletter" checked>
+                  <label class="form-check-label" for="notifyNewsletter">Bülten aboneliği</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="glass-card">
+              <div class="card-header"><h4><i class="fas fa-chart-pie me-2"></i>Hızlı İstatistikler</h4></div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="text-muted">Katıldığı Etkinlik:</span>
+                  <strong>12</strong>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="text-muted">Verdiği Oy:</span>
+                  <strong>8</strong>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Son Aktivite:</span>
+                  <strong>2 gün önce</strong>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/tr.js"></script>
+  <script src="js/admin-common.js"></script>
+  <script>
+    // Date Pickers
+    flatpickr("#birthDate", { dateFormat: "d/m/Y", locale: "tr" });
+    flatpickr("#joinDate", { dateFormat: "d/m/Y", locale: "tr" });
+
+    // Photo Upload
+    const photoUpload = document.getElementById('photoUpload');
+    const photoInput = document.getElementById('photoInput');
+    const photoPreview = document.getElementById('photoPreview');
+    const btnRemovePhoto = document.getElementById('btnRemovePhoto');
+
+    photoUpload.addEventListener('click', () => photoInput.click());
+    photoInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          photoPreview.src = e.target.result;
+          photoPreview.style.display = 'block';
+          photoUpload.querySelector('.upload-placeholder').style.display = 'none';
+          btnRemovePhoto.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    btnRemovePhoto.addEventListener('click', function() {
+      photoInput.value = '';
+      photoPreview.style.display = 'none';
+      photoUpload.querySelector('.upload-placeholder').style.display = 'flex';
+      btnRemovePhoto.style.display = 'none';
+    });
+
+    // Save
+    document.getElementById('btnSave').addEventListener('click', function() {
+      const form = document.getElementById('memberForm');
+      if (form.checkValidity()) {
+        alert('✅ Üye bilgileri başarıyla kaydedildi!');
+      } else {
+        form.reportValidity();
+      }
+    });
+  </script>
+</body>
+</html>

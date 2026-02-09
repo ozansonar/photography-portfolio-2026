@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bildirimler - Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="css/admin-modern.css" rel="stylesheet">
+  <style>
+    .notification-item {
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .notification-item:hover { background: rgba(99,102,241,0.03); }
+    .notification-item.unread { background: rgba(99,102,241,0.05); border-left: 4px solid #6366f1; }
+    .notification-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: white;
+      flex-shrink: 0;
+    }
+    .notification-time { font-size: 0.875rem; color: #94a3b8; }
+  </style>
+</head>
+<body>
+
+  <aside class="modern-sidebar">
+    <div class="sidebar-brand"><div class="brand-icon"><i class="fas fa-mountain"></i></div><div class="brand-text"><h3>Palabıyık</h3><p>Admin Panel</p></div></div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html" class="menu-item"><div class="menu-icon"><i class="fas fa-chart-line"></i></div><span>Dashboard</span></a>
+      <a href="haberler.html" class="menu-item"><div class="menu-icon"><i class="fas fa-newspaper"></i></div><span>Haberler</span><span class="badge badge-primary">127</span></a>
+      <a href="etkinlikler.html" class="menu-item"><div class="menu-icon"><i class="fas fa-calendar-alt"></i></div><span>Etkinlikler</span><span class="badge badge-success">48</span></a>
+      <a href="esnaflar.html" class="menu-item"><div class="menu-icon"><i class="fas fa-store"></i></div><span>Esnaflar</span><span class="badge badge-warning">24</span></a>
+      <a href="galeri.html" class="menu-item"><div class="menu-icon"><i class="fas fa-images"></i></div><span>Galeri</span></a>
+      <a href="uyeler.html" class="menu-item"><div class="menu-icon"><i class="fas fa-users"></i></div><span>Üyeler</span><span class="badge badge-info">450</span></a>
+      <a href="ayarlar.html" class="menu-item"><div class="menu-icon"><i class="fas fa-cog"></i></div><span>Ayarlar</span></a>
+    </nav>
+    <div class="sidebar-user"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="Admin"><div class="user-info"><strong>Admin</strong><small>Yönetici</small></div><button class="btn-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i></button></div>
+  </aside>
+
+  <main class="main-wrapper">
+    <header class="top-bar">
+      <div class="page-title"><h1>Bildirimler</h1><p>Tüm bildirimleriniz</p></div>
+      <div class="top-bar-actions">
+        <button class="btn btn-outline-secondary" id="btnMarkAllRead">
+          <i class="fas fa-check-double me-2"></i>Tümünü Okundu Yap
+        </button>
+        <button class="btn btn-outline-danger" id="btnClearAll">
+          <i class="fas fa-trash me-2"></i>Tümünü Temizle
+        </button>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+      
+      <!-- Filter Tabs -->
+      <div class="glass-card mb-4">
+        <div class="card-body">
+          <ul class="nav nav-pills" id="notificationTabs">
+            <li class="nav-item"><a class="nav-link active" href="#all" data-bs-toggle="pill">Tümü (25)</a></li>
+            <li class="nav-item"><a class="nav-link" href="#unread" data-bs-toggle="pill">Okunmamış (8)</a></li>
+            <li class="nav-item"><a class="nav-link" href="#system" data-bs-toggle="pill">Sistem (5)</a></li>
+            <li class="nav-item"><a class="nav-link" href="#users" data-bs-toggle="pill">Üyeler (12)</a></li>
+            <li class="nav-item"><a class="nav-link" href="#events" data-bs-toggle="pill">Etkinlikler (8)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Notifications List -->
+      <div class="glass-card">
+        <div class="card-body p-0">
+          
+          <div class="notification-item unread">
+            <div class="d-flex align-items-start">
+              <div class="notification-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <div class="ms-3 flex-grow-1">
+                <h6 class="mb-1">Yeni üye kaydı</h6>
+                <p class="mb-1 text-muted"><strong>Mehmet Kaya</strong> sisteme kayıt oldu</p>
+                <span class="notification-time">5 dakika önce</span>
+              </div>
+              <button class="btn btn-sm btn-outline-primary">Görüntüle</button>
+            </div>
+          </div>
+
+          <div class="notification-item unread">
+            <div class="d-flex align-items-start">
+              <div class="notification-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div class="ms-3 flex-grow-1">
+                <h6 class="mb-1">Etkinlik katılımı</h6>
+                <p class="mb-1 text-muted"><strong>Bahar Şenliği</strong> etkinliğine 15 yeni katılımcı</p>
+                <span class="notification-time">1 saat önce</span>
+              </div>
+              <button class="btn btn-sm btn-outline-success">Detaylar</button>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="d-flex align-items-start">
+              <div class="notification-icon" style="background: linear-gradient(135deg, #f59e0b, #f97316);">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="ms-3 flex-grow-1">
+                <h6 class="mb-1">Sistem Uyarısı</h6>
+                <p class="mb-1 text-muted">Veritabanı yedeği alınması gerekiyor</p>
+                <span class="notification-time">3 saat önce</span>
+              </div>
+              <button class="btn btn-sm btn-outline-warning">Hemen Al</button>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="d-flex align-items-start">
+              <div class="notification-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                <i class="fas fa-comment"></i>
+              </div>
+              <div class="ms-3 flex-grow-1">
+                <h6 class="mb-1">Yeni yorum</h6>
+                <p class="mb-1 text-muted"><strong>Ali Demir</strong> bir habere yorum yaptı</p>
+                <span class="notification-time">5 saat önce</span>
+              </div>
+              <button class="btn btn-sm btn-outline-info">Gör</button>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="d-flex align-items-start">
+              <div class="notification-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="ms-3 flex-grow-1">
+                <h6 class="mb-1">Yeni değerlendirme</h6>
+                <p class="mb-1 text-muted"><strong>Köy Kafe</strong> için 5 yıldızlı değerlendirme</p>
+                <span class="notification-time">Dün</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="d-flex align-items-start">
+              <div class="notification-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                <i class="fas fa-bell"></i>
+              </div>
+              <div class="ms-3 flex-grow-1">
+                <h6 class="mb-1">Aidat Uyarısı</h6>
+                <p class="mb-1 text-muted">12 üyenin aidatı gecikmiş durumda</p>
+                <span class="notification-time">2 gün önce</span>
+              </div>
+              <button class="btn btn-sm btn-outline-danger">Listele</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="d-flex justify-content-center mt-4">
+        <nav>
+          <ul class="pagination">
+            <li class="page-item disabled"><a class="page-link" href="#">Önceki</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Sonraki</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/admin-common.js"></script>
+  <script>
+    document.getElementById('btnMarkAllRead').addEventListener('click', function() {
+      document.querySelectorAll('.notification-item.unread').forEach(item => {
+        item.classList.remove('unread');
+      });
+      alert('✅ Tüm bildirimler okundu olarak işaretlendi!');
+    });
+
+    document.getElementById('btnClearAll').addEventListener('click', function() {
+      if (confirm('Tüm bildirimleri silmek istediğinize emin misiniz?')) {
+        alert('✅ Tüm bildirimler temizlendi!');
+      }
+    });
+  </script>
+</body>
+</html>
