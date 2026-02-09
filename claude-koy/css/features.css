@@ -1,0 +1,450 @@
+/*
+==============================================
+YENİ ÖZELLİKLER - FEATURES CSS
+==============================================
+
+1. Scroll to Top Button
+2. Cookie Consent Banner
+3. Site Search Modal
+
+*/
+
+/* ==============================================
+   SCROLL TO TOP BUTTON
+   ============================================== */
+
+#scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--toprak), var(--toprak-acik));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(101, 67, 33, 0.4);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+#scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#scrollToTop:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 30px rgba(101, 67, 33, 0.5);
+  background: linear-gradient(135deg, var(--toprak-acik), var(--toprak));
+}
+
+#scrollToTop:active {
+  transform: translateY(-3px) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  #scrollToTop {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.125rem;
+  }
+}
+
+
+/* ==============================================
+   COOKIE CONSENT BANNER
+   ============================================== */
+
+#cookieBanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  z-index: 9999;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  border-top: 3px solid var(--toprak);
+}
+
+#cookieBanner.show {
+  transform: translateY(0);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cookie-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.cookie-text h4 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--toprak);
+  margin-bottom: 0.5rem;
+}
+
+.cookie-text p {
+  color: var(--gri);
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+.cookie-text a {
+  color: var(--toprak);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.cookie-text a:hover {
+  color: var(--toprak-acik);
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+#cookieAccept {
+  background: var(--toprak);
+  color: white;
+}
+
+#cookieAccept:hover {
+  background: var(--toprak-acik);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(101, 67, 33, 0.3);
+}
+
+#cookieDecline {
+  background: transparent;
+  color: var(--gri);
+  border: 2px solid var(--acik-gri);
+}
+
+#cookieDecline:hover {
+  background: var(--krem);
+  border-color: var(--gri);
+  color: var(--toprak);
+}
+
+@media (max-width: 768px) {
+  #cookieBanner {
+    padding: 1.25rem;
+  }
+  
+  .cookie-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  
+  .cookie-buttons {
+    flex-direction: column;
+  }
+  
+  .cookie-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* ==============================================
+   SITE SEARCH MODAL
+   ============================================== */
+
+#searchToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(101, 67, 33, 0.1);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: var(--toprak);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+#searchToggle:hover {
+  background: var(--toprak);
+  color: white;
+  border-color: var(--toprak);
+}
+
+#searchToggle i {
+  font-size: 1rem;
+}
+
+/* Search Modal */
+#searchModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+#searchModal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 700px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.9) translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+#searchModal.active .search-container {
+  transform: scale(1) translateY(0);
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--krem);
+}
+
+.search-header i {
+  color: var(--toprak);
+  font-size: 1.5rem;
+}
+
+#searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  color: var(--toprak);
+  font-weight: 600;
+}
+
+#searchInput::placeholder {
+  color: var(--acik-gri);
+  font-weight: 400;
+}
+
+#searchClose {
+  background: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gri);
+  transition: all 0.3s ease;
+}
+
+#searchClose:hover {
+  background: var(--krem);
+  color: var(--toprak);
+}
+
+#searchResults {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(80vh - 100px);
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--krem);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.search-result-item:hover {
+  background: var(--krem);
+  padding-left: 2rem;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.result-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--krem);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.result-content {
+  flex: 1;
+}
+
+.result-title {
+  font-weight: 700;
+  color: var(--toprak);
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.result-excerpt {
+  color: var(--gri);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.result-type {
+  display: inline-block;
+  background: var(--krem);
+  color: var(--toprak);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-arrow {
+  color: var(--acik-gri);
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.search-result-item:hover .result-arrow {
+  color: var(--toprak);
+  transform: translateX(5px);
+}
+
+/* Highlight search matches */
+mark {
+  background: var(--bugday);
+  color: var(--toprak);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+/* Scrollbar styling for search results */
+#searchResults::-webkit-scrollbar {
+  width: 8px;
+}
+
+#searchResults::-webkit-scrollbar-track {
+  background: var(--krem);
+}
+
+#searchResults::-webkit-scrollbar-thumb {
+  background: var(--acik-gri);
+  border-radius: 4px;
+}
+
+#searchResults::-webkit-scrollbar-thumb:hover {
+  background: var(--gri);
+}
+
+@media (max-width: 768px) {
+  #searchModal {
+    padding: 1rem;
+    align-items: stretch;
+  }
+  
+  .search-container {
+    max-height: 90vh;
+    border-radius: 16px;
+  }
+  
+  .search-header {
+    padding: 1.25rem;
+  }
+  
+  #searchInput {
+    font-size: 1.125rem;
+  }
+  
+  .search-result-item {
+    padding: 1rem;
+  }
+  
+  .search-result-item:hover {
+    padding-left: 1.25rem;
+  }
+}
+
+/* Navbar search button for mobile */
+@media (max-width: 991px) {
+  #searchToggle span {
+    display: none;
+  }
+  
+  #searchToggle {
+    padding: 0.625rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+  }
+}

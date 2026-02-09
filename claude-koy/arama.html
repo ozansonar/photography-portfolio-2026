@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arama Sonuçları | Palabıyık Köyü</title>
+  <meta name="description" content="Palabıyık Köyü sitesinde arama yapın">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/features.css" rel="stylesheet">
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-corporate sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-mountain"></i>Palabıyık Köyü
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Yönetim</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yonetim.html">Köy Yönetimi</a></li>
+              <li><a class="dropdown-item" href="gecmis-yonetimler.html">Geçmiş Yönetimler</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dernek</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="dernek-baskani.html">Dernek Başkanı</a></li>
+              <li><a class="dropdown-item" href="dernek-kurulu.html">Yönetim Kurulu</a></li>
+              <li><a class="dropdown-item" href="dernek-uyeler.html">Üyelerimiz</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="esnaflarimiz.html">Esnaflarımız</a></li>
+          <li class="nav-item"><a class="nav-link" href="haberler.html">Haberler</a></li>
+          <li class="nav-item"><a class="nav-link" href="etkinlikler.html">Etkinlikler</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+        </ul>
+        <a href="#" id="searchToggle" class="ms-3">
+          <i class="fas fa-search"></i>
+          <span>Ara</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section style="background: linear-gradient(135deg, var(--toprak), var(--toprak-acik)); padding: 4rem 0; color: white; text-align: center;">
+    <div class="container">
+      <h1 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">
+        <i class="fas fa-search me-3"></i>Arama
+      </h1>
+      <p style="font-size: 1.25rem; opacity: 0.9;">Sitede aradığınızı bulun</p>
+    </div>
+  </section>
+
+  <section class="section-corporate">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          
+          <!-- Search Box -->
+          <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-xl); margin-bottom: 3rem;">
+            <div style="position: relative;">
+              <input 
+                type="text" 
+                id="mainSearchInput"
+                placeholder="Ne aramak istersiniz?"
+                style="width: 100%; padding: 1.25rem 3.5rem 1.25rem 1.5rem; border: 2px solid var(--krem); border-radius: 12px; font-size: 1.125rem; outline: none; transition: all 0.3s ease;"
+                onfocus="this.style.borderColor='var(--toprak)'"
+                onblur="this.style.borderColor='var(--krem)'"
+              >
+              <button 
+                id="mainSearchBtn"
+                style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: var(--toprak); color: white; border: none; width: 48px; height: 48px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;"
+                onmouseover="this.style.background='var(--toprak-acik)'"
+                onmouseout="this.style.background='var(--toprak)'"
+              >
+                <i class="fas fa-search" style="font-size: 1.125rem;"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Search Results -->
+          <div id="mainSearchResults">
+            <div style="text-align: center; padding: 4rem 2rem;">
+              <i class="fas fa-search" style="font-size: 4rem; color: var(--acik-gri); margin-bottom: 1.5rem;"></i>
+              <h3 style="color: var(--toprak); font-weight: 800; margin-bottom: 1rem;">Arama yapın</h3>
+              <p style="color: var(--gri);">Haberler, etkinlikler, sayfalar ve daha fazlasını arayın</p>
+            </div>
+          </div>
+
+          <!-- Popular Searches -->
+          <div style="margin-top: 3rem;">
+            <h4 style="color: var(--toprak); font-weight: 800; margin-bottom: 1.5rem;">
+              <i class="fas fa-fire me-2"></i>Popüler Aramalar
+            </h4>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <a href="#" class="popular-tag" data-search="etkinlikler">Etkinlikler</a>
+              <a href="#" class="popular-tag" data-search="haberler">Haberler</a>
+              <a href="#" class="popular-tag" data-search="yönetim">Yönetim</a>
+              <a href="#" class="popular-tag" data-search="esnaf">Esnaflar</a>
+              <a href="#" class="popular-tag" data-search="dernek">Dernek</a>
+              <a href="#" class="popular-tag" data-search="galeri">Galeri</a>
+              <a href="#" class="popular-tag" data-search="iletişim">İletişim</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-corporate">
+    <div class="container">
+      <div class="row g-5 mb-4">
+        <div class="col-lg-4">
+          <h3 class="footer-title"><i class="fas fa-mountain me-2"></i>Palabıyık Köyü</h3>
+          <p style="opacity: 0.9;">Çorum'un doğal güzellikleri ve kültürel zenginlikleriyle öne çıkan köyümüz.</p>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Hızlı Linkler</h5>
+          <a href="index.html" class="footer-link">Ana Sayfa</a>
+          <a href="hakkimizda.html" class="footer-link">Hakkımızda</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Yönetim</h5>
+          <a href="yonetim.html" class="footer-link">Köy Yönetimi</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">İletişim</h5>
+          <p style="opacity: 0.9; margin: 0;"><i class="fas fa-phone me-2"></i>+90 (555) 123 45 67</p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
+        <p style="margin: 0; opacity: 0.8;">&copy; <span data-year>2026</span> Palabıyık Köyü.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .popular-tag {
+      display: inline-block;
+      padding: 0.625rem 1.25rem;
+      background: var(--krem);
+      color: var(--toprak);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .popular-tag:hover {
+      background: var(--toprak);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(101, 67, 33, 0.3);
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  
+  <script>
+    // Main search functionality (same as modal)
+    const mainSearchInput = document.getElementById('mainSearchInput');
+    const mainSearchBtn = document.getElementById('mainSearchBtn');
+    const mainSearchResults = document.getElementById('mainSearchResults');
+    
+    const searchData = [
+      { title: 'Hakkımızda', url: 'hakkimizda.html', type: 'sayfa', excerpt: 'Palabıyık Köyü hakkında detaylı bilgi' },
+      { title: 'Köy Yönetimi', url: 'yonetim.html', type: 'sayfa', excerpt: 'Muhtar ve köy yönetim kurulu üyeleri' },
+      { title: 'Dernek Başkanı', url: 'dernek-baskani.html', type: 'sayfa', excerpt: 'Dernek başkanımız hakkında bilgi' },
+      { title: 'Esnaflarımız', url: 'esnaflarimiz.html', type: 'sayfa', excerpt: 'Köyümüzdeki esnaf ve işletmeler' },
+      { title: 'Haberler', url: 'haberler.html', type: 'sayfa', excerpt: 'Köyümüzden son haberler' },
+      { title: 'Etkinlikler', url: 'etkinlikler.html', type: 'sayfa', excerpt: 'Köyümüzdeki etkinlikler ve organizasyonlar' },
+      { title: 'Galeri', url: 'galeri.html', type: 'sayfa', excerpt: 'Fotoğraf galerisi' },
+      { title: 'İletişim', url: 'iletisim.html', type: 'sayfa', excerpt: 'Bizimle iletişime geçin' },
+      { title: 'Bahar Şenliği 2026', url: 'etkinlik-detay.html', type: 'etkinlik', excerpt: 'Baharın gelimi ile düzenlenen geleneksel şenlik' },
+      { title: 'Yeni Yol Çalışması', url: 'haber-detay.html', type: 'haber', excerpt: 'Köyümüze yeni asfalt yol yapılıyor' },
+    ];
+    
+    function performMainSearch() {
+      const query = mainSearchInput.value.trim().toLowerCase();
+      if (query.length < 2) return;
+      
+      const results = searchData.filter(item => {
+        return item.title.toLowerCase().includes(query) ||
+               item.excerpt.toLowerCase().includes(query);
+      });
+      
+      displayMainResults(results, query);
+    }
+    
+    function displayMainResults(results, query) {
+      if (results.length === 0) {
+        mainSearchResults.innerHTML = `
+          <div style="text-align: center; padding: 3rem; background: white; border-radius: 20px; box-shadow: var(--shadow-md);">
+            <i class="fas fa-search" style="font-size: 3rem; color: var(--acik-gri); margin-bottom: 1rem;"></i>
+            <p style="font-size: 1.125rem; color: var(--gri); margin: 0;">"<strong>${query}</strong>" için sonuç bulunamadı</p>
+          </div>
+        `;
+        return;
+      }
+      
+      const resultHTML = results.map(item => {
+        const typeColor = {
+          'sayfa': 'var(--gok)',
+          'haber': 'var(--toprak)',
+          'etkinlik': 'var(--bugday)'
+        }[item.type] || 'var(--gri)';
+        
+        return `
+          <a href="${item.url}" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: white; border-radius: 16px; box-shadow: var(--shadow-md); text-decoration: none; margin-bottom: 1.5rem; transition: all 0.3s ease; border: 2px solid transparent;" 
+             onmouseover="this.style.borderColor='var(--toprak)'; this.style.transform='translateX(10px)'"
+             onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+            <div style="width: 50px; height: 50px; background: var(--krem); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: ${typeColor}; font-size: 1.5rem; flex-shrink: 0;">
+              <i class="fas fa-${item.type === 'haber' ? 'newspaper' : item.type === 'etkinlik' ? 'calendar-alt' : 'file-alt'}"></i>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 800; color: var(--toprak); margin-bottom: 0.5rem; font-size: 1.125rem;">${item.title}</div>
+              <div style="color: var(--gri); font-size: 0.9375rem;">${item.excerpt}</div>
+              <div style="display: inline-block; background: var(--krem); color: var(--toprak); padding: 0.25rem 0.875rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-top: 0.5rem;">${item.type}</div>
+            </div>
+            <i class="fas fa-arrow-right" style="color: var(--acik-gri); font-size: 1.25rem;"></i>
+          </a>
+        `;
+      }).join('');
+      
+      mainSearchResults.innerHTML = `
+        <div style="background: white; padding: 1.5rem; border-radius: 20px; box-shadow: var(--shadow-md); margin-bottom: 2rem;">
+          <p style="color: var(--gri); margin: 0;"><strong>${results.length}</strong> sonuç bulundu</p>
+        </div>
+        ${resultHTML}
+      `;
+    }
+    
+    mainSearchBtn.addEventListener('click', performMainSearch);
+    mainSearchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') performMainSearch();
+    });
+    
+    // Popular tags
+    document.querySelectorAll('.popular-tag').forEach(tag => {
+      tag.addEventListener('click', (e) => {
+        e.preventDefault();
+        const searchTerm = tag.getAttribute('data-search');
+        mainSearchInput.value = searchTerm;
+        performMainSearch();
+        mainSearchInput.focus();
+      });
+    });
+  </script>
+</body>
+</html>
