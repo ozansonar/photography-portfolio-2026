@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haber Düzenle - Admin Panel | Palabıyık Köyü</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="css/admin-modern.css" rel="stylesheet">
+  <style>
+    .editor-toolbar {
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .editor-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .editor-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .content-editor {
+      min-height: 400px;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: white;
+    }
+    .preview-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="modern-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <i class="fas fa-mountain"></i>
+      </div>
+      <div class="brand-text">
+        <h3>Palabıyık</h3>
+        <p>Admin Panel</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <a href="dashboard.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-chart-line"></i></div>
+        <span>Dashboard</span>
+      </a>
+      <a href="haberler.html" class="menu-item active">
+        <div class="menu-icon"><i class="fas fa-newspaper"></i></div>
+        <span>Haberler</span>
+        <span class="badge badge-primary">12</span>
+      </a>
+      <a href="etkinlikler.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-calendar-alt"></i></div>
+        <span>Etkinlikler</span>
+        <span class="badge badge-success">8</span>
+      </a>
+      <a href="esnaflar.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-store"></i></div>
+        <span>Esnaflar</span>
+        <span class="badge badge-warning">24</span>
+      </a>
+      <a href="galeri.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-images"></i></div>
+        <span>Galeri</span>
+      </a>
+      <a href="uyeler.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-users"></i></div>
+        <span>Üyeler</span>
+        <span class="badge badge-info">450</span>
+      </a>
+      <a href="ayarlar.html" class="menu-item">
+        <div class="menu-icon"><i class="fas fa-cog"></i></div>
+        <span>Ayarlar</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="Admin">
+      <div class="user-info">
+        <strong>Admin</strong>
+        <small>Yönetici</small>
+      </div>
+      <button class="btn-logout" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="page-title">
+        <h1>Haber Düzenle</h1>
+        <p>Haber içeriğini düzenleyin veya yeni haber oluşturun</p>
+      </div>
+      <div class="top-bar-actions">
+        <button class="btn btn-secondary">
+          <i class="fas fa-eye me-2"></i>
+          <span>Önizle</span>
+        </button>
+        <button class="btn btn-primary modern-btn">
+          <i class="fas fa-save me-2"></i>
+          <span>Kaydet</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+      
+      <form>
+        <div class="row g-4">
+          
+          <!-- Left Column - Main Content -->
+          <div class="col-lg-8">
+            
+            <!-- Title -->
+            <div class="glass-card mb-4">
+              <div class="card-body">
+                <label class="form-label fw-bold">Haber Başlığı</label>
+                <input type="text" class="form-control" placeholder="Örneğin: Yeni Yol Çalışmaları Başladı" value="Yeni Yol Çalışmaları Başladı">
+              </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="glass-card mb-4">
+              <div class="card-header">
+                <h4><i class="fas fa-image me-2"></i>Öne Çıkan Görsel</h4>
+              </div>
+              <div class="card-body">
+                <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80" alt="Preview" class="preview-image">
+                <input type="file" class="form-control" accept="image/*">
+              </div>
+            </div>
+
+            <!-- Content Editor -->
+            <div class="glass-card">
+              <div class="card-header">
+                <h4><i class="fas fa-align-left me-2"></i>Haber İçeriği</h4>
+              </div>
+              <div class="card-body">
+                <div class="editor-toolbar">
+                  <button type="button" class="editor-btn" title="Kalın"><i class="fas fa-bold"></i></button>
+                  <button type="button" class="editor-btn" title="İtalik"><i class="fas fa-italic"></i></button>
+                  <button type="button" class="editor-btn" title="Alt Çizgi"><i class="fas fa-underline"></i></button>
+                  <div style="width: 1px; height: 30px; background: rgba(0,0,0,0.1); margin: 0 0.5rem;"></div>
+                  <button type="button" class="editor-btn" title="Liste"><i class="fas fa-list-ul"></i></button>
+                  <button type="button" class="editor-btn" title="Numaralı Liste"><i class="fas fa-list-ol"></i></button>
+                  <button type="button" class="editor-btn" title="Alıntı"><i class="fas fa-quote-right"></i></button>
+                  <div style="width: 1px; height: 30px; background: rgba(0,0,0,0.1); margin: 0 0.5rem;"></div>
+                  <button type="button" class="editor-btn" title="Bağlantı"><i class="fas fa-link"></i></button>
+                  <button type="button" class="editor-btn" title="Resim"><i class="fas fa-image"></i></button>
+                  <button type="button" class="editor-btn" title="Video"><i class="fas fa-video"></i></button>
+                </div>
+                <textarea class="content-editor form-control" rows="15" placeholder="Haber içeriğini buraya yazın...">
+Köyümüzün ana caddesinde asfalt yenileme çalışmaları başlatıldı. Çalışmalar kapsamında:
+
+- 2 kilometre yol yenilenecek
+- Bordür ve kaldırım düzenlemesi yapılacak
+- Yol işaretleri ve uyarı levhaları eklenecek
+
+Çalışmaların yaklaşık 3 hafta içinde tamamlanması bekleniyor.
+                </textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column - Sidebar -->
+          <div class="col-lg-4">
+            
+            <!-- Status -->
+            <div class="glass-card mb-4">
+              <div class="card-header">
+                <h4><i class="fas fa-toggle-on me-2"></i>Durum</h4>
+              </div>
+              <div class="card-body">
+                <select class="form-select mb-3">
+                  <option value="published" selected>Yayınla</option>
+                  <option value="draft">Taslak</option>
+                  <option value="scheduled">Zamanlanmış</option>
+                </select>
+                <label class="form-label">Yayın Tarihi</label>
+                <input type="datetime-local" class="form-control">
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="glass-card mb-4">
+              <div class="card-header">
+                <h4><i class="fas fa-folder me-2"></i>Kategori</h4>
+              </div>
+              <div class="card-body">
+                <select class="form-select">
+                  <option>Kategori Seçin</option>
+                  <option value="altyapi" selected>Altyapı</option>
+                  <option value="egitim">Eğitim</option>
+                  <option value="etkinlik">Etkinlik</option>
+                  <option value="duyuru">Duyuru</option>
+                  <option value="kultur">Kültür</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="glass-card mb-4">
+              <div class="card-header">
+                <h4><i class="fas fa-tags me-2"></i>Etiketler</h4>
+              </div>
+              <div class="card-body">
+                <input type="text" class="form-control mb-2" placeholder="Etiket ekle...">
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge badge-primary" style="padding: 0.5rem 1rem;">yol <i class="fas fa-times ms-2"></i></span>
+                  <span class="badge badge-primary" style="padding: 0.5rem 1rem;">asfalt <i class="fas fa-times ms-2"></i></span>
+                  <span class="badge badge-primary" style="padding: 0.5rem 1rem;">altyapı <i class="fas fa-times ms-2"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Author -->
+            <div class="glass-card mb-4">
+              <div class="card-header">
+                <h4><i class="fas fa-user me-2"></i>Yazar</h4>
+              </div>
+              <div class="card-body">
+                <select class="form-select">
+                  <option value="1" selected>Ahmet Yılmaz</option>
+                  <option value="2">Hasan Koç</option>
+                  <option value="3">Admin</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- SEO -->
+            <div class="glass-card">
+              <div class="card-header">
+                <h4><i class="fas fa-search me-2"></i>SEO Ayarları</h4>
+              </div>
+              <div class="card-body">
+                <label class="form-label">Meta Başlık</label>
+                <input type="text" class="form-control mb-3" placeholder="SEO başlık...">
+                <label class="form-label">Meta Açıklama</label>
+                <textarea class="form-control" rows="3" placeholder="SEO açıklaması..."></textarea>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/admin-common.js"></script>
+</body>
+</html>
