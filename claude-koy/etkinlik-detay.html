@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bahar Şenliği 2026 | Palabıyık Köyü</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <style>
+    /* Event Detail Hero */
+    .event-detail-hero {
+      background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
+      color: white;
+      padding: 6rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .event-detail-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=80') center/cover;
+      z-index: -1;
+    }
+    .event-detail-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .event-category-tag {
+      background: var(--toprak);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    
+    .event-detail-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    }
+    
+    .event-meta-large {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .event-meta-large .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.15);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+    .event-meta-large .meta-item i {
+      font-size: 1.5rem;
+      color: var(--bugday);
+    }
+    .event-meta-large .meta-item .meta-label {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .event-meta-large .meta-item .meta-value {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+    
+    /* Info Cards */
+    .info-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .info-card:hover {
+      border-color: var(--toprak);
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-5px);
+    }
+    .info-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--toprak);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .info-card h3 i {
+      color: var(--bugday);
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--toprak), var(--bugday));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.625rem;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid var(--toprak);
+      box-shadow: 0 0 0 4px white;
+    }
+    .timeline-item .time {
+      font-weight: 700;
+      color: var(--toprak);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item .activity {
+      color: var(--gri);
+      line-height: 1.6;
+    }
+    
+    /* Features Grid */
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--krem);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    .feature-item:hover {
+      background: var(--toprak);
+      color: white;
+      transform: translateX(5px);
+    }
+    .feature-item i {
+      font-size: 1.5rem;
+      color: var(--toprak);
+      flex-shrink: 0;
+    }
+    .feature-item:hover i {
+      color: var(--bugday);
+    }
+    .feature-item .feature-text {
+      flex: 1;
+    }
+    .feature-item .feature-text h5 {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+    .feature-item .feature-text p {
+      margin: 0;
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
+    
+    /* Registration Card */
+    .registration-card {
+      background: linear-gradient(135deg, var(--toprak), var(--toprak-acik));
+      border-radius: 20px;
+      padding: 2.5rem;
+      color: white;
+      box-shadow: var(--shadow-xl);
+      position: sticky;
+      top: 100px;
+    }
+    .registration-card h3 {
+      font-size: 1.75rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+    .registration-info {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    .registration-info .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .registration-info .info-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .registration-info .label {
+      opacity: 0.8;
+      font-size: 0.875rem;
+    }
+    .registration-info .value {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .register-btn {
+      width: 100%;
+      padding: 1rem;
+      background: white;
+      color: var(--toprak);
+      border: none;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .register-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .register-btn i {
+      font-size: 1.25rem;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .share-btn {
+      flex: 1;
+      padding: 0.75rem;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    .share-btn:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Gallery Grid */
+    .event-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-xl);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7));
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+    .gallery-item .overlay i {
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    /* Similar Events */
+    .similar-event-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .similar-event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--toprak);
+    }
+    .similar-event-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .similar-event-card .card-body {
+      padding: 1.5rem;
+    }
+    .similar-event-card h5 {
+      font-weight: 800;
+      color: var(--toprak);
+      margin-bottom: 0.75rem;
+    }
+    .similar-event-card .event-date {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gri);
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Breadcrumb */
+    .breadcrumb-custom {
+      background: white;
+      padding: 1.5rem 0;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .breadcrumb-custom .breadcrumb {
+      margin: 0;
+      background: transparent;
+    }
+    .breadcrumb-custom .breadcrumb-item a {
+      color: var(--gri);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .breadcrumb-custom .breadcrumb-item a:hover {
+      color: var(--toprak);
+    }
+    .breadcrumb-custom .breadcrumb-item.active {
+      color: var(--toprak);
+      font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+      .event-detail-hero h1 {
+        font-size: 2.25rem;
+      }
+      .event-meta-large {
+        gap: 1rem;
+      }
+      .event-meta-large .meta-item {
+        padding: 0.875rem 1.25rem;
+      }
+      .registration-card {
+        position: relative;
+        top: 0;
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-corporate sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-mountain"></i>Palabıyık Köyü
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Menü">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Yönetim</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yonetim.html">Köy Yönetimi</a></li>
+              <li><a class="dropdown-item" href="gecmis-yonetimler.html">Geçmiş Yönetimler</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dernek</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="dernek-baskani.html">Dernek Başkanı</a></li>
+              <li><a class="dropdown-item" href="dernek-kurulu.html">Yönetim Kurulu</a></li>
+              <li><a class="dropdown-item" href="dernek-uyeler.html">Üyelerimiz</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="esnaflarimiz.html">Esnaflarımız</a></li>
+          <li class="nav-item"><a class="nav-link" href="haberler.html">Haberler</a></li>
+          <li class="nav-item"><a class="nav-link active" href="etkinlikler.html" aria-current="page">Etkinlikler</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-custom">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+          <li class="breadcrumb-item"><a href="etkinlikler.html">Etkinlikler</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Bahar Şenliği 2026</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Event Detail Hero -->
+  <section class="event-detail-hero">
+    <div class="container">
+      <span class="event-category-tag">
+        <i class="fas fa-music me-2" aria-hidden="true"></i> Festival
+      </span>
+      <h1>Bahar Şenliği 2026</h1>
+      <p style="font-size: 1.25rem; opacity: 0.9; max-width: 800px;">Baharın gelimi ile düzenlenen geleneksel şenliğimizde müzik, dans ve yemek keyfi yaşanacak. Tüm hemşehrilerimizi bu özel güne davet ediyoruz.</p>
+      
+      <div class="event-meta-large">
+        <div class="meta-item">
+          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+          <div>
+            <div class="meta-label">Tarih</div>
+            <div class="meta-value">21 Mart 2026, Cumartesi</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <i class="fas fa-clock" aria-hidden="true"></i>
+          <div>
+            <div class="meta-label">Saat</div>
+            <div class="meta-value">14:00 - 22:00</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          <div>
+            <div class="meta-label">Konum</div>
+            <div class="meta-value">Köy Meydanı</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <i class="fas fa-users" aria-hidden="true"></i>
+          <div>
+            <div class="meta-label">Katılımcı</div>
+            <div class="meta-value">200+ Kişi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Detail Content -->
+  <section class="section-corporate">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          
+          <!-- About Event -->
+          <div class="info-card">
+            <h3><i class="fas fa-info-circle" aria-hidden="true"></i> Etkinlik Hakkında</h3>
+            <p style="color: var(--gri); line-height: 1.8; margin-bottom: 1.5rem;">
+Bahar Şenliği, köyümüzün en renkli ve eğlenceli etkinliklerinden biridir. Her yıl mart ayında baharın gelimi ile düzenlenen bu şenlikte, hemşehrilerimiz bir araya gelerek güzel vakit geçirirler.
+            </p>
+            <p style="color: var(--gri); line-height: 1.8; margin-bottom: 1.5rem;">
+Şenlik programımız canlı müzik performansları, geleneksel halk oyunları gösterileri, yemek standları ve çocuklar için eğlence alanları ile doludur. Ayrıca yerel sanatçılarımızın el işi ürünlerini sergileyeceği standlar da bulunacaktır.
+            </p>
+            <p style="color: var(--gri); line-height: 1.8;">
+Etkinlik tamamen ücretsizdir ve tüm yaş gruplarına hitap etmektedir. Ailenizle birlikte gelerek bu güzel günü paylaşmanızı bekliyoruz.
+            </p>
+          </div>
+
+          <!-- Event Program -->
+          <div class="info-card">
+            <h3><i class="fas fa-list-ul" aria-hidden="true"></i> Program Akışı</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="time"><i class="fas fa-clock me-2" aria-hidden="true"></i>14:00 - 15:00</div>
+                <div class="activity"><strong>Açılış Töreni</strong> - Muhtarlık ve dernek başkanlığı tarafından açılış konuşmaları</div>
+              </div>
+              <div class="timeline-item">
+                <div class="time"><i class="fas fa-clock me-2" aria-hidden="true"></i>15:00 - 17:00</div>
+                <div class="activity"><strong>Halk Oyunları Gösterisi</strong> - Yerel halk oyunları ekibimizin muhteşem performansı</div>
+              </div>
+              <div class="timeline-item">
+                <div class="time"><i class="fas fa-clock me-2" aria-hidden="true"></i>17:00 - 18:30</div>
+                <div class="activity"><strong>Canlı Müzik</strong> - Mehmet Aydın ve Grubu'nun canlı müzik performansı</div>
+              </div>
+              <div class="timeline-item">
+                <div class="time"><i class="fas fa-clock me-2" aria-hidden="true"></i>18:30 - 20:00</div>
+                <div class="activity"><strong>Yemek Molası</strong> - Geleneksel köy yemekleri ikramı (pilav, et, salata, tatlı)</div>
+              </div>
+              <div class="timeline-item">
+                <div class="time"><i class="fas fa-clock me-2" aria-hidden="true"></i>20:00 - 22:00</div>
+                <div class="activity"><strong>Halaylar ve Eğlence</strong> - Herkesin katılabileceği halay ve dans bölümü</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div class="info-card">
+            <h3><i class="fas fa-star" aria-hidden="true"></i> Etkinlik Özellikleri</h3>
+            <div class="feature-item">
+              <i class="fas fa-utensils" aria-hidden="true"></i>
+              <div class="feature-text">
+                <h5>Ücretsiz Yemek İkramı</h5>
+                <p>Tüm katılımcılara geleneksel köy yemekleri ikram edilecektir</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-music" aria-hidden="true"></i>
+              <div class="feature-text">
+                <h5>Canlı Müzik Performansı</h5>
+                <p>Yerel sanatçılarımızın canlı müzik gösterileri</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-child" aria-hidden="true"></i>
+              <div class="feature-text">
+                <h5>Çocuk Eğlence Alanı</h5>
+                <p>Çocuklar için özel olarak hazırlanan oyun ve etkinlik alanları</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-camera" aria-hidden="true"></i>
+              <div class="feature-text">
+                <h5>Fotoğraf Çekim Alanı</h5>
+                <p>Özel fotoğraf noktaları ve profesyonel fotoğrafçı hizmeti</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-parking" aria-hidden="true"></i>
+              <div class="feature-text">
+                <h5>Ücretsiz Otopark</h5>
+                <p>Geniş otopark alanı ve vale hizmeti mevcut</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-wheelchair" aria-hidden="true"></i>
+              <div class="feature-text">
+                <h5>Engelsiz Erişim</h5>
+                <p>Engelli vatandaşlarımız için uygun alan düzenlemesi</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gallery -->
+          <div class="info-card">
+            <h3><i class="fas fa-images" aria-hidden="true"></i> Geçmiş Etkinliklerden Görüntüler</h3>
+            <div class="event-gallery">
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=400&q=80" alt="Şenlik" loading="lazy">
+                <div class="overlay">
+                  <i class="fas fa-search-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=400&q=80" alt="Müzik" loading="lazy">
+                <div class="overlay">
+                  <i class="fas fa-search-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80" alt="Dans" loading="lazy">
+                <div class="overlay">
+                  <i class="fas fa-search-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=400&q=80" alt="Yemek" loading="lazy">
+                <div class="overlay">
+                  <i class="fas fa-search-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=400&q=80" alt="Eğlence" loading="lazy">
+                <div class="overlay">
+                  <i class="fas fa-search-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Halay" loading="lazy">
+                <div class="overlay">
+                  <i class="fas fa-search-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          
+          <!-- Registration Card -->
+          <div class="registration-card">
+            <h3><i class="fas fa-ticket-alt me-2" aria-hidden="true"></i> Kayıt Bilgileri</h3>
+            
+            <div class="registration-info">
+              <div class="info-row">
+                <span class="label">Katılım</span>
+                <span class="value">Ücretsiz</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Kalan Kontenjan</span>
+                <span class="value">75 Kişi</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Kayıt Durumu</span>
+                <span class="value">Açık</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Son Kayıt</span>
+                <span class="value">18 Mart 2026</span>
+              </div>
+            </div>
+
+            <button class="register-btn">
+              <i class="fas fa-user-plus" aria-hidden="true"></i>
+              <span>Hemen Kayıt Ol</span>
+            </button>
+
+            <p style="font-size: 0.875rem; opacity: 0.9; text-align: center; margin-bottom: 0;">
+Kayıt olduktan sonra etkinlik hakkında detaylı bilgi içeren e-posta alacaksınız.
+            </p>
+
+            <div class="share-buttons">
+              <button class="share-btn" title="Facebook'ta Paylaş">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </button>
+              <button class="share-btn" title="Twitter'da Paylaş">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </button>
+              <button class="share-btn" title="WhatsApp'ta Paylaş">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              </button>
+              <button class="share-btn" title="Link Kopyala">
+                <i class="fas fa-link" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Location Map -->
+          <div class="info-card">
+            <h3><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Konum</h3>
+            <div style="width: 100%; height: 250px; background: var(--krem); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+              <div style="text-align: center; color: var(--gri);">
+                <i class="fas fa-map-marker-alt" style="font-size: 3rem; margin-bottom: 1rem; color: var(--toprak);" aria-hidden="true"></i>
+                <p style="margin: 0; font-weight: 600;">Köy Meydanı</p>
+                <p style="margin: 0.5rem 0 0; font-size: 0.875rem;">Palabıyık Köyü, Çorum</p>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline-primary w-100 mt-3" style="border-width: 2px; font-weight: 700;">
+              <i class="fas fa-directions me-2" aria-hidden="true"></i>Yol Tarifi Al
+            </a>
+          </div>
+
+          <!-- Contact -->
+          <div class="info-card">
+            <h3><i class="fas fa-phone-alt" aria-hidden="true"></i> İletişim</h3>
+            <p style="color: var(--gri); line-height: 1.7; margin-bottom: 1rem;">
+Sorularınız için bizimle iletişime geçebilirsiniz:
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <a href="tel:+905551234567" style="display: flex; align-items: center; gap: 0.75rem; color: var(--gri); text-decoration: none; padding: 0.75rem; background: var(--krem); border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--toprak)'; this.style.color='white';" onmouseout="this.style.background='var(--krem)'; this.style.color='var(--gri)';">
+                <i class="fas fa-phone" style="color: var(--toprak);" aria-hidden="true"></i>
+                <span>+90 (555) 123 45 67</span>
+              </a>
+              <a href="mailto:info@palabiyik.com" style="display: flex; align-items: center; gap: 0.75rem; color: var(--gri); text-decoration: none; padding: 0.75rem; background: var(--krem); border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--toprak)'; this.style.color='white';" onmouseout="this.style.background='var(--krem)'; this.style.color='var(--gri)';">
+                <i class="fas fa-envelope" style="color: var(--toprak);" aria-hidden="true"></i>
+                <span>info@palabiyik.com</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Similar Events -->
+      <div style="margin-top: 4rem;">
+        <h2 style="font-size: 2rem; font-weight: 900; color: var(--toprak); margin-bottom: 2rem; text-align: center;">
+Benzer Etkinlikler
+        </h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="similar-event-card">
+              <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" alt="Futbol Turnuvası" loading="lazy">
+              <div class="card-body">
+                <h5>Köylerarası Futbol Turnuvası</h5>
+                <div class="event-date">
+                  <i class="fas fa-calendar" aria-hidden="true"></i>
+                  <span>15 Mart 2026</span>
+                </div>
+                <div class="event-date">
+                  <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                  <span>Köy Stadyumu</span>
+                </div>
+                <a href="etkinlik-detay.html?id=2" class="btn btn-outline-primary btn-sm mt-3" style="border-width: 2px; font-weight: 700;">
+                  Detayları Gör
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="similar-event-card">
+              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Seminer" loading="lazy">
+              <div class="card-body">
+                <h5>Tarımsal Üretim Semineri</h5>
+                <div class="event-date">
+                  <i class="fas fa-calendar" aria-hidden="true"></i>
+                  <span>10 Mart 2026</span>
+                </div>
+                <div class="event-date">
+                  <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                  <span>Konuk Evi</span>
+                </div>
+                <a href="etkinlik-detay.html?id=3" class="btn btn-outline-primary btn-sm mt-3" style="border-width: 2px; font-weight: 700;">
+                  Detayları Gör
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="similar-event-card">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Yemek Yarışması" loading="lazy">
+              <div class="card-body">
+                <h5>Geleneksel Yemek Yarışması</h5>
+                <div class="event-date">
+                  <i class="fas fa-calendar" aria-hidden="true"></i>
+                  <span>5 Nisan 2026</span>
+                </div>
+                <div class="event-date">
+                  <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                  <span>Köy Meydanı</span>
+                </div>
+                <a href="etkinlik-detay.html?id=4" class="btn btn-outline-primary btn-sm mt-3" style="border-width: 2px; font-weight: 700;">
+                  Detayları Gör
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer-corporate">
+    <div class="container">
+      <div class="row g-5 mb-4">
+        <div class="col-lg-4">
+          <h3 class="footer-title"><i class="fas fa-mountain me-2" aria-hidden="true"></i>Palabıyık Köyü</h3>
+          <p style="opacity: 0.9;">Çorum'un doğal güzellikleri ve kültürel zenginlikleriyle öne çıkan köyümüz.</p>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Hızlı Linkler</h5>
+          <a href="index.html" class="footer-link">Ana Sayfa</a>
+          <a href="hakkimizda.html" class="footer-link">Hakkımızda</a>
+          <a href="haberler.html" class="footer-link">Haberler</a>
+          <a href="esnaflarimiz.html" class="footer-link">Esnaflarımız</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Yönetim</h5>
+          <a href="yonetim.html" class="footer-link">Köy Yönetimi</a>
+          <a href="dernek-baskani.html" class="footer-link">Dernek Başkanı</a>
+          <a href="etkinlikler.html" class="footer-link">Etkinlikler</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">İletişim</h5>
+          <p style="opacity: 0.9; margin: 0;"><i class="fas fa-phone me-2" aria-hidden="true"></i><a href="tel:+905551234567" style="color: inherit; text-decoration: none;">+90 (555) 123 45 67</a></p>
+          <p style="opacity: 0.9; margin: 0.5rem 0 0;"><i class="fas fa-envelope me-2" aria-hidden="true"></i><a href="mailto:info@palabiyik.com" style="color: inherit; text-decoration: none;">info@palabiyik.com</a></p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
+        <p style="margin: 0; opacity: 0.8;">&copy; <span data-year>2026</span> Palabıyık Köyü. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  
+  <script>
+    // Register Button
+    document.querySelector('.register-btn').addEventListener('click', function() {
+      alert('Kayıt formu yakında aktif edilecektir. Şimdilik lütfen telefon ile iletişime geçin.');
+    });
+    
+    // Share Buttons
+    const shareButtons = document.querySelectorAll('.share-btn');
+    shareButtons.forEach((btn, index) => {
+      btn.addEventListener('click', function() {
+        const shareTexts = [
+          'Facebook\'ta paylaşıldı!',
+          'Twitter\'da paylaşıldı!',
+          'WhatsApp\'ta paylaşıldı!',
+          'Link kopyalandı!'
+        ];
+        alert(shareTexts[index]);
+      });
+    });
+    
+    // Gallery Items
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function() {
+        alert('Galeri lightbox yakında eklenecektir.');
+      });
+    });
+  </script>
+</body>
+</html>
