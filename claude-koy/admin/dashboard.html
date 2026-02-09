@@ -127,11 +127,16 @@
         <span class="badge badge-info">450</span>
       </a>
       
-      <!-- Yardımcılar Dropdown -->
+      <!-- Yardımcılar Dropdown Menü -->
       <div class="menu-divider">
         <span>Yardımcılar</span>
       </div>
       <div class="menu-dropdown open">
+        <div class="menu-dropdown-toggle" onclick="toggleSidebarDropdown(event)">
+          <div class="menu-icon"><i class="fas fa-toolbox"></i></div>
+          <span style="flex: 1;">Yardımcılar</span>
+          <i class="fas fa-chevron-down dropdown-arrow"></i>
+        </div>
         <div class="menu-dropdown-content">
           <a href="modals.html" class="menu-item">
             <div class="menu-icon"><i class="fas fa-window-restore"></i></div>
@@ -140,6 +145,14 @@
           <a href="buttons.html" class="menu-item">
             <div class="menu-icon"><i class="fas fa-mouse-pointer"></i></div>
             <span>Butonlar</span>
+          </a>
+          <a href="forms.html" class="menu-item">
+            <div class="menu-icon"><i class="fas fa-edit"></i></div>
+            <span>Formlar</span>
+          </a>
+          <a href="tables.html" class="menu-item">
+            <div class="menu-icon"><i class="fas fa-table"></i></div>
+            <span>Tablolar</span>
           </a>
         </div>
       </div>
@@ -394,6 +407,14 @@
   <script src="js/dashboard.js"></script>
   
   <script>
+    // Sidebar Dropdown Toggle
+    function toggleSidebarDropdown(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = event.target.closest('.menu-dropdown');
+      dropdown.classList.toggle('open');
+    }
+    
     // Navbar Dropdown Toggle
     function toggleNavbarDropdown(event) {
       event.stopPropagation();
@@ -401,7 +422,7 @@
       dropdown.classList.toggle('show');
     }
     
-    // Close dropdown when clicking outside
+    // Close navbar dropdown when clicking outside
     document.addEventListener('click', function(event) {
       const dropdowns = document.querySelectorAll('.navbar-dropdown');
       dropdowns.forEach(dropdown => {
